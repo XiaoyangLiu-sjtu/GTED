@@ -1,0 +1,141 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "G",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Group _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "H",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Subgroup _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "K",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Subgroup _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "_._",
+                            "children": [
+                                {
+                                    "content": "H",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "Normal",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "_._",
+                            "children": [
+                                {
+                                    "content": "K",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "Normal",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "_._",
+                    "children": [
+                        {
+                            "content": " _ ⊓ _ ",
+                            "children": [
+                                {
+                                    "content": "H",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "K",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        },
+                        {
+                            "content": "Normal",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

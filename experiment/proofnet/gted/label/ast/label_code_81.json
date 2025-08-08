@@ -1,0 +1,240 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ ",
+            "children": [
+                {
+                    "content": "0",
+                    "children": []
+                },
+                {
+                    "content": "1",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "content": ".{u_1}",
+            "children": [
+                {
+                    "content": "exercise_33_7",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "TopologicalSpace _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hX",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "LocallyCompactSpace _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hX'",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "T2Space _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "x",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "X",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "A",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": " _ ∧ _ ",
+                            "children": [
+                                {
+                                    "content": "IsClosed _ ",
+                                    "children": [
+                                        {
+                                            "content": "A",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ∉ _ ",
+                                    "children": [
+                                        {
+                                            "content": "x",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "A",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "∃ _ , _ ",
+                            "children": [
+                                {
+                                    "content": "f",
+                                    "children": []
+                                },
+                                {
+                                    "content": " _ ∧ _ ",
+                                    "children": [
+                                        {
+                                            "content": "Continuous _ ",
+                                            "children": [
+                                                {
+                                                    "content": "f",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ∧ _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ = _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "f _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "x",
+                                                                    "children": [],
+                                                                    "variable_freecost": true
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "1",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ = _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ '' _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "f",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "A",
+                                                                    "children": [],
+                                                                    "variable_freecost": true
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "{}",
+                                                            "children": [
+                                                                {
+                                                                    "content": "0",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

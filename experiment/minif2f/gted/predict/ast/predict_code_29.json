@@ -1,0 +1,55 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": " _ - _ ",
+                            "children": [
+                                {
+                                    "content": "√",
+                                    "children": [
+                                        {
+                                            "content": "1000000",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ^ _ ",
+                                    "children": [
+                                        {
+                                            "content": "1000000",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": " _ / _ ",
+                                            "children": [
+                                                {
+                                                    "content": "1",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "3",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "900",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

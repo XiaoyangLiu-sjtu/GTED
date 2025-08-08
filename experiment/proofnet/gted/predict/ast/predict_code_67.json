@@ -1,0 +1,74 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "n",
+                            "children": []
+                        },
+                        {
+                            "content": "ℤ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hn",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "Squarefree _ ",
+                            "children": [
+                                {
+                                    "content": "n",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ < _ ",
+                            "children": [
+                                {
+                                    "content": "3",
+                                    "children": []
+                                },
+                                {
+                                    "content": "n",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "Irreducible _ ",
+                    "children": [
+                        {
+                            "content": "2",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

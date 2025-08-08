@@ -1,0 +1,334 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _  _  _  _  _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "k",
+                            "children": []
+                        },
+                        {
+                            "content": "m",
+                            "children": []
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "a",
+                            "children": []
+                        },
+                        {
+                            "content": "b",
+                            "children": []
+                        },
+                        {
+                            "content": "c",
+                            "children": []
+                        },
+                        {
+                            "content": "d",
+                            "children": []
+                        },
+                        {
+                            "content": "ℤ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ ∧ _ ",
+                            "children": [
+                                {
+                                    "content": " _ < _ ",
+                                    "children": [
+                                        {
+                                            "content": "0",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ∧ _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ < _ ",
+                                            "children": [
+                                                {
+                                                    "content": "0",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "b",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ∧ _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ < _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "0",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "c",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ < _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "0",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "d",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hab",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ < _ ",
+                            "children": [
+                                {
+                                    "content": "a",
+                                    "children": []
+                                },
+                                {
+                                    "content": "b",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hbc",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ < _ ",
+                            "children": [
+                                {
+                                    "content": "b",
+                                    "children": []
+                                },
+                                {
+                                    "content": "c",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hcd",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ < _ ",
+                            "children": [
+                                {
+                                    "content": "c",
+                                    "children": []
+                                },
+                                {
+                                    "content": "d",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "ad_eq_bc",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": " _ * _ ",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "d",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ * _ ",
+                                    "children": [
+                                        {
+                                            "content": "b",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "c",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "a_add_d_eq_two_pow",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "d",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ^ _ ",
+                                    "children": [
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "k",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "b_add_c_eq_two_pow",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": "b",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "c",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ^ _ ",
+                                    "children": [
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "m",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "a",
+                            "children": []
+                        },
+                        {
+                            "content": "1",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

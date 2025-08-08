@@ -1,0 +1,110 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "f",
+                            "children": []
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                },
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "E",
+                            "children": []
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hf",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "UniformContinuousOn _  _ ",
+                            "children": [
+                                {
+                                    "content": "f",
+                                    "children": []
+                                },
+                                {
+                                    "content": "E",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hE",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "Bornology.IsBounded _ ",
+                            "children": [
+                                {
+                                    "content": "E",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "Bornology.IsBounded _ ",
+                    "children": [
+                        {
+                            "content": " _ '' _ ",
+                            "children": [
+                                {
+                                    "content": "f",
+                                    "children": []
+                                },
+                                {
+                                    "content": "E",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

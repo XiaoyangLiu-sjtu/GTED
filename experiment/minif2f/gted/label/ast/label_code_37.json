@@ -1,0 +1,57 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "a",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ℝ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ ≤ _ ",
+                    "children": [
+                        {
+                            "content": " _ * _ ",
+                            "children": [
+                                {
+                                    "content": "a",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": " _ - _ ",
+                                    "children": [
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "a",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "1",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

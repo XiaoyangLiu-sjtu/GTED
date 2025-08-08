@@ -1,0 +1,89 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ : _ ",
+            "children": [
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "TopologicalSpace _ ",
+                            "children": [
+                                {
+                                    "content": "Lex _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ × _ ",
+                                            "children": [
+                                                {
+                                                    "content": "ℝ",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "ℝ",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "OrderTopology _ ",
+                            "children": [
+                                {
+                                    "content": "Lex _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ × _ ",
+                                            "children": [
+                                                {
+                                                    "content": "ℝ",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "ℝ",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "MetrizableSpace _ ",
+                    "children": [
+                        {
+                            "content": "Lex _ ",
+                            "children": [
+                                {
+                                    "content": " _ × _ ",
+                                    "children": [
+                                        {
+                                            "content": "ℝ",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ℝ",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

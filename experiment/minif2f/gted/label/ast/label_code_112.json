@@ -1,0 +1,118 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "∏ _  _ , _ ",
+                            "children": [
+                                {
+                                    "content": "k",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∈",
+                                    "children": [
+                                        {
+                                            "content": "Finset.range _ ",
+                                            "children": [
+                                                {
+                                                    "content": "7",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "2",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": " _ ^ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "2",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "k",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "3",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": " _ ^ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "2",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "k",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ - _ ",
+                            "children": [
+                                {
+                                    "content": " _ ^ _ ",
+                                    "children": [
+                                        {
+                                            "content": "3",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "128",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ^ _ ",
+                                    "children": [
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "128",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _ : _ }",
+            "children": [
+                {
+                    "content": "f",
+                    "children": []
+                },
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": "ℝ",
+                            "children": []
+                        },
+                        {
+                            "content": "ℝ",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "hfd",
+                    "children": [],
+                    "hypothesis_freecost": true
+                },
+                {
+                    "content": "Differentiable _  _ ",
+                    "children": [
+                        {
+                            "content": "ℝ",
+                            "children": []
+                        },
+                        {
+                            "content": "f",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "hf",
+                    "children": [],
+                    "hypothesis_freecost": true
+                },
+                {
+                    "content": "Tendsto _  _  _ ",
+                    "children": [
+                        {
+                            "content": "deriv _ ",
+                            "children": [
+                                {
+                                    "content": "f",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

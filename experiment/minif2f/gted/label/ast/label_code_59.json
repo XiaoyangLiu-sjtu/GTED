@@ -1,0 +1,59 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": " _ % _ ",
+                            "children": [
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "129",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "34",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "96",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "38",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "11",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "9",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

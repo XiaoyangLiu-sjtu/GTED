@@ -1,0 +1,87 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": "IsTopologicalBasis _ ",
+                    "children": [
+                        {
+                            "content": "{| _ }",
+                            "children": [
+                                {
+                                    "content": "S",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∃ _ , _ ",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "b",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": " _ ∧ _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ < _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "a",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "b",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ = _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "S",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "Ioo _  _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "↑",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "a",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "↑",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "b",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

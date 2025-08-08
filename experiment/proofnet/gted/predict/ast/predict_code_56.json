@@ -1,0 +1,23 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": "G",
+            "children": []
+        },
+        {
+            "content": "Type _ u_1",
+            "children": []
+        },
+        {
+            "content": "[GroupG]",
+            "children": [],
+            "variable_freecost": true
+        },
+        {
+            "content": "[FiniteG]",
+            "children": [],
+            "variable_freecost": true
+        }
+    ]
+}

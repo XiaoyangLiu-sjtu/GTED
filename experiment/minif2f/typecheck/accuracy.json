@@ -1,0 +1,13 @@
+{
+    "typecheck": {
+        "true_positive": 122,
+        "true_negative": 0,
+        "false_positive": 83,
+        "false_negative": 0,
+        "total": 205,
+        "precision": 0.5951219512195122,
+        "recall": 1.0,
+        "accuracy": 0.5951219512195122,
+        "kappa": 0.0
+    }
+}

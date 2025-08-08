@@ -1,0 +1,166 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "U",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hU",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "IsOpen _ ",
+                            "children": [
+                                {
+                                    "content": "U",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "∃ _ , _ ",
+                    "children": [
+                        {
+                            "content": "V",
+                            "children": []
+                        },
+                        {
+                            "content": " _ ∧ _ ",
+                            "children": [
+                                {
+                                    "content": "_._",
+                                    "children": [
+                                        {
+                                            "content": "V",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "Countable",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ∧ _ ",
+                                    "children": [
+                                        {
+                                            "content": "∀ _ , _ ",
+                                            "children": [
+                                                {
+                                                    "content": "I",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "∈",
+                                                    "children": [
+                                                        {
+                                                            "content": "V",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ ∨ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ = _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "I",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "univ",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "∃ _ , _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "a",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "b",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": " _ = _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "I",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "Icc _  _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "a",
+                                                                                    "children": []
+                                                                                },
+                                                                                {
+                                                                                    "content": "b",
+                                                                                    "children": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ = _ ",
+                                            "children": [
+                                                {
+                                                    "content": "U",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                },
+                                                {
+                                                    "content": "⋃₀V",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

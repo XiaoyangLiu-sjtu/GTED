@@ -1,0 +1,112 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "α",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "a",
+                            "children": []
+                        },
+                        {
+                            "content": "b",
+                            "children": []
+                        },
+                        {
+                            "content": "ℝ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "F",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": " _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": "ℝ",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ℝ",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "∀ _ , _ ",
+                    "children": [
+                        {
+                            "content": " _ : _ ",
+                            "children": [
+                                {
+                                    "content": "x",
+                                    "children": []
+                                },
+                                {
+                                    "content": "ε",
+                                    "children": []
+                                },
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": " _ > _ ",
+                                    "children": [
+                                        {
+                                            "content": "ε",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "0",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "∃ _  _ ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

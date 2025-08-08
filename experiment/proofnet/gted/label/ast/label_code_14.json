@@ -1,0 +1,109 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _  _  _ → _ ",
+                    "children": [
+                        {
+                            "content": " _ : _ ",
+                            "children": [
+                                {
+                                    "content": "a",
+                                    "children": []
+                                },
+                                {
+                                    "content": " _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": "ℕ",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ℝ",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "∃ _ , _ ",
+                                    "children": [
+                                        {
+                                            "content": "y",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "Tendsto _  _  _ ",
+                                            "children": [
+                                                {
+                                                    "content": "fun _ => _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "n",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "∑ _  _ , _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "i",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "∈",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "range _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "n",
+                                                                                    "children": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "a _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "i",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "atTop",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "sorry",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "sorry",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

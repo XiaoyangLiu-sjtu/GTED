@@ -1,0 +1,223 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _  _  _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "f",
+                            "children": []
+                        },
+                        {
+                            "content": "g",
+                            "children": []
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                },
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "x",
+                            "children": []
+                        },
+                        {
+                            "content": "ℝ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hf'",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "DifferentiableAt _  _  _ ",
+                            "children": [
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                },
+                                {
+                                    "content": "f",
+                                    "children": []
+                                },
+                                {
+                                    "content": "0",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hg'",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "DifferentiableAt _  _  _ ",
+                            "children": [
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                },
+                                {
+                                    "content": "g",
+                                    "children": []
+                                },
+                                {
+                                    "content": "0",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hg'_ne_0",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ ≠ _ ",
+                            "children": [
+                                {
+                                    "content": "deriv _  _ ",
+                                    "children": [
+                                        {
+                                            "content": "g",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "0",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "0",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "f0",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "f _ ",
+                                    "children": [
+                                        {
+                                            "content": "0",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "0",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "g0",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "g _ ",
+                                    "children": [
+                                        {
+                                            "content": "0",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "0",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "Tendsto _  _ ",
+                    "children": [
+                        {
+                            "content": "fun _ => _ ",
+                            "children": [
+                                {
+                                    "content": "x",
+                                    "children": []
+                                },
+                                {
+                                    "content": " _ / _ ",
+                                    "children": [
+                                        {
+                                            "content": "f _ ",
+                                            "children": [
+                                                {
+                                                    "content": "x",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "g _ ",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

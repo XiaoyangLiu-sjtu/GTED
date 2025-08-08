@@ -1,0 +1,81 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "k!",
+                            "children": []
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "∏ _  _ , _ ",
+                            "children": [
+                                {
+                                    "content": "k",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∈",
+                                    "children": [
+                                        {
+                                            "content": "Finset.Icc _  _ ",
+                                            "children": [
+                                                {
+                                                    "content": "1",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "9",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "k!",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ * _ ",
+                            "children": [
+                                {
+                                    "content": " _ ^ _ ",
+                                    "children": [
+                                        {
+                                            "content": "672",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "5",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

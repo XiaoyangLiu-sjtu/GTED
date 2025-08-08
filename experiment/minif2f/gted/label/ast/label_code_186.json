@@ -1,0 +1,144 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "x",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ℝ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h₀",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ + _ ",
+                                            "children": [
+                                                {
+                                                    "content": "||",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ - _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "x",
+                                                                    "children": [],
+                                                                    "variable_freecost": true
+                                                                },
+                                                                {
+                                                                    "content": "1",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "||",
+                                                    "children": [
+                                                        {
+                                                            "content": "x",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "||",
+                                            "children": [
+                                                {
+                                                    "content": " _ + _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "x",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        },
+                                                        {
+                                                            "content": "1",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": "x",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ ∧ _ ",
+                    "children": [
+                        {
+                            "content": " _ ≤ _ ",
+                            "children": [
+                                {
+                                    "content": "0",
+                                    "children": []
+                                },
+                                {
+                                    "content": "x",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ ≤ _ ",
+                            "children": [
+                                {
+                                    "content": "x",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "1",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

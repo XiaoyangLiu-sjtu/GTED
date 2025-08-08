@@ -1,0 +1,37 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": "IsAlgebraic _  _ ",
+                    "children": [
+                        {
+                            "content": "ℚ",
+                            "children": []
+                        },
+                        {
+                            "content": "sin _ ",
+                            "children": [
+                                {
+                                    "content": " _ / _ ",
+                                    "children": [
+                                        {
+                                            "content": "π",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "12",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,205 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1, _ u_2}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "ι",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "ι",
+                                    "children": []
+                                },
+                                {
+                                    "content": "Type _ u_2",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": " _  _  _ → _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "i",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "ι",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "TopologicalSpace _ ",
+                                    "children": [
+                                        {
+                                            "content": "X _ ",
+                                            "children": [
+                                                {
+                                                    "content": "i",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "i",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "ι",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "Nonempty _ ",
+                                    "children": [
+                                        {
+                                            "content": "X _ ",
+                                            "children": [
+                                                {
+                                                    "content": "i",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h2",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "T2Space _ ",
+                            "children": [
+                                {
+                                    "content": " _  _  _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ : _ ",
+                                            "children": [
+                                                {
+                                                    "content": "i",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                },
+                                                {
+                                                    "content": "ι",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "X _ ",
+                                            "children": [
+                                                {
+                                                    "content": "i",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "i",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ι",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "T2Space _ ",
+                    "children": [
+                        {
+                            "content": "X _ ",
+                            "children": [
+                                {
+                                    "content": "i",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

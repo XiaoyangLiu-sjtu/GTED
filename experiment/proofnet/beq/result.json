@@ -1,0 +1,1987 @@
+[
+    {
+        "NL": "Prove that the power series $\\sum nz^n$ does not converge on any point of the unit circle.",
+        "header": "import Mathlib\n\nopen Complex Filter Function Metric Finset\nopen scoped BigOperators Topology\n\n",
+        "name": "exercise_1_19a",
+        "FL (Label)": "theorem exercise_1_19a (z : ℂ) (hz : abs z = 1) (s : ℕ → ℂ)     (h : s = (λ n => ∑ i in (range n), i * z ^ i)) :     ¬ ∃ y, Tendsto s atTop (𝓝 y) := by sorry",
+        "hover_formal_statement": "theorem exercise_1_19a : ∀ (z : ℂ) (hz : sorry = 1) (s : ℕ → ℂ) (h : s = fun n => ∑ i ∈ range n, ↑i * z ^ i),  ¬∃ y, Tendsto s atTop sorry := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_19a : ∀ (z : ℂ) (hz : sorry = 1) (s : ℕ → ℂ) (h : s = fun n => ∑ i ∈ range n, ↑i * z ^ i), ¬∃ y, Tendsto s atTop sorry := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Complex Function Metric\nopen Set\n",
+                "name": "hasSum_nat_mul_zpow_tac_7255",
+                "FL (Prediction)": "theorem hasSum_nat_mul_zpow_tac_7255 (z : ℂ) : ¬‖z‖ < 1 → ¬Summable fun n => ↑n * z ^ n := by sorry",
+                "hover_formal_statement": "theorem hasSum_nat_mul_zpow_tac_7255 (z : ℂ) : ¬‖z‖ < 1 → ¬Summable fun n => n * z ^ n := by sorry",
+                "reorganized_hover_formal_statement": "theorem hasSum_nat_mul_zpow_tac_7255 (z : ℂ) : ¬‖z‖ < 1 → ¬Summable fun n => n * z ^ n := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $|z| \\geq 1$ then $\\sum_{n=1}^{\\infty} n z^n$ does not converge.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that the power series $\\sum zn/n$ converges at every point of the unit circle except $z = 1$.",
+        "header": "import Mathlib\n\nopen Complex Filter Function Metric Finset\nopen scoped BigOperators Topology\n\n",
+        "name": "exercise_1_19c",
+        "FL (Label)": "theorem exercise_1_19c (z : ℂ) (hz : abs z = 1) (hz2 : z ≠ 1) (s : ℕ → ℂ)     (h : s = (λ n => ∑ i in (range n), i * z / i)) :     ∃ z, Tendsto s atTop (𝓝 z) := by sorry",
+        "hover_formal_statement": "theorem exercise_1_19c : ∀ (z : ℂ) (hz : sorry = 1) (hz2 : z ≠ 1) (s : ℕ → ℂ) (h : s = fun n => ∑ i ∈ range n, ↑i * z / ↑i),  ∃ z, Tendsto s atTop sorry := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_19c : ∀ (z : ℂ) (hz : sorry = 1) (hz2 : z ≠ 1) (s : ℕ → ℂ) (h : s = fun n => ∑ i ∈ range n, ↑i * z / ↑i), ∃ z, Tendsto s atTop sorry := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen scoped Real\nopen Complex MeasureTheory Set intervalIntegral\n",
+                "name": "summable_pow_div_mul_log_tac_6114",
+                "FL (Prediction)": "theorem summable_pow_div_mul_log_tac_6114 (z : ℂ) (hz : ‖z‖ = 1) : z ≠ 1 → Summable fun n => z ^ n / ↑n := by sorry",
+                "hover_formal_statement": "theorem summable_pow_div_mul_log_tac_6114 (z : ℂ) (hz : ‖z‖ = 1) : z ≠ 1 → Summable fun n => z ^ n / n := by sorry",
+                "reorganized_hover_formal_statement": "theorem summable_pow_div_mul_log_tac_6114 (z : ℂ) (hz : ‖z‖ = 1) : z ≠ 1 → Summable fun n => z ^ n / n := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $\\|z\\|=1$ and $z \\neq 1$, then $\\sum_{n=1}^{\\infty} \\frac{z^n}{n}$ converges.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Show that $\\int_{0}^{\\infty} \\frac{\\sin x}{x} d x=\\frac{\\pi}{2}$.",
+        "header": "import Mathlib\n\nopen Complex Filter Function Metric Finset\nopen scoped BigOperators Topology\n\n",
+        "name": "exercise_2_2",
+        "FL (Label)": "theorem exercise_2_2 :   Tendsto (λ y => ∫ x in (0 : ℝ)..y, Real.sin x / x) atTop (𝓝 (Real.pi / 2)) := by sorry",
+        "hover_formal_statement": "theorem exercise_2_2 : Tendsto (fun y => ∫ (x : ℝ) in 0 ..y, Real.sin x / x) atTop sorry := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_2 : Tendsto (fun y => ∫ (x : ℝ) in 0 ..y, Real.sin x / x) atTop sorry := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen scoped Real Topology\nopen Real Set Filter intervalIntegral MeasureTheory.MeasureSpace\n",
+                "name": "integral_sin_div_id_of_pos_tac_16112",
+                "FL (Prediction)": "theorem integral_sin_div_id_of_pos_tac_16112 (h : ∀ x ∈ Ioi 0, 0 ≤ ‖sin x / x‖) : ∫ (x : ℝ) in Ioi 0, sin x / x = π / 2 - 0 := by sorry",
+                "hover_formal_statement": "theorem integral_sin_div_id_of_pos_tac_16112 (h : ∀ x ∈ Ioi 0, 0 ≤ ‖sin x / x‖) : ∫ (x : ℝ) in Ioi 0, sin x / x = π / 2 - 0 := by sorry",
+                "reorganized_hover_formal_statement": "theorem integral_sin_div_id_of_pos_tac_16112 (h : ∀ x ∈ Ioi 0, 0 ≤ ‖sin x / x‖) : ∫ (x : ℝ) in Ioi 0, sin x / x = π / 2 - 0 := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that $\\int_0^{\\infty} \\frac{\\sin x}{x} dx = \\frac{\\pi}{2}$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that all entire functions that are also injective take the form $f(z) = az + b$, $a, b \\in \\mathbb{C}$ and $a \\neq 0$.",
+        "header": "import Mathlib\n\nopen Complex Filter Function Metric Finset\nopen scoped BigOperators Topology\n\n",
+        "name": "exercise_3_14",
+        "FL (Label)": "theorem exercise_3_14 {f : ℂ → ℂ} (hf : Differentiable ℂ f)     (hf_inj : Function.Injective f) :     ∃ (a b : ℂ), f = (λ z => a * z + b) ∧ a ≠ 0 := by sorry",
+        "hover_formal_statement": "theorem exercise_3_14 {f : ℂ → ℂ} (hf : Differentiable ℂ f) (hf_inj : Injective f) : ∃ a b, (f = fun z => a * z + b) ∧ a ≠ 0 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_3_14 {f : ℂ → ℂ} (hf : Differentiable ℂ f) (hf_inj : Injective f) : ∃ a b, (f = fun z => a * z + b) ∧ a ≠ 0 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Complex Function Set\nopen scoped Topology\n",
+                "name": "eq_affine_of_entire_injective",
+                "FL (Prediction)": "theorem eq_affine_of_entire_injective {f : ℂ → ℂ} (h_ent : AnalyticOn ℂ f univ) (h_inj : Injective f) :     ∃ a b : ℂ, a ≠ 0 ∧ ∀ z, f z = a * z + b := by sorry",
+                "hover_formal_statement": "theorem eq_affine_of_entire_injective {f : ℂ → ℂ} (h_ent : AnalyticOn ℂ f univ) (h_inj : Injective f) :  ∃ a b, a ≠ 0 ∧ ∀ (z : ℂ), f z = a * z + b := by sorry",
+                "reorganized_hover_formal_statement": "theorem eq_affine_of_entire_injective {f : ℂ → ℂ} (h_ent : AnalyticOn ℂ f univ) (h_inj : Injective f) : ∃ a b, a ≠ 0 ∧ ∀ (z : ℂ), f z = a * z + b := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $f$ be an injective entire function. Prove that there exist complex numbers $a\\ne 0$ and $b$ such that $f(z) = az + b$ for all $z \\in \\mathbb{C}$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $r$ is rational $(r \\neq 0)$ and $x$ is irrational, prove that $rx$ is irrational.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_1_1b",
+        "FL (Label)": "theorem exercise_1_1b (x : ℝ) (y : ℚ) (h : y ≠ 0) : ( Irrational x ) -> Irrational ( x * y ) := by sorry",
+        "hover_formal_statement": "theorem exercise_1_1b (x : ℝ) (y : ℚ) (h : y ≠ 0) : Irrational x → Irrational (x * ↑y) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_1b (x : ℝ) (y : ℚ) (h : y ≠ 0) : Irrational x → Irrational (x * ↑y) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Rat Real multiplicity\n",
+                "name": "mul_rat_tac_11959",
+                "FL (Prediction)": "theorem mul_rat_tac_11959 (r : ℚ) (x : ℝ) (h : Irrational x) (hr : r ≠ 0) : Irrational (r * x) := by sorry",
+                "hover_formal_statement": "theorem mul_rat_tac_11959 (r : ℚ) (x : ℝ) (h : Irrational x) (hr : r ≠ 0) : Irrational (↑r * x) := by sorry",
+                "reorganized_hover_formal_statement": "theorem mul_rat_tac_11959 (r : ℚ) (x : ℝ) (h : Irrational x) (hr : r ≠ 0) : Irrational (↑r * x) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that the product of a nonzero rational number and an irrational number is irrational.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that no order can be defined in the complex field that turns it into an ordered field.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_1_8",
+        "FL (Label)": "theorem exercise_1_8 : ¬ ∃ (r : ℂ → ℂ → Prop), IsLinearOrder ℂ r := by sorry",
+        "hover_formal_statement": "theorem exercise_1_8 : ¬∃ r, IsLinearOrder ℂ r := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_8 : ¬∃ r, IsLinearOrder ℂ r := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen ComplexOrder\n",
+                "name": "instNoOrder",
+                "FL (Prediction)": "theorem instNoOrder : ¬Nonempty (OrderedRing ℂ) := by sorry",
+                "hover_formal_statement": "theorem instNoOrder : ¬Nonempty (OrderedRing ℂ) := by sorry",
+                "reorganized_hover_formal_statement": "theorem instNoOrder : ¬Nonempty (OrderedRing ℂ) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that $\\mathbb{C}$ is not an ordered ring.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $z_1, \\ldots, z_n$ are complex, prove that $|z_1 + z_2 + \\ldots + z_n| \\leq |z_1| + |z_2| + \\cdots + |z_n|$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_1_12",
+        "FL (Label)": "theorem exercise_1_12 (n : ℕ) (f : ℕ → ℂ) :   abs (∑ i in range n, f i) ≤ ∑ i in range n, abs (f i) := by sorry",
+        "hover_formal_statement": "theorem exercise_1_12 : ℕ → (ℕ → ℂ) → sorry := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_12 : ℕ → (ℕ → ℂ) → sorry := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set ComplexConjugate\n",
+                "name": "abs_sum_le_sum_abs",
+                "FL (Prediction)": "theorem abs_sum_le_sum_abs (n : ℕ) (z : Fin n → ℂ) : ‖∑ i, z i‖ ≤ ∑ i, ‖z i‖ := by sorry",
+                "hover_formal_statement": "theorem abs_sum_le_sum_abs (n : ℕ) (z : Fin n → ℂ) : ‖∑ i, z i‖ ≤ ∑ i, ‖z i‖ := by sorry",
+                "reorganized_hover_formal_statement": "theorem abs_sum_le_sum_abs (n : ℕ) (z : Fin n → ℂ) : ‖∑ i, z i‖ ≤ ∑ i, ‖z i‖ := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that $\\left|\\sum_{i=1}^n z_i\\right| \\le \\sum_{i=1}^n |z_i|$ for all $z_1, \\dots, z_n \\in \\mathbb{C}$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $z$ is a complex number such that $|z|=1$, that is, such that $z \\bar{z}=1$, compute $|1+z|^{2}+|1-z|^{2}$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_1_14",
+        "FL (Label)": "theorem exercise_1_14   (z : ℂ) (h : abs z = 1)   : (abs (1 + z)) ^ 2 + (abs (1 - z)) ^ 2 = 4 := by sorry",
+        "hover_formal_statement": "theorem exercise_1_14 (z : ℂ) (h : sorry = 1) : sorry ^ 2 + sorry ^ 2 = 4 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_14 (z : ℂ) (h : sorry = 1) : sorry ^ 2 + sorry ^ 2 = 4 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen BigOperators\nopen Real Nat Topology\n\n",
+                "name": "my_favorite_theorem",
+                "FL (Prediction)": "theorem my_favorite_theorem (z : ℂ) (hz : ‖z‖ = 1) : ‖(1 + z)‖ ^ 2 + ‖(1 - z)‖ ^ 2 = 4   := by sorry",
+                "hover_formal_statement": "theorem my_favorite_theorem (z : ℂ) (hz : ‖z‖ = 1) : ‖1 + z‖ ^ 2 + ‖1 - z‖ ^ 2 = 4 := by sorry",
+                "reorganized_hover_formal_statement": "theorem my_favorite_theorem (z : ℂ) (hz : ‖z‖ = 1) : ‖1 + z‖ ^ 2 + ‖1 - z‖ ^ 2 = 4 := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $z$ be a complex number such that $|z|=1$. Prove that $|1+z|^2+|1-z|^2=4$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that $|\\mathbf{x}+\\mathbf{y}|^{2}+|\\mathbf{x}-\\mathbf{y}|^{2}=2|\\mathbf{x}|^{2}+2|\\mathbf{y}|^{2}$ if $\\mathbf{x} \\in R^{k}$ and $\\mathbf{y} \\in R^{k}$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_1_17",
+        "FL (Label)": "theorem exercise_1_17   (n : ℕ)   (x y : EuclideanSpace ℝ (Fin n)) -- R^n   : ‖x + y‖^2 + ‖x - y‖^2 = 2*‖x‖^2 + 2*‖y‖^2 := by sorry",
+        "hover_formal_statement": "theorem exercise_1_17 : (n : ℕ) → EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) → sorry := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_17 : (n : ℕ) → EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) → sorry := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Real Set Filter RCLike Submodule Function Uniformity Topology NNReal ENNReal\n",
+                "name": "norm_sq_add_norm_sq_ext",
+                "FL (Prediction)": "theorem norm_sq_add_norm_sq_ext (x y : ℝ) : ‖x‖^2 + ‖y‖^2 = ‖x + y‖^2 + ‖x - y‖^2 := by sorry",
+                "hover_formal_statement": "theorem norm_sq_add_norm_sq_ext (x y : ℝ) : ‖x‖ ^ 2 + ‖y‖ ^ 2 = ‖x + y‖ ^ 2 + ‖x - y‖ ^ 2 := by sorry",
+                "reorganized_hover_formal_statement": "theorem norm_sq_add_norm_sq_ext (x : ℝ) (y : ℝ) : ‖x‖ ^ 2 + ‖y‖ ^ 2 = ‖x + y‖ ^ 2 + ‖x - y‖ ^ 2 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that $\\|x\\|^2 + \\|y\\|^2 = \\|x + y\\|^2 + \\|x - y\\|^2$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $k = 1$ and $\\mathbf{x} \\in R^{k}$, prove that there does not exist $\\mathbf{y} \\in R^{k}$ such that $\\mathbf{y} \\neq 0$ but $\\mathbf{x} \\cdot \\mathbf{y}=0$",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_1_18b",
+        "FL (Label)": "theorem exercise_1_18b   : ¬ ∀ (x : ℝ), ∃ (y : ℝ), y ≠ 0 ∧ x * y = 0 := by sorry",
+        "hover_formal_statement": "theorem exercise_1_18b : ¬∀ (x : ℝ), ∃ y, y ≠ 0 ∧ x * y = 0 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_18b : ¬∀ (x : ℝ), ∃ y, y ≠ 0 ∧ x * y = 0 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Matrix\n",
+                "name": "row_dot_zero_extracted",
+                "FL (Prediction)": "theorem row_dot_zero_extracted [Fintype k] [PartialOrder R] [NonUnitalRing R]  [StarRing R] [StarOrderedRing R] [NoZeroDivisors R] {x : k → R} {y : k → R} :  x ≠ 0 → y ≠ 0 → x ⬝ᵥ y = 0 → False := by sorry",
+                "hover_formal_statement": "theorem row_dot_zero_extracted.{u_1, u_2} {k : Type u_1} {R : Type u_2} [Fintype k] [PartialOrder R] [NonUnitalRing R]  [StarRing R] [StarOrderedRing R] [NoZeroDivisors R] {x y : k → R} : x ≠ 0 → y ≠ 0 → x ⬝ᵥ y = 0 → False := by sorry",
+                "reorganized_hover_formal_statement": "theorem row_dot_zero_extracted.{u_1, u_2} {k : Type u_1} {R : Type u_2} [Fintype k] [PartialOrder R] [NonUnitalRing R] [StarRing R] [StarOrderedRing R] [NoZeroDivisors R] {x y : k → R} : x ≠ 0 → y ≠ 0 → x ⬝ᵥ y = 0 → False := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $x, y$ be nonzero vectors in a real inner product space. Prove that $x \\cdot y = 0$ implies $x$ and $y$ are orthogonal.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that every compact metric space $K$ has a countable base.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_25",
+        "FL (Label)": "theorem exercise_2_25 {K : Type*} [MetricSpace K] [CompactSpace K] :   ∃ (B : Set (Set K)), Set.Countable B ∧ IsTopologicalBasis B := by sorry",
+        "hover_formal_statement": "theorem exercise_2_25.{u_1} {K : Type u_1} [MetricSpace K] [CompactSpace K] : ∃ B, B.Countable ∧ IsTopologicalBasis B := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_25.{u_1} {K : Type u_1} [MetricSpace K] [CompactSpace K] : ∃ B, B.Countable ∧ IsTopologicalBasis B := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Function TopologicalSpace Topology Set UniformSpace Uniformity\n",
+                "name": "secondCountable_of_compact",
+                "FL (Prediction)": "theorem secondCountable_of_compact (K : Type*) [MetricSpace K] [CompactSpace K] :     SecondCountableTopology K := by sorry",
+                "hover_formal_statement": "theorem secondCountable_of_compact.{u_1} (K : Type u_1) [MetricSpace K] [CompactSpace K] : SecondCountableTopology K := by sorry",
+                "reorganized_hover_formal_statement": "theorem secondCountable_of_compact.{u_1} (K : Type u_1) [MetricSpace K] [CompactSpace K] : SecondCountableTopology K := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that every compact metric space is second countable",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that every open set in $\\mathbb{R}$ is the union of an at most countable collection of disjoint segments.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_29",
+        "FL (Label)": "theorem exercise_2_29 (U : Set ℝ) (hU : IsOpen U) :   ∃ (f : ℕ → Set ℝ), (∀ n, ∃ a b : ℝ, f n = {x | a < x ∧ x < b}) ∧ (∀ n, f n ⊆ U) ∧   (∀ n m, n ≠ m → f n ∩ f m = ∅) ∧   U = ⋃ n, f n := by sorry",
+        "hover_formal_statement": "theorem exercise_2_29 (U : Set ℝ) (hU : IsOpen U) :  ∃ f,    (∀ (n : ℕ), ∃ a b, f n = {x | a < x ∧ x < b}) ∧      (∀ (n : ℕ), f n ⊆ U) ∧ (∀ (n m : ℕ), n ≠ m → f n ∩ f m = ∅) ∧ U = ⋃ n, f n := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_29 (U : Set ℝ) (hU : IsOpen U) : ∃ f, (∀ (n : ℕ), ∃ a b, f n = {x | a < x ∧ x < b}) ∧ (∀ (n : ℕ), f n ⊆ U) ∧ (∀ (n m : ℕ), n ≠ m → f n ∩ f m = ∅) ∧ U = ⋃ n, f n := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Set TopologicalSpace\nopen scoped Topology\n",
+                "name": "isOpen_countable_disjoint_union_Icc",
+                "FL (Prediction)": "theorem isOpen_countable_disjoint_union_Icc (U : Set ℝ) (hU : IsOpen U) :     ∃ V : Set (Set ℝ), V.Countable ∧ (∀ (I : Set ℝ), I ∈ V → I = univ ∨ ∃ a b, I = Icc a b) ∧       U = ⋃₀ V := by sorry",
+                "hover_formal_statement": "theorem isOpen_countable_disjoint_union_Icc (U : Set ℝ) (hU : IsOpen U) :  ∃ V, V.Countable ∧ (∀ I ∈ V, I = univ ∨ ∃ a b, I = Icc a b) ∧ U = ⋃₀ V := by sorry",
+                "reorganized_hover_formal_statement": "theorem isOpen_countable_disjoint_union_Icc (U : Set ℝ) (hU : IsOpen U) : ∃ V, V.Countable ∧ (∀ I ∈ V, I = univ ∨ ∃ a b, I = Icc a b) ∧ U = ⋃₀ V := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that every open set in $\\mathbb{R}$ is the union of at most countably many disjoint intervals.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "For any two real sequences $\\left\\{a_{n}\\right\\},\\left\\{b_{n}\\right\\}$, prove that $\\limsup _{n \\rightarrow \\infty}\\left(a_{n}+b_{n}\\right) \\leq \\limsup _{n \\rightarrow \\infty} a_{n}+\\limsup _{n \\rightarrow \\infty} b_{n},$ provided the sum on the right is not of the form $\\infty-\\infty$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_3_5",
+        "FL (Label)": "theorem exercise_3_5   (a b : ℕ → ℝ)   (h : limsup a + limsup b ≠ 0) :   limsup (λ n => a n + b n) ≤ limsup a + limsup b := by sorry",
+        "hover_formal_statement": "theorem exercise_3_5 (a b : ℕ → ℝ) (h : limsup a + limsup b ≠ 0) : (limsup fun n => a n + b n) ≤ limsup a + limsup b := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_3_5 (a : ℕ → ℝ) (b : ℕ → ℝ) (h : limsup a + limsup b ≠ 0) : (limsup fun n => a n + b n) ≤ limsup a + limsup b := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Filter Metric TopologicalSpace Topology\nopen scoped ENNReal\n",
+                "name": "limsup_add_le_add_limsup",
+                "FL (Prediction)": "theorem limsup_add_le_add_limsup {α} {f g : Filter α} {a b : α → ℝ}     (h : ¬(IsBot f ∧ IsTop g)) : limsup (fun x => a x + b x) f ≤ limsup a f + limsup b g := by sorry",
+                "hover_formal_statement": "theorem limsup_add_le_add_limsup.{u_1} {α : Type u_1} {f g : Filter α} {a b : α → ℝ} (h : ¬(IsBot f ∧ IsTop g)) :  limsup (fun x => a x + b x) f ≤ limsup a f + limsup b g := by sorry",
+                "reorganized_hover_formal_statement": "theorem limsup_add_le_add_limsup.{u_1} {α : Type u_1} {f g : Filter α} {a b : α → ℝ} (h : ¬(IsBot f ∧ IsTop g)) : limsup (fun x => a x + b x) f ≤ limsup a f + limsup b g := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that $\\limsup_{x \\to \\infty} (a(x) + b(x)) \\leq \\limsup_{x \\to \\infty} a(x) + \\limsup_{x \\to \\infty} b(x)$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that the convergence of $\\Sigma a_{n}$ implies the convergence of $\\sum \\frac{\\sqrt{a_{n}}}{n}$ if $a_n\\geq 0$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_3_7",
+        "FL (Label)": "theorem exercise_3_7   (a : ℕ → ℝ)   (h : ∃ y, (Tendsto (λ n => (∑ i in (range n), a i)) atTop (𝓝 y))) :   ∃ y, Tendsto (λ n => (∑ i in (range n), sqrt (a i) / n)) atTop (𝓝 y) := by sorry",
+        "hover_formal_statement": "theorem exercise_3_7 : (a : ℕ → ℝ) → (∃ y, Tendsto (fun n => ∑ i ∈ range n, a i) atTop sorry) → sorry := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_3_7 : (a : ℕ → ℝ) → (∃ y, Tendsto (fun n => ∑ i ∈ range n, a i) atTop sorry) → sorry := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Sum Filter\nopen NNReal in\nopen Finset\nopen ENNReal in\nopen ENNReal in\nopen NNReal in\n",
+                "name": "summable_sqrt_of_summable",
+                "FL (Prediction)": "theorem summable_sqrt_of_summable (a : ℕ → NNReal) (h : Summable a) :     Summable fun n => (Real.sqrt (a n) / n : ℝ) := by sorry",
+                "hover_formal_statement": "theorem summable_sqrt_of_summable (a : ℕ → ℝ≥0) (h : Summable a) : Summable fun n => √↑(a n) / ↑n := by sorry",
+                "reorganized_hover_formal_statement": "theorem summable_sqrt_of_summable (a : ℕ → ℝ≥0) (h : Summable a) : Summable fun n => √↑(a n) / ↑n := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that $\\sum_{n=1}^{\\infty} \\frac{\\sqrt{a_n}}{n}$ converges, where $a_n$ is a sequence of positive real numbers such that $\\sum_{n=1}^{\\infty} a_n$ converges.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Suppose $f$ is a real function defined on $\\mathbb{R}$ which satisfies $\\lim_{h \\rightarrow 0} f(x + h) - f(x - h) = 0$ for every $x \\in \\mathbb{R}$. Show that $f$ does not need to be continuous.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_1a",
+        "FL (Label)": "theorem exercise_4_1a   : ∃ (f : ℝ → ℝ), (∀ (x : ℝ), Tendsto (λ y => f (x + y) - f (x - y)) (𝓝 0) (𝓝 0)) ∧ ¬ Continuous f := by sorry",
+        "hover_formal_statement": "theorem exercise_4_1a : ∃ f, (∀ (x : ℝ), Tendsto (fun y => f (x + y) - f (x - y)) (𝓝 0) (𝓝 0)) ∧ ¬Continuous f := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_1a : ∃ f, (∀ (x : ℝ), Tendsto (fun y => f (x + y) - f (x - y)) (𝓝 0) (𝓝 0)) ∧ ¬Continuous f := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Filter Function\nopen Topology\n",
+                "name": "differentiable_not_continuous_counter",
+                "FL (Prediction)": "theorem differentiable_not_continuous_counter  : ∃ f : ℝ → ℝ, (∀ x, Tendsto (fun h => f (x + h) - f (x - h)) (𝓝 0) (𝓝 0)) ∧ ¬ Continuous f := by sorry",
+                "hover_formal_statement": "theorem differentiable_not_continuous_counter : ∃ f, (∀ (x : ℝ), Tendsto (fun h => f (x + h) - f (x - h)) (𝓝 0) (𝓝 0)) ∧ ¬Continuous f := by sorry",
+                "reorganized_hover_formal_statement": "theorem differentiable_not_continuous_counter : ∃ f, (∀ (x : ℝ), Tendsto (fun h => f (x + h) - f (x - h)) (𝓝 0) (𝓝 0)) ∧ ¬Continuous f := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that there exists a function $f: \\mathbb{R} \\to \\mathbb{R}$ such that for all $x \\in \\mathbb{R}$, $\\lim_{h \\to 0} f(x+h) - f(x-h) = 0$ and $f$ is not continuous.",
+                "label --> predict | verified_code": "import Mathlib\n\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\nopen Set Filter Function\nopen Topology\ntheorem tm_nameP   : ∃ (f : ℝ → ℝ), (∀ (x : ℝ), Tendsto (λ y => f (x + y) - f (x - y)) (𝓝 0) (𝓝 0)) ∧ ¬ Continuous f := by sorry\ntheorem tm_nameQ  : ∃ f : ℝ → ℝ, (∀ x, Tendsto (fun h => f (x + h) - f (x - h)) (𝓝 0) (𝓝 0)) ∧ ¬ Continuous f := by exact?",
+                "label --> predict | proof_content": "exact?",
+                "predict --> label | verified_code": "import Mathlib\n\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\nopen Set Filter Function\nopen Topology\ntheorem tm_nameP  : ∃ f : ℝ → ℝ, (∀ x, Tendsto (fun h => f (x + h) - f (x - h)) (𝓝 0) (𝓝 0)) ∧ ¬ Continuous f := by sorry\ntheorem tm_nameQ   : ∃ (f : ℝ → ℝ), (∀ (x : ℝ), Tendsto (λ y => f (x + y) - f (x - y)) (𝓝 0) (𝓝 0)) ∧ ¬ Continuous f := by exact?",
+                "predict --> label | proof_content": "exact?",
+                "beq": "same"
+            }
+        ]
+    },
+    {
+        "NL": "Let $f$ be a continuous real function on a metric space $X$. Let $Z(f)$ (the zero set of $f$ ) be the set of all $p \\in X$ at which $f(p)=0$. Prove that $Z(f)$ is closed.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_3",
+        "FL (Label)": "theorem exercise_4_3   {α : Type} [MetricSpace α]   (f : α → ℝ) (h : Continuous f) (z : Set α) (g : z = f⁻¹' {0})   : IsClosed z := by sorry",
+        "hover_formal_statement": "theorem exercise_4_3 {α : Type} [MetricSpace α] (f : α → ℝ) (h : Continuous f) (z : Set α) (g : z = f ⁻¹' {0}) : IsClosed z := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_3 {α : Type} [MetricSpace α] (f : α → ℝ) (h : Continuous f) (z : Set α) (g : z = f ⁻¹' {0}) : IsClosed z := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Filter Function Topology\n",
+                "name": "isClosed_zero_set",
+                "FL (Prediction)": "theorem isClosed_zero_set {X α : Type*} [MetricSpace X] [Zero α] [TopologicalSpace α]     (f : X → α) (hf : Continuous f) : IsClosed { x : X | f x = 0 } := by sorry",
+                "hover_formal_statement": "theorem isClosed_zero_set.{u_1, u_2} {X : Type u_1} {α : Type u_2} [MetricSpace X] [Zero α] [TopologicalSpace α] (f : X → α)  (hf : Continuous f) : IsClosed {x | f x = 0} := by sorry",
+                "reorganized_hover_formal_statement": "theorem isClosed_zero_set.{u_1, u_2} {X : Type u_1} {α : Type u_2} [MetricSpace X] [Zero α] [TopologicalSpace α] (f : X → α) (hf : Continuous f) : IsClosed {x | f x = 0} := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that the set of zeros of a continuous function is closed.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $f$ and $g$ be continuous mappings of a metric space $X$ into a metric space $Y$, and let $E$ be a dense subset of $X$. Prove that if $g(p) = f(p)$ for all $p \\in P$ then $g(p) = f(p)$ for all $p \\in X$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_4b",
+        "FL (Label)": "theorem exercise_4_4b   {α : Type} [MetricSpace α]   {β : Type} [MetricSpace β]   (f g : α → β)   (s : Set α)   (h₁ : Continuous f)   (h₂ : Continuous g)   (h₃ : Dense s)   (h₄ : ∀ x ∈ s, f x = g x)   : f = g := by sorry",
+        "hover_formal_statement": "theorem exercise_4_4b {α : Type} [MetricSpace α] {β : Type} [MetricSpace β] (f g : α → β) (s : Set α) (h₁ : Continuous f)  (h₂ : Continuous g) (h₃ : Dense s) (h₄ : ∀ x ∈ s, f x = g x) : f = g := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_4b {α : Type} [MetricSpace α] {β : Type} [MetricSpace β] (f : α → β) (g : α → β) (s : Set α) (h₁ : Continuous f) (h₂ : Continuous g) (h₃ : Dense s) (h₄ : ∀ x ∈ s, f x = g x) : f = g := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Filter TopologicalSpace Bornology\nopen scoped ENNReal NNReal Uniformity Topology\nopen Lean Meta Qq Function\nopen Metric\n",
+                "name": "funext_of_dense_extracted",
+                "FL (Prediction)": "theorem funext_of_dense_extracted [PseudoMetricSpace X] [PseudoMetricSpace Y] {f g : X → Y} {E : Set X} :  Dense E → Continuous f → Continuous g → (∀ p ∈ E, g p = f p) → ∀ (x : X), g x = f x := by sorry",
+                "hover_formal_statement": "theorem funext_of_dense_extracted.{u_1, u_2} {X : Type u_1} {Y : Type u_2} [PseudoMetricSpace X] [PseudoMetricSpace Y]  {f g : X → Y} {E : Set X} : Dense E → Continuous f → Continuous g → (∀ p ∈ E, g p = f p) → ∀ (x : X), g x = f x := by sorry",
+                "reorganized_hover_formal_statement": "theorem funext_of_dense_extracted.{u_1, u_2} {X : Type u_1} {Y : Type u_2} [PseudoMetricSpace X] [PseudoMetricSpace Y] {f g : X → Y} {E : Set X} : Dense E → Continuous f → Continuous g → (∀ p ∈ E, g p = f p) → ∀ (x : X), g x = f x := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $X$ be a topological space and let $E$ be a dense subset of $X$. Let $f:X \\to Y$ and $g:X \\to Y$ be continuous functions such that $g(x) = f(x)$ for all $x \\in E$. Prove that $g(x) = f(x)$ for all $x \\in X$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $f$ be a real uniformly continuous function on the bounded set $E$ in $R^{1}$. Prove that $f$ is bounded on $E$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_8a",
+        "FL (Label)": "theorem exercise_4_8a   (E : Set ℝ) (f : ℝ → ℝ) (hf : UniformContinuousOn f E)   (hE : Bornology.IsBounded E) : Bornology.IsBounded (Set.image f E) := by sorry",
+        "hover_formal_statement": "theorem exercise_4_8a (E : Set ℝ) (f : ℝ → ℝ) (hf : UniformContinuousOn f E) (hE : Bornology.IsBounded E) :  Bornology.IsBounded (f '' E) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_8a (E : Set ℝ) (f : ℝ → ℝ) (hf : UniformContinuousOn f E) (hE : Bornology.IsBounded E) : Bornology.IsBounded (f '' E) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Int Metric Set TopologicalSpace Bornology\nopen scoped Topology Uniformity Interval\n",
+                "name": "isBounded_of_bounded_of_uniformContinuous",
+                "FL (Prediction)": "theorem isBounded_of_bounded_of_uniformContinuous {f : ℝ → ℝ} {E : Set ℝ} (hf : UniformContinuousOn f E)     (hE : IsBounded E) : IsBounded (f '' E) := by sorry",
+                "hover_formal_statement": "theorem isBounded_of_bounded_of_uniformContinuous {f : ℝ → ℝ} {E : Set ℝ} (hf : UniformContinuousOn f E)  (hE : Bornology.IsBounded E) : Bornology.IsBounded (f '' E) := by sorry",
+                "reorganized_hover_formal_statement": "theorem isBounded_of_bounded_of_uniformContinuous {f : ℝ → ℝ} {E : Set ℝ} (hf : UniformContinuousOn f E) (hE : Bornology.IsBounded E) : Bornology.IsBounded (f '' E) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a uniformly continuous function on a bounded set $E$. Prove that the image $f(E)$ is bounded.",
+                "label --> predict | verified_code": "import Mathlib\n\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\nopen Filter Int Metric Set TopologicalSpace Bornology\nopen scoped Topology Uniformity Interval\ntheorem tm_nameP   (E : Set ℝ) (f : ℝ → ℝ) (hf : UniformContinuousOn f E)   (hE : Bornology.IsBounded E) : Bornology.IsBounded (Set.image f E) := by sorry\ntheorem tm_nameQ {f : ℝ → ℝ} {E : Set ℝ} (hf : UniformContinuousOn f E)     (hE : IsBounded E) : IsBounded (f '' E) := by exact?",
+                "label --> predict | proof_content": "exact?",
+                "predict --> label | verified_code": "import Mathlib\n\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\nopen Filter Int Metric Set TopologicalSpace Bornology\nopen scoped Topology Uniformity Interval\ntheorem tm_nameP {f : ℝ → ℝ} {E : Set ℝ} (hf : UniformContinuousOn f E)     (hE : IsBounded E) : IsBounded (f '' E) := by sorry\ntheorem tm_nameQ   (E : Set ℝ) (f : ℝ → ℝ) (hf : UniformContinuousOn f E)   (hE : Bornology.IsBounded E) : Bornology.IsBounded (Set.image f E) := by exact?",
+                "predict --> label | proof_content": "exact?",
+                "beq": "same"
+            }
+        ]
+    },
+    {
+        "NL": "Suppose $f$ is a uniformly continuous mapping of a metric space $X$ into a metric space $Y$ and prove that $\\left\\{f\\left(x_{n}\\right)\\right\\}$ is a Cauchy sequence in $Y$ for every Cauchy sequence $\\{x_n\\}$ in $X$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_11a",
+        "FL (Label)": "theorem exercise_4_11a   {X : Type*} [MetricSpace X]   {Y : Type*} [MetricSpace Y]   (f : X → Y) (hf : UniformContinuous f)   (x : ℕ → X) (hx : CauchySeq x) :   CauchySeq (λ n => f (x n)) := by sorry",
+        "hover_formal_statement": "theorem exercise_4_11a.{u_1, u_2} {X : Type u_1} [MetricSpace X] {Y : Type u_2} [MetricSpace Y] (f : X → Y)  (hf : UniformContinuous f) (x : ℕ → X) (hx : CauchySeq x) : CauchySeq fun n => f (x n) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_11a.{u_1, u_2} {X : Type u_1} [MetricSpace X] {Y : Type u_2} [MetricSpace Y] (f : X → Y) (hf : UniformContinuous f) (x : ℕ → X) (hx : CauchySeq x) : CauchySeq fun n => f (x n) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Topology\n",
+                "name": "cauchySeq_comp",
+                "FL (Prediction)": "theorem cauchySeq_comp {X : Type*} [MetricSpace X] {Y : Type*} [MetricSpace Y]     {f : X → Y} (hf : UniformContinuous f) {x : ℕ → X} (hx : CauchySeq x) :     CauchySeq (f ∘ x) := by sorry",
+                "hover_formal_statement": "theorem cauchySeq_comp.{u_1, u_2} {X : Type u_1} [MetricSpace X] {Y : Type u_2} [MetricSpace Y] {f : X → Y}  (hf : UniformContinuous f) {x : ℕ → X} (hx : CauchySeq x) : CauchySeq (f ∘ x) := by sorry",
+                "reorganized_hover_formal_statement": "theorem cauchySeq_comp.{u_1, u_2} {X : Type u_1} [MetricSpace X] {Y : Type u_2} [MetricSpace Y] {f : X → Y} (hf : UniformContinuous f) {x : ℕ → X} (hx : CauchySeq x) : CauchySeq (f ∘ x) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $X$ be a metric space and $Y$ a complete metric space. Let $f: X \\to Y$ be a uniformly continuous function. If $(x_n)$ is a Cauchy sequence in $X$, prove that $(f(x_n))$ is a Cauchy sequence in $Y$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that every continuous open mapping of $R^{1}$ into $R^{1}$ is monotonic.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_15",
+        "FL (Label)": "theorem exercise_4_15 {f : ℝ → ℝ}   (hf : Continuous f) (hof : IsOpenMap f) :   Monotone f := by sorry",
+        "hover_formal_statement": "theorem exercise_4_15 {f : ℝ → ℝ} (hf : Continuous f) (hof : IsOpenMap f) : Monotone f := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_15 {f : ℝ → ℝ} (hf : Continuous f) (hof : IsOpenMap f) : Monotone f := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Set\nopen Topology\n",
+                "name": "monotone_of_continuous_open_map",
+                "FL (Prediction)": "theorem monotone_of_continuous_open_map (f : ℝ → ℝ) :     IsOpenMap f → Continuous f → Monotone f := by sorry",
+                "hover_formal_statement": "theorem monotone_of_continuous_open_map (f : ℝ → ℝ) : IsOpenMap f → Continuous f → Monotone f := by sorry",
+                "reorganized_hover_formal_statement": "theorem monotone_of_continuous_open_map (f : ℝ → ℝ) : IsOpenMap f → Continuous f → Monotone f := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be an open and continuous function. Prove that $f$ is monotone.",
+                "label --> predict | verified_code": "import Mathlib\n\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\nopen Filter Set\nopen Topology\ntheorem tm_nameP {f : ℝ → ℝ}   (hf : Continuous f) (hof : IsOpenMap f) :   Monotone f := by sorry\ntheorem tm_nameQ (f : ℝ → ℝ) :     IsOpenMap f → Continuous f → Monotone f := by exact?",
+                "label --> predict | proof_content": "exact?",
+                "predict --> label | verified_code": "import Mathlib\n\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\nopen Filter Set\nopen Topology\ntheorem tm_nameP (f : ℝ → ℝ) :     IsOpenMap f → Continuous f → Monotone f := by sorry\ntheorem tm_nameQ {f : ℝ → ℝ}   (hf : Continuous f) (hof : IsOpenMap f) :   Monotone f := by exact?",
+                "predict --> label | proof_content": "exact?",
+                "beq": "same"
+            }
+        ]
+    },
+    {
+        "NL": "Suppose $K$ and $F$ are disjoint sets in a metric space $X, K$ is compact, $F$ is closed. Prove that there exists $\\delta>0$ such that $d(p, q)>\\delta$ if $p \\in K, q \\in F$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_21a",
+        "FL (Label)": "theorem exercise_4_21a {X : Type*} [MetricSpace X]   (K F : Set X) (hK : IsCompact K) (hF : IsClosed F) (hKF : Disjoint K F) :   ∃ (δ : ℝ), δ > 0 ∧ ∀ (p q : X), p ∈ K → q ∈ F → dist p q ≥ δ := by sorry",
+        "hover_formal_statement": "theorem exercise_4_21a.{u_1} {X : Type u_1} [MetricSpace X] (K F : Set X) (hK : IsCompact K) (hF : IsClosed F)  (hKF : Disjoint K F) : ∃ δ > 0, ∀ (p q : X), p ∈ K → q ∈ F → dist p q ≥ δ := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_21a.{u_1} {X : Type u_1} [MetricSpace X] (K : Set X) (F : Set X) (hK : IsCompact K) (hF : IsClosed F) (hKF : Disjoint K F) : ∃ δ > 0, ∀ (p q : X), p ∈ K → q ∈ F → dist p q ≥ δ := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Filter Bornology\nopen scoped ENNReal Uniformity Topology Pointwise\n",
+                "name": "exists_pos_forall_lt_dist_extracted",
+                "FL (Prediction)": "theorem exists_pos_forall_lt_dist_extracted [MetricSpace α] {K F : Set α} :  IsCompact K → IsClosed F → Disjoint K F → ∃ δ > 0, ∀ p ∈ K, ∀ q ∈ F, δ < dist p q := by sorry",
+                "hover_formal_statement": "theorem exists_pos_forall_lt_dist_extracted.{u_1} {α : Type u_1} [MetricSpace α] {K F : Set α} :  IsCompact K → IsClosed F → Disjoint K F → ∃ δ > 0, ∀ p ∈ K, ∀ q ∈ F, δ < dist p q := by sorry",
+                "reorganized_hover_formal_statement": "theorem exists_pos_forall_lt_dist_extracted.{u_1} {α : Type u_1} [MetricSpace α] {K F : Set α} : IsCompact K → IsClosed F → Disjoint K F → ∃ δ > 0, ∀ p ∈ K, ∀ q ∈ F, δ < dist p q := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $K$ and $F$ are disjoint nonempty subsets of a metric space, with $K$ compact and $F$ closed, then there exists $\\delta > 0$ such that $d(p, q) \\geq \\delta$ for all $p \\in K$ and $q \\in F$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $f$ be defined for all real $x$, and suppose that $|f(x)-f(y)| \\leq (x-y)^{2}$ for all real $x$ and $y$. Prove that $f$ is constant.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_5_1",
+        "FL (Label)": "theorem exercise_5_1   {f : ℝ → ℝ} (hf : ∀ x y : ℝ, |(f x - f y)| ≤ (x - y) ^ 2) :   ∃ c, f = λ x => c := by sorry",
+        "hover_formal_statement": "theorem exercise_5_1 {f : ℝ → ℝ} (hf : ∀ (x y : ℝ), |f x - f y| ≤ (x - y) ^ 2) : ∃ c, f = fun x => c := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_5_1 {f : ℝ → ℝ} (hf : ∀ (x y : ℝ), |f x - f y| ≤ (x - y) ^ 2) : ∃ c, f = fun x => c := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen BigOperators\nopen Real Nat Topology\n\n",
+                "name": "my_favorite_theorem",
+                "FL (Prediction)": "theorem my_favorite_theorem (f : ℝ → ℝ) (hf : ∀ x y : ℝ, |f x - f y| ≤ (x - y) ^ 2) :   ∃ c : ℝ, ∀ x : ℝ, f x = c   := by sorry",
+                "hover_formal_statement": "theorem my_favorite_theorem (f : ℝ → ℝ) (hf : ∀ (x y : ℝ), |f x - f y| ≤ (x - y) ^ 2) : ∃ c, ∀ (x : ℝ), f x = c := by sorry",
+                "reorganized_hover_formal_statement": "theorem my_favorite_theorem (f : ℝ → ℝ) (hf : ∀ (x y : ℝ), |f x - f y| ≤ (x - y) ^ 2) : ∃ c, ∀ (x : ℝ), f x = c := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a function such that for all $x, y \\in \\mathbb{R}$, $|f(x) - f(y)| \\le (x - y)^2$. Prove that $f$ is a constant function.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Suppose $g$ is a real function on $R^{1}$, with bounded derivative (say $\\left|g^{\\prime}\\right| \\leq M$ ). Fix $\\varepsilon>0$, and define $f(x)=x+\\varepsilon g(x)$. Prove that $f$ is one-to-one if $\\varepsilon$ is small enough.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_5_3",
+        "FL (Label)": "theorem exercise_5_3 {g : ℝ → ℝ} (hg : Continuous g)   (hg' : ∃ M : ℝ, ∀ x : ℝ, |deriv g x| ≤ M) :   ∃ N, ∀ ε > 0, ε < N → Function.Injective (λ x : ℝ => x + ε * g x) := by sorry",
+        "hover_formal_statement": "theorem exercise_5_3 {g : ℝ → ℝ} (hg : Continuous g) (hg' : ∃ M, ∀ (x : ℝ), |deriv g x| ≤ M) :  ∃ N, ∀ ε > 0, ε < N → Function.Injective fun x => x + ε * g x := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_5_3 {g : ℝ → ℝ} (hg : Continuous g) (hg' : ∃ M, ∀ (x : ℝ), |deriv g x| ≤ M) : ∃ N, ∀ ε > 0, ε < N → Function.Injective fun x => x + ε * g x := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Metric Set Asymptotics ContinuousLinearMap Filter\nopen scoped Topology NNReal\n",
+                "name": "small_epsilon_one_one",
+                "FL (Prediction)": "theorem small_epsilon_one_one (g : ℝ → ℝ) (M : ℝ) (hM : ∀ x, ‖deriv g x‖ ≤ M) (ε : ℝ) (hε : 0 < ε) :     ∃ δ, ∀ x y, ‖x - y‖ ≤ δ → (x + ε * g x) ≠ (y + ε * g y)   := by sorry",
+                "hover_formal_statement": "theorem small_epsilon_one_one (g : ℝ → ℝ) (M : ℝ) (hM : ∀ (x : ℝ), ‖deriv g x‖ ≤ M) (ε : ℝ) (hε : 0 < ε) :  ∃ δ, ∀ (x y : ℝ), ‖x - y‖ ≤ δ → x + ε * g x ≠ y + ε * g y := by sorry",
+                "reorganized_hover_formal_statement": "theorem small_epsilon_one_one (g : ℝ → ℝ) (M : ℝ) (hM : ∀ (x : ℝ), ‖deriv g x‖ ≤ M) (ε : ℝ) (hε : 0 < ε) : ∃ δ, ∀ (x y : ℝ), ‖x - y‖ ≤ δ → x + ε * g x ≠ y + ε * g y := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $g: \\mathbb{R} \\to \\mathbb{R}$ be a function such that $\\|g'(x)\\| \\leq M$ for all $x \\in \\mathbb{R}$. Prove that there exists $\\delta > 0$ such that for all $x, y \\in \\mathbb{R}$, if $\\|x - y\\| \\leq \\delta$, then $x + \\epsilon g(x) \\neq y + \\epsilon g(y)$ for all $\\epsilon > 0$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Suppose $f$ is defined and differentiable for every $x>0$, and $f^{\\prime}(x) \\rightarrow 0$ as $x \\rightarrow+\\infty$. Put $g(x)=f(x+1)-f(x)$. Prove that $g(x) \\rightarrow 0$ as $x \\rightarrow+\\infty$.",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_5_5",
+        "FL (Label)": "theorem exercise_5_5   {f : ℝ → ℝ}   (hfd : Differentiable ℝ f)   (hf : Tendsto (deriv f) atTop (𝓝 0)) :   Tendsto (λ x => f (x + 1) - f x) atTop atTop := by sorry",
+        "hover_formal_statement": "theorem exercise_5_5 {f : ℝ → ℝ} (hfd : Differentiable ℝ f) (hf : Tendsto (deriv f) atTop (𝓝 0)) : Tendsto (fun x => f (x + 1) - f x) atTop atTop := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_5_5 {f : ℝ → ℝ} (hfd : Differentiable ℝ f) (hf : Tendsto (deriv f) atTop (𝓝 0)) : Tendsto (fun x => f (x + 1) - f x) atTop atTop := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Set\nopen scoped Topology Convex\n",
+                "name": "tendsto_atTop_zero_of_deriv_tendsto_zero",
+                "FL (Prediction)": "theorem tendsto_atTop_zero_of_deriv_tendsto_zero (f : ℝ → ℝ) (hf : ∀ x > 0, DifferentiableAt ℝ f x)     (hf' : Tendsto (deriv f) atTop (𝓝 0)) : Tendsto (fun x => f (x + 1) - f x) atTop (𝓝 0) := by sorry",
+                "hover_formal_statement": "theorem tendsto_atTop_zero_of_deriv_tendsto_zero : (f : ℝ → ℝ) →  (∀ x > 0, DifferentiableAt ℝ f x) → Tendsto (deriv f) atTop sorry → sorry := by sorry",
+                "reorganized_hover_formal_statement": "theorem tendsto_atTop_zero_of_deriv_tendsto_zero : (f : ℝ → ℝ) → (∀ x > 0, DifferentiableAt ℝ f x) → Tendsto (deriv f) atTop sorry → sorry := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $f$ is a differentiable function on $\\mathbb{R}$ such that $\\lim_{x \\to \\infty} f'(x) = 0$, then $\\lim_{x \\to \\infty} (f(x+1) - f(x)) = 0$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Suppose $f^{\\prime}(x), g^{\\prime}(x)$ exist, $g^{\\prime}(x) \\neq 0$, and $f(x)=g(x)=0$. Prove that $\\lim _{t \\rightarrow x} \\frac{f(t)}{g(t)}=\\frac{f^{\\prime}(x)}{g^{\\prime}(x)}.$",
+        "header": "import Mathlib\n\nopen Topology Filter Real Complex TopologicalSpace Finset\nopen scoped BigOperators\n\n",
+        "name": "exercise_5_7",
+        "FL (Label)": "theorem exercise_5_7   {f g : ℝ → ℝ} {x : ℝ}   (hf' : DifferentiableAt ℝ f 0)   (hg' : DifferentiableAt ℝ g 0)   (hg'_ne_0 : deriv g 0 ≠ 0)   (f0 : f 0 = 0) (g0 : g 0 = 0) :   Tendsto (λ x => f x / g x) (𝓝 x) (𝓝 (deriv f x / deriv g x)) := by sorry",
+        "hover_formal_statement": "theorem exercise_5_7 {f g : ℝ → ℝ} {x : ℝ} (hf' : DifferentiableAt ℝ f 0) (hg' : DifferentiableAt ℝ g 0) (hg'_ne_0 : deriv g 0 ≠ 0) (f0 : f 0 = 0) (g0 : g 0 = 0) : Tendsto (fun x => f x / g x) (𝓝 x) (𝓝 (deriv f x / deriv g x)) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_5_7 {f g : ℝ → ℝ} {x : ℝ} (hf' : DifferentiableAt ℝ f 0) (hg' : DifferentiableAt ℝ g 0) (hg'_ne_0 : deriv g 0 ≠ 0) (f0 : f 0 = 0) (g0 : g 0 = 0) : Tendsto (fun x => f x / g x) (𝓝 x) (𝓝 (deriv f x / deriv g x)) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Set\nopen scoped Topology Topology\n",
+                "name": "lhopital_zero_zero",
+                "FL (Prediction)": "theorem lhopital_zero_zero {f g : ℝ → ℝ} {f' g' : ℝ} (h : ∀ t, t ≠ 0 → HasDerivAt f (f' * t) t)     (h' : ∀ t, t ≠ 0 → HasDerivAt g (g' * t) t) (hg : g' ≠ 0) (hfg : f 0 = 0 ∧ g 0 = 0) :     Tendsto (fun t => f t / g t) (𝓝 0) (𝓝 (f' / g')) := by sorry",
+                "hover_formal_statement": "theorem lhopital_zero_zero {f g : ℝ → ℝ} {f' g' : ℝ} (h : ∀ (t : ℝ), t ≠ 0 → HasDerivAt f (f' * t) t) (h' : ∀ (t : ℝ), t ≠ 0 → HasDerivAt g (g' * t) t) (hg : g' ≠ 0) (hfg : f 0 = 0 ∧ g 0 = 0) : Tendsto (fun t => f t / g t) (𝓝 0) (𝓝 (f' / g')) := by sorry",
+                "reorganized_hover_formal_statement": "theorem lhopital_zero_zero {f g : ℝ → ℝ} {f' g' : ℝ} (h : ∀ (t : ℝ), t ≠ 0 → HasDerivAt f (f' * t) t) (h' : ∀ (t : ℝ), t ≠ 0 → HasDerivAt g (g' * t) t) (hg : g' ≠ 0) (hfg : f 0 = 0 ∧ g 0 = 0) : Tendsto (fun t => f t / g t) (𝓝 0) (𝓝 (f' / g')) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $f, g$ be functions differentiable at $0$, with $g'(0) \\neq 0$. If $f(0) = 0$ and $g(0) = 0$, then $\\lim_{t \\to 0} \\frac{f(t)}{g(t)} = \\frac{f'(0)}{g'(0)}$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $G$ is a finite group, prove that, given $a \\in G$, there is a positive integer $n$, depending on $a$, such that $a^n = e$.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_1_26",
+        "FL (Label)": "theorem exercise_2_1_26 {G : Type*} [Group G]   [Fintype G] (a : G) : ∃ (n : ℕ), a ^ n = 1 := by sorry",
+        "hover_formal_statement": "theorem exercise_2_1_26.{u_1} {G : Type u_1} [Group G] [Fintype G] (a : G) : ∃ n, a ^ n = 1 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_1_26.{u_1} {G : Type u_1} [Group G] [Fintype G] (a : G) : ∃ n, a ^ n = 1 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Subgroup\n",
+                "name": "exists_n_pow_eq_one",
+                "FL (Prediction)": "theorem exists_n_pow_eq_one {G : Type*} [Group G] [Finite G] (a : G) : ∃ n : ℕ, n ≠ 0 ∧ a ^ n = 1 := by sorry",
+                "hover_formal_statement": "theorem exists_n_pow_eq_one.{u_1} {G : Type u_1} [Group G] [Finite G] (a : G) : ∃ n, n ≠ 0 ∧ a ^ n = 1 := by sorry",
+                "reorganized_hover_formal_statement": "theorem exists_n_pow_eq_one.{u_1} {G : Type u_1} [Group G] [Finite G] (a : G) : ∃ n, n ≠ 0 ∧ a ^ n = 1 := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $G$ be a finite group and $a \\in G$. Prove that there exists $n \\in \\mathbb{N}$ such that $n \\neq 0$ and $a^n = 1$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $G$ be a group in which $(a b)^{n}=a^{n} b^{n}$ for some fixed integer $n>1$ for all $a, b \\in G$. For all $a, b \\in G$, prove that $\\left(a b a^{-1} b^{-1}\\right)^{n(n-1)}=e$.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_2_6c",
+        "FL (Label)": "theorem exercise_2_2_6c {G : Type*} [Group G] {n : ℕ} (hn : n > 1)   (h : ∀ (a b : G), (a * b) ^ n = a ^ n * b ^ n) :   ∀ (a b : G), (a * b * a⁻¹ * b⁻¹) ^ (n * (n - 1)) = 1 := by sorry",
+        "hover_formal_statement": "theorem exercise_2_2_6c.{u_1} {G : Type u_1} [Group G] {n : ℕ} (hn : n > 1) (h : ∀ (a b : G), (a * b) ^ n = a ^ n * b ^ n)  (a b : G) : (a * b * a⁻¹ * b⁻¹) ^ (n * (n - 1)) = 1 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_2_6c.{u_1} {G : Type u_1} [Group G] {n : ℕ} (hn : n > 1) (h : ∀ (a b : G), (a * b) ^ n = a ^ n * b ^ n) (a : G) (b : G) : (a * b * a⁻¹ * b⁻¹) ^ (n * (n - 1)) = 1 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n",
+                "name": "tm_name",
+                "FL (Prediction)": "theorem tm_name {G : Type*} [Group G] (n : ℕ) (h : 1 < n) (a b : G) : (a * b * a⁻¹ * b⁻¹)^(n * (n - 1)) = 1 := by sorry",
+                "hover_formal_statement": "theorem tm_name.{u_1} {G : Type u_1} [Group G] (n : ℕ) (h : 1 < n) (a b : G) : (a * b * a⁻¹ * b⁻¹) ^ (n * (n - 1)) = 1 := by sorry",
+                "reorganized_hover_formal_statement": "theorem tm_name.{u_1} {G : Type u_1} [Group G] (n : ℕ) (h : 1 < n) (a : G) (b : G) : (a * b * a⁻¹ * b⁻¹) ^ (n * (n - 1)) = 1 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $G$ be a group and $a, b \\in G$. Prove that $(a * b * a^{-1} * b^{-1})^{n(n-1)} = 1$ for all $n \\ge 2$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If a group $G$ has no proper subgroups, prove that $G$ is cyclic of order $p$, where $p$ is a prime number.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_3_16",
+        "FL (Label)": "theorem exercise_2_3_16 {G : Type*} [Group G]   (hG : ∀ H : Subgroup G, H = ⊤ ∨ H = ⊥) :   IsCyclic G ∧ ∃ (p : ℕ) (Fin : Fintype G), Nat.Prime p ∧ @card G Fin = p := by sorry",
+        "hover_formal_statement": "theorem exercise_2_3_16.{u_1} {G : Type u_1} [Group G] (hG : ∀ (H : Subgroup G), H = ⊤ ∨ H = ⊥) :  IsCyclic G ∧ ∃ p Fin, Nat.Prime p ∧ card G = p := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_3_16.{u_1} {G : Type u_1} [Group G] (hG : ∀ (H : Subgroup G), H = ⊤ ∨ H = ⊥) : IsCyclic G ∧ ∃ p Fin, Nat.Prime p ∧ card G = p := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Subgroup\n",
+                "name": "isCyclic_of_no_proper_subgroups",
+                "FL (Prediction)": "theorem isCyclic_of_no_proper_subgroups (G : Type*) [Group G] [Fintype G]     (hG : ∀ H : Subgroup G, H ≠ ⊤ → H.index ≠ 0) : IsCyclic G := by sorry",
+                "hover_formal_statement": "theorem isCyclic_of_no_proper_subgroups.{u_1} (G : Type u_1) [Group G] [Fintype G]  (hG : ∀ (H : Subgroup G), H ≠ ⊤ → H.index ≠ 0) : IsCyclic G := by sorry",
+                "reorganized_hover_formal_statement": "theorem isCyclic_of_no_proper_subgroups.{u_1} (G : Type u_1) [Group G] [Fintype G] (hG : ∀ (H : Subgroup G), H ≠ ⊤ → H.index ≠ 0) : IsCyclic G := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $G$ be a finite group. If $G$ has no nontrivial subgroup, prove that $G$ is cyclic.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $G$ be a finite group and $\\varphi$ an automorphism of $G$ such that $\\varphi(x) = x^{-1}$ for more than three-fourths of the elements of $G$. Prove that $\\varphi(y) = y^{-1}$ for all $y \\in G$, and so $G$ is abelian.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_5_52",
+        "FL (Label)": "theorem exercise_2_5_52 {G : Type*} [Group G] [Fintype G]   (φ : G ≃* G) {I : Finset G} (hI : ∀ x ∈ I, φ x = x⁻¹)   (hI1 : (0.75 : ℚ) * card G ≤ card I) :   ∀ x : G, φ x = x⁻¹ ∧ ∀ x y : G, x*y = y*x := by sorry",
+        "hover_formal_statement": "theorem exercise_2_5_52.{u_1} {G : Type u_1} [Group G] [Fintype G] (φ : G ≃* G) {I : Finset G} (hI : ∀ x ∈ I, φ x = x⁻¹)  (hI1 : 0.75 * ↑(card G) ≤ ↑(card { x // x ∈ I })) (x : G) : φ x = x⁻¹ ∧ ∀ (x y : G), x * y = y * x := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_5_52.{u_1} {G : Type u_1} [Group G] [Fintype G] (φ : G ≃* G) {I : Finset G} (hI : ∀ x ∈ I, φ x = x⁻¹) (hI1 : 0.75 * ↑(card G) ≤ ↑(card { x // x ∈ I })) (x : G) : φ x = x⁻¹ ∧ ∀ (x y : G), x * y = y * x := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Finset\n",
+                "name": "three_fourths_norm_extracting",
+                "FL (Prediction)": "theorem three_fourths_norm_extracting [Group G] [DecidableEq G] [Fintype G] {φ : G ≃* G} :  (3 / 4 : ℚ) * ↑(Fintype.card G) ≤ ↑(Finset.filter (fun x => φ x = x⁻¹) Finset.univ).card →  ∀ (y : G), φ y = y⁻¹ := by sorry",
+                "hover_formal_statement": "theorem three_fourths_norm_extracting.{u_1} {G : Type u_1} [Group G] [DecidableEq G] [Fintype G] {φ : G ≃* G} :  3 / 4 * ↑(Fintype.card G) ≤ ↑(#{x | φ x = x⁻¹}) → ∀ (y : G), φ y = y⁻¹ := by sorry",
+                "reorganized_hover_formal_statement": "theorem three_fourths_norm_extracting.{u_1} {G : Type u_1} [Group G] [DecidableEq G] [Fintype G] {φ : G ≃* G} : 3 / 4 * ↑(Fintype.card G) ≤ ↑(#{x | φ x = x⁻¹}) → ∀ (y : G), φ y = y⁻¹ := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $G$ be a finite group and $\\phi$ an automorphism of $G$. Prove that if $\\frac{3}{4}$ of the elements of $G$ are fixed by $\\phi$, then $\\phi$ is the identity map.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $\\varphi$ is a homomorphism of $G$ onto $G'$ and $N \\triangleleft G$, show that $\\varphi(N) \\triangleleft G'$.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_7_7",
+        "FL (Label)": "theorem exercise_2_7_7 {G : Type*} [Group G] {G' : Type*} [Group G']   (φ : G →* G') (N : Subgroup G) [N.Normal] :   (Subgroup.map φ N).Normal := by sorry",
+        "hover_formal_statement": "theorem exercise_2_7_7.{u_1, u_2} {G : Type u_1} [Group G] {G' : Type u_2} [Group G'] (φ : G →* G') (N : Subgroup G)  [N.Normal] : (Subgroup.map φ N).Normal := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_7_7.{u_1, u_2} {G : Type u_1} [Group G] {G' : Type u_2} [Group G'] (φ : G →* G') (N : Subgroup G) [N.Normal] : (Subgroup.map φ N).Normal := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n\n",
+                "name": "image_normal_extracted",
+                "FL (Prediction)": "theorem image_normal_extracted [Group G] [Group G'] {φ : G →* G'} :  Function.Surjective ⇑φ → ∀ {N : Subgroup G}, N.Normal → (Subgroup.map φ N).Normal := by sorry",
+                "hover_formal_statement": "theorem image_normal_extracted.{u_1, u_2} {G : Type u_1} {G' : Type u_2} [Group G] [Group G'] {φ : G →* G'} :  Function.Surjective ⇑φ → ∀ {N : Subgroup G}, N.Normal → (Subgroup.map φ N).Normal := by sorry",
+                "reorganized_hover_formal_statement": "theorem image_normal_extracted.{u_1, u_2} {G : Type u_1} {G' : Type u_2} [Group G] [Group G'] {φ : G →* G'} : Function.Surjective ⇑φ → ∀ {N : Subgroup G}, N.Normal → (Subgroup.map φ N).Normal := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $G$ be a group and $N$ be a normal subgroup of $G$. Prove that if $\\phi: G \\rightarrow G'$ is a surjective homomorphism, then $\\phi(N)$ is a normal subgroup of $G'$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $A$ be a normal subgroup of a group $G$, and suppose that $b \\in G$ is an element of prime order $p$, and that $b \\not\\in A$. Show that $A \\cap (b) = (e)$.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_10_1",
+        "FL (Label)": "theorem exercise_2_10_1 {G : Type*} [Group G] (A : Subgroup G)   [A.Normal] {b : G} (hp : Nat.Prime (orderOf b)) :   A ⊓ (Subgroup.closure {b}) = ⊥ := by sorry",
+        "hover_formal_statement": "theorem exercise_2_10_1.{u_1} {G : Type u_1} [Group G] (A : Subgroup G) [A.Normal] {b : G} (hp : Nat.Prime (orderOf b)) :  A ⊓ Subgroup.closure {b} = ⊥ := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_10_1.{u_1} {G : Type u_1} [Group G] (A : Subgroup G) [A.Normal] {b : G} (hp : Nat.Prime (orderOf b)) : A ⊓ Subgroup.closure {b} = ⊥ := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen MulAction Subgroup\nopen Pointwise\n",
+                "name": "normal_intersect_singleton_of_prime_extracted",
+                "FL (Prediction)": "theorem normal_intersect_singleton_of_prime_extracted [Group G] {A : Subgroup G} [A.Normal] {b : G} {p : ℕ} :  Nat.Prime p → orderOf b = p → b ∉ A → A ⊓ Subgroup.zpowers b = ⊥ := by sorry",
+                "hover_formal_statement": "theorem normal_intersect_singleton_of_prime_extracted.{u_1} {G : Type u_1} [Group G] {A : Subgroup G} [A.Normal] {b : G}  {p : ℕ} : Nat.Prime p → orderOf b = p → b ∉ A → A ⊓ zpowers b = ⊥ := by sorry",
+                "reorganized_hover_formal_statement": "theorem normal_intersect_singleton_of_prime_extracted.{u_1} {G : Type u_1} [Group G] {A : Subgroup G} [A.Normal] {b : G} {p : ℕ} : Nat.Prime p → orderOf b = p → b ∉ A → A ⊓ zpowers b = ⊥ := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $G$ be a group and $A$ a normal subgroup of $G$. If $p$ is a prime number and $b \\in G$ has order $p$, then $A \\cap \\langle b \\rangle = 1$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $\\sigma, \\tau$ are two permutations that disturb no common element and $\\sigma \\tau = e$, prove that $\\sigma = \\tau = e$.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_3_2_21",
+        "FL (Label)": "theorem exercise_3_2_21 {α : Type*} [Fintype α] {σ τ: Equiv.Perm α}   (h1 : ∀ a : α, σ a = a ↔ τ a ≠ a) (h2 : τ ∘ σ = id) :   σ = 1 ∧ τ = 1 := by sorry",
+        "hover_formal_statement": "theorem exercise_3_2_21.{u_1} {α : Type u_1} [Fintype α] {σ τ : Equiv.Perm α} (h1 : ∀ (a : α), σ a = a ↔ τ a ≠ a)  (h2 : ⇑τ ∘ ⇑σ = id) : σ = 1 ∧ τ = 1 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_3_2_21.{u_1} {α : Type u_1} [Fintype α] {σ τ : Equiv.Perm α} (h1 : ∀ (a : α), σ a = a ↔ τ a ≠ a) (h2 : ⇑τ ∘ ⇑σ = id) : σ = 1 ∧ τ = 1 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Equiv Finset\nopen scoped List in\n",
+                "name": "eq_nil_of_mul_eq_one",
+                "FL (Prediction)": "theorem eq_nil_of_mul_eq_one {α : Type u_1} {σ τ : Perm α} (hστ : σ * τ = 1) (h : {x | σ x ≠ x} = ∅) :     σ = 1 ∧ τ = 1 := by sorry",
+                "hover_formal_statement": "theorem eq_nil_of_mul_eq_one.{u_1} {α : Type u_1} {σ τ : Perm α} (hστ : σ * τ = 1) (h : {x | σ x ≠ x} = ∅) : σ = 1 ∧ τ = 1 := by sorry",
+                "reorganized_hover_formal_statement": "theorem eq_nil_of_mul_eq_one.{u_1} {α : Type u_1} {σ τ : Perm α} (hστ : σ * τ = 1) (h : {x | σ x ≠ x} = ∅) : σ = 1 ∧ τ = 1 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $\\sigma, \\tau \\in S_n$. If $\\sigma \\tau = 1$ and the set $\\{x | \\sigma x \\neq x\\} = \\emptyset$, prove that $\\sigma = 1$ and $\\tau = 1$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $a^2 = 0$ in $R$, show that $ax + xa$ commutes with $a$.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_2_6",
+        "FL (Label)": "theorem exercise_4_2_6 {R : Type*} [Ring R] (a x : R)   (h : a ^ 2 = 0) : a * (a * x + x * a) = (x + x * a) * a := by sorry",
+        "hover_formal_statement": "theorem exercise_4_2_6.{u_1} {R : Type u_1} [Ring R] (a x : R) (h : a ^ 2 = 0) : a * (a * x + x * a) = (x + x * a) * a := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_2_6.{u_1} {R : Type u_1} [Ring R] (a : R) (x : R) (h : a ^ 2 = 0) : a * (a * x + x * a) = (x + x * a) * a := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Function\n",
+                "name": "commute_add_self_of_square_zero",
+                "FL (Prediction)": "theorem commute_add_self_of_square_zero {R : Type*} [NonUnitalNonAssocRing R] {a : R} (ha : a * a = 0) (x : R) : Commute (a * x + x * a) a := by sorry",
+                "hover_formal_statement": "theorem commute_add_self_of_square_zero.{u_1} {R : Type u_1} [NonUnitalNonAssocRing R] {a : R} (ha : a * a = 0) (x : R) :  Commute (a * x + x * a) a := by sorry",
+                "reorganized_hover_formal_statement": "theorem commute_add_self_of_square_zero.{u_1} {R : Type u_1} [NonUnitalNonAssocRing R] {a : R} (ha : a * a = 0) (x : R) : Commute (a * x + x * a) a := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $R$ be a nonunital, nonassociative ring. Let $a$ be an element of $R$ such that $a^2 = 0$. Prove that $a$ commutes with every element in $R$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that $f(x) = x^3 + 3x + 2$ is irreducible in $Q[x]$.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_6_2",
+        "FL (Label)": "theorem exercise_4_6_2 : Irreducible (X^3 + 3*X + 2 : Polynomial ℚ) := by sorry",
+        "hover_formal_statement": "theorem exercise_4_6_2 : Irreducible (X ^ 3 + 3 * X + 2) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_6_2 : Irreducible (X ^ 3 + 3 * X + 2) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Polynomial\nopen Polynomial\n",
+                "name": "my_favorite_theorem",
+                "FL (Prediction)": "theorem my_favorite_theorem : Irreducible (X ^ 3 + 3 * X + 2 : ℚ[X]) := by sorry",
+                "hover_formal_statement": "theorem my_favorite_theorem : Irreducible (X ^ 3 + 3 * X + 2) := by sorry",
+                "reorganized_hover_formal_statement": "theorem my_favorite_theorem : Irreducible (X ^ 3 + 3 * X + 2) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that $x^3 + 3x + 2$ is irreducible over $\\mathbb{Q}$.",
+                "label --> predict | verified_code": "import Mathlib\n\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\nopen Polynomial\nopen Polynomial\ntheorem tm_nameP : Irreducible (X^3 + 3*X + 2 : Polynomial ℚ) := by sorry\ntheorem tm_nameQ : Irreducible (X ^ 3 + 3 * X + 2 : ℚ[X]) := by exact?",
+                "label --> predict | proof_content": "exact?",
+                "predict --> label | verified_code": "import Mathlib\n\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\nopen Polynomial\nopen Polynomial\ntheorem tm_nameP : Irreducible (X ^ 3 + 3 * X + 2 : ℚ[X]) := by sorry\ntheorem tm_nameQ : Irreducible (X^3 + 3*X + 2 : Polynomial ℚ) := by exact?",
+                "predict --> label | proof_content": "exact?",
+                "beq": "same"
+            }
+        ]
+    },
+    {
+        "NL": "If $F$ is a field of characteristic $p \\neq 0$, show that $(a + b)^m = a^m + b^m$, where $m = p^n$, for all $a, b \\in F$ and any positive integer $n$.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_5_1_8",
+        "FL (Label)": "theorem exercise_5_1_8 {p m n: ℕ} {F : Type*} [Field F]   (hp : Nat.Prime p) (hF : CharP F p) (a b : F) (hm : m = p ^ n) :   (a + b) ^ m = a^m + b^m := by sorry",
+        "hover_formal_statement": "theorem exercise_5_1_8.{u_1} {p m n : ℕ} {F : Type u_1} [Field F] (hp : Nat.Prime p) (hF : CharP F p) (a b : F)  (hm : m = p ^ n) : (a + b) ^ m = a ^ m + b ^ m := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_5_1_8.{u_1} {p m n : ℕ} {F : Type u_1} [Field F] (hp : Nat.Prime p) (hF : CharP F p) (a : F) (b : F) (hm : m = p ^ n) : (a + b) ^ m = a ^ m + b ^ m := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Finset\nopen scoped Polynomial\nopen Polynomial\nopen Polynomial\nopen Polynomial\n",
+                "name": "add_pow_eq_add_pow_mod_mul_pow_add_pow_div",
+                "FL (Prediction)": "theorem add_pow_eq_add_pow_mod_mul_pow_add_pow_div {F : Type*} [Field F] (p : ℕ) [Fact (CharP F p)]     (n : ℕ) (m : ℕ) (a b : F) : (a + b) ^ m = a ^ (m % p ^ n) * b ^ (m / p ^ n) := by sorry",
+                "hover_formal_statement": "theorem add_pow_eq_add_pow_mod_mul_pow_add_pow_div.{u_1} {R : Type u_1} [CommSemiring R] (x y : R) (p n : ℕ)  [hp : Fact (Nat.Prime p)] [CharP R p] : (x + y) ^ n = (x + y) ^ (n % p) * (x ^ p + y ^ p) ^ (n / p) := by sorry",
+                "reorganized_hover_formal_statement": "theorem add_pow_eq_add_pow_mod_mul_pow_add_pow_div.{u_1} {R : Type u_1} [CommSemiring R] (x : R) (y : R) (p : ℕ) (n : ℕ) [hp : Fact (Nat.Prime p)] [CharP R p] : (x + y) ^ n = (x + y) ^ (n % p) * (x ^ p + y ^ p) ^ (n / p) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that $(a+b)^m = a^{m \\mod p^n} b^{m/p^n}$ in a field of characteristic $p$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $a \\in K$ is such that $a^2$ is algebraic over the subfield $F$ of $K$, show that a is algebraic over $F$.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_5_3_7",
+        "FL (Label)": "theorem exercise_5_3_7 {K : Type*} [Field K] {F : Subfield K}   {a : K} (ha : IsAlgebraic F (a ^ 2)) : IsAlgebraic F a := by sorry",
+        "hover_formal_statement": "theorem exercise_5_3_7.{u_1} {K : Type u_1} [Field K] {F : Subfield K} {a : K} (ha : IsAlgebraic (↥F) (a ^ 2)) :  IsAlgebraic (↥F) a := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_5_3_7.{u_1} {K : Type u_1} [Field K] {F : Subfield K} {a : K} (ha : IsAlgebraic (↥F) (a ^ 2)) : IsAlgebraic (↥F) a := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen FiniteDimensional Polynomial\nopen Lean in\nopen Lean PrettyPrinter.Delaborator SubExpr in\nopen Set CompleteLattice\nopen FiniteDimensional Module\n",
+                "name": "of_pow_tac_31505",
+                "FL (Prediction)": "theorem of_pow_tac_31505 (F : Type u_1) [Field F] [Field K] [Algebra F K] (a : K) (h : IsAlgebraic F (a ^ 2)) : IsAlgebraic F a := by sorry",
+                "hover_formal_statement": "theorem of_pow_tac_31505.{u_1, u_2} {K : Type u_2} (F : Type u_1) [Field F] [Field K] [Algebra F K] (a : K)  (h : IsAlgebraic F (a ^ 2)) : IsAlgebraic F a := by sorry",
+                "reorganized_hover_formal_statement": "theorem of_pow_tac_31505.{u_1, u_2} {K : Type u_2} (F : Type u_1) [Field F] [Field K] [Algebra F K] (a : K) (h : IsAlgebraic F (a ^ 2)) : IsAlgebraic F a := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $F$ be a field and $a$ an element of an extension $K$ of $F$. If $a^2$ is algebraic over $F$, then $a$ is algebraic over $F$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $a \\in C$ is such that $p(a) = 0$, where $p(x) = x^5 + \\sqrt{2}x^3 + \\sqrt{5}x^2 + \\sqrt{7}x + \\sqrt{11}$, show that $a$ is algebraic over $\\mathbb{Q}$ of degree at most 80.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_5_4_3",
+        "FL (Label)": "theorem exercise_5_4_3 {a : ℂ} {p : ℂ → ℂ}   (hp : p = λ (x : ℂ) => x^5 + sqrt 2 * x^3 + sqrt 5 * x^2 + sqrt 7 * x + 11)   (ha : p a = 0) :   ∃ p : Polynomial ℂ , p.degree < 80 ∧ a ∈ p.roots ∧   ∀ n : p.support, ∃ a b : ℤ, p.coeff n = a / b := by sorry",
+        "hover_formal_statement": "theorem exercise_5_4_3 {a : ℂ} {p : ℂ → ℂ} (hp : p = fun x => x ^ 5 + ↑√2 * x ^ 3 + ↑√5 * x ^ 2 + ↑√7 * x + 11) (ha : p a = 0) :  ∃ p, p.degree < 80 ∧ a ∈ p.roots ∧ ∀ (n : { x // x ∈ p.support }), ∃ a b, p.coeff ↑n = ↑a / ↑b := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_5_4_3 {a : ℂ} {p : ℂ → ℂ} (hp : p = fun x => x ^ 5 + ↑√2 * x ^ 3 + ↑√5 * x ^ 2 + ↑√7 * x + 11) (ha : p a = 0) : ∃ p, p.degree < 80 ∧ a ∈ p.roots ∧ ∀ (n : { x // x ∈ p.support }), ∃ a b, p.coeff ↑n = ↑a / ↑b := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Polynomial Metric Set Real RingHom\nopen scoped Polynomial\n",
+                "name": "isAlgebraic_of_degree_le_80",
+                "FL (Prediction)": "theorem isAlgebraic_of_degree_le_80 {a : ℂ} (p : ℚ[X]) (hp : p ≠ 0) (ha : (aeval a) p = 0) :     p.natDegree ≤ 80 → IsAlgebraic ℚ a := by sorry",
+                "hover_formal_statement": "theorem isAlgebraic_of_degree_le_80 {a : ℂ} (p : ℚ[X]) (hp : p ≠ 0) (ha : (aeval a) p = 0) : p.natDegree ≤ 80 → IsAlgebraic ℚ a := by sorry",
+                "reorganized_hover_formal_statement": "theorem isAlgebraic_of_degree_le_80 {a : ℂ} (p : ℚ[X]) (hp : p ≠ 0) (ha : (aeval a) p = 0) : p.natDegree ≤ 80 → IsAlgebraic ℚ a := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $p(x)$ is a nonzero polynomial with rational coefficients and $a$ is a complex number such that $p(a) = 0$, then $a$ is algebraic over $\\mathbb{Q}$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $F$ is of characteristic $p \\neq 0$, show that all the roots of $x^m - x$, where $m = p^n$, are distinct.",
+        "header": "import Mathlib\n\nopen Fintype Set Real Ideal Polynomial\nopen scoped BigOperators\n\n",
+        "name": "exercise_5_6_14",
+        "FL (Label)": "theorem exercise_5_6_14 {p m n: ℕ} (hp : Nat.Prime p) {F : Type*}   [Field F] [CharP F p] (hm : m = p ^ n) :   card (rootSet (X ^ m - X : Polynomial F) F) = m := by sorry",
+        "hover_formal_statement": "theorem exercise_5_6_14.{u_1} {p m n : ℕ} (hp : Nat.Prime p) {F : Type u_1} [Field F] [CharP F p] (hm : m = p ^ n) :  card ↑((X ^ m - X).rootSet F) = m := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_5_6_14.{u_1} {p m n : ℕ} (hp : Nat.Prime p) {F : Type u_1} [Field F] [CharP F p] (hm : m = p ^ n) : card ↑((X ^ m - X).rootSet F) = m := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Polynomial\nopen Finset\n",
+                "name": "roots_pow_card_sub_pow",
+                "FL (Prediction)": "theorem roots_pow_card_sub_pow {F : Type*} [Field F] (p n : ℕ) [hp : NeZero p] [CharP F p] :     (X ^ (p^n) - X : F[X]).roots.Nodup := by sorry",
+                "hover_formal_statement": "theorem roots_pow_card_sub_pow.{u_1} {F : Type u_1} [Field F] (p n : ℕ) [hp : NeZero p] [CharP F p] :  (X ^ p ^ n - X).roots.Nodup := by sorry",
+                "reorganized_hover_formal_statement": "theorem roots_pow_card_sub_pow.{u_1} {F : Type u_1} [Field F] (p : ℕ) (n : ℕ) [hp : NeZero p] [CharP F p] : (X ^ p ^ n - X).roots.Nodup := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that the roots of $x^{p^n} - x$ are distinct in a field of characteristic $p$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Show that every subset of $\\mathbb{N}$ is clopen.",
+        "header": "import Mathlib\n\nopen Filter Real Function\nopen scoped Topology\n\n",
+        "name": "exercise_2_32a",
+        "FL (Label)": "theorem exercise_2_32a (A : Set ℕ) : IsClopen A := by sorry",
+        "hover_formal_statement": "theorem exercise_2_32a (A : Set ℕ) : IsClopen A := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_32a (A : Set ℕ) : IsClopen A := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Topology TopologicalSpace Set Filter Function\nopen Additive Multiplicative\n",
+                "name": "instTotallyDisconnectedSpaceNat",
+                "FL (Prediction)": "theorem instTotallyDisconnectedSpaceNat : TotallyDisconnectedSpace ℕ := by sorry",
+                "hover_formal_statement": "theorem instTotallyDisconnectedSpaceNat : TotallyDisconnectedSpace ℕ := by sorry",
+                "reorganized_hover_formal_statement": "theorem instTotallyDisconnectedSpaceNat : TotallyDisconnectedSpace ℕ := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that the natural numbers are totally disconnected.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Assume that $A, B$ are compact, disjoint, nonempty subsets of $M$. Prove that there are $a_0 \\in A$ and $b_0 \\in B$ such that for all $a \\in A$ and $b \\in B$ we have $d(a_0, b_0) \\leq d(a, b)$.",
+        "header": "import Mathlib\n\nopen Filter Real Function\nopen scoped Topology\n\n",
+        "name": "exercise_2_46",
+        "FL (Label)": "theorem exercise_2_46 {M : Type*} [MetricSpace M]   {A B : Set M} (hA : IsCompact A) (hB : IsCompact B)   (hAB : Disjoint A B) (hA₀ : A ≠ ∅) (hB₀ : B ≠ ∅) :   ∃ a₀ b₀, a₀ ∈ A ∧ b₀ ∈ B ∧ ∀ (a : M) (b : M),   a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b := by sorry",
+        "hover_formal_statement": "theorem exercise_2_46.{u_1} {M : Type u_1} [MetricSpace M] {A B : Set M} (hA : IsCompact A) (hB : IsCompact B)  (hAB : Disjoint A B) (hA₀ : A ≠ ∅) (hB₀ : B ≠ ∅) :  ∃ a₀ b₀, a₀ ∈ A ∧ b₀ ∈ B ∧ ∀ (a b : M), a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_46.{u_1} {M : Type u_1} [MetricSpace M] {A B : Set M} (hA : IsCompact A) (hB : IsCompact B) (hAB : Disjoint A B) (hA₀ : A ≠ ∅) (hB₀ : B ≠ ∅) : ∃ a₀ b₀, a₀ ∈ A ∧ b₀ ∈ B ∧ ∀ (a b : M), a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Filter TopologicalSpace Bornology\nopen scoped ENNReal NNReal Uniformity Topology\nopen Lean Meta Qq Function\nopen Metric\n",
+                "name": "exists_dist_le_of_compact_disjoint_nonempty",
+                "FL (Prediction)": "theorem exists_dist_le_of_compact_disjoint_nonempty {M : Type*} [MetricSpace M] {A B : Set M} (hA : IsCompact A)     (hB : IsCompact B) (hA' : A.Nonempty) (hB' : B.Nonempty) (h : Disjoint A B) :     ∃ a₀ ∈ A, ∃ b₀ ∈ B, ∀ a ∈ A, ∀ b ∈ B, dist a₀ b₀ ≤ dist a b := by sorry",
+                "hover_formal_statement": "theorem exists_dist_le_of_compact_disjoint_nonempty.{u_1} {M : Type u_1} [MetricSpace M] {A B : Set M} (hA : IsCompact A)  (hB : IsCompact B) (hA' : A.Nonempty) (hB' : B.Nonempty) (h : Disjoint A B) :  ∃ a₀ ∈ A, ∃ b₀ ∈ B, ∀ a ∈ A, ∀ b ∈ B, dist a₀ b₀ ≤ dist a b := by sorry",
+                "reorganized_hover_formal_statement": "theorem exists_dist_le_of_compact_disjoint_nonempty.{u_1} {M : Type u_1} [MetricSpace M] {A B : Set M} (hA : IsCompact A) (hB : IsCompact B) (hA' : A.Nonempty) (hB' : B.Nonempty) (h : Disjoint A B) : ∃ a₀ ∈ A, ∃ b₀ ∈ B, ∀ a ∈ A, ∀ b ∈ B, dist a₀ b₀ ≤ dist a b := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $A$ and $B$ be two nonempty compact sets in a metric space. Prove that there exist $a_0\\in A$ and $b_0\\in B$ such that $d(a_0, b_0) \\leq d(a, b)$ for all $a\\in A$ and $b\\in B$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Assume that $f \\colon \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfies $|f(t)-f(x)| \\leq|t-x|^{2}$ for all $t, x$. Prove that $f$ is constant.",
+        "header": "import Mathlib\n\nopen Filter Real Function\nopen scoped Topology\n\n",
+        "name": "exercise_3_1",
+        "FL (Label)": "theorem exercise_3_1 {f : ℝ → ℝ}   (hf : ∀ x y, |f x - f y| ≤ |x - y| ^ 2) :   ∃ c, f = λ x => c := by sorry",
+        "hover_formal_statement": "theorem exercise_3_1 {f : ℝ → ℝ} (hf : ∀ (x y : ℝ), |f x - f y| ≤ |x - y| ^ 2) : ∃ c, f = fun x => c := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_3_1 {f : ℝ → ℝ} (hf : ∀ (x y : ℝ), |f x - f y| ≤ |x - y| ^ 2) : ∃ c, f = fun x => c := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Finset Set\nopen scoped Topology\n",
+                "name": "is_const_of_le_sq",
+                "FL (Prediction)": "theorem is_const_of_le_sq {f : ℝ → ℝ} (h : ∀ t x : ℝ, |f t - f x| ≤ |t - x| ^ 2) :     ∃ c, ∀ x : ℝ, f x = c := by sorry",
+                "hover_formal_statement": "theorem is_const_of_le_sq {f : ℝ → ℝ} (h : ∀ (t x : ℝ), |f t - f x| ≤ |t - x| ^ 2) : ∃ c, ∀ (x : ℝ), f x = c := by sorry",
+                "reorganized_hover_formal_statement": "theorem is_const_of_le_sq {f : ℝ → ℝ} (h : ∀ (t x : ℝ), |f t - f x| ≤ |t - x| ^ 2) : ∃ c, ∀ (x : ℝ), f x = c := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a real-valued function such that for all real numbers $t$ and $x$, we have $|f(t) - f(x)| \\leq |t - x|^2$. Prove that $f$ is a constant function.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "A continuous, strictly increasing function $\\mu \\colon (0, \\infty) \\rightarrow (0, \\infty)$ is a modulus of continuity if $\\mu(s) \\rightarrow 0$ as $s \\rightarrow 0$. A function $f \\colon [a, b] \\rightarrow \\mathbb{R}$ has modulus of continuity $\\mu$ if $|f(s) - f(t)| \\leq \\mu(|s - t|)$ for all $s, t \\in [a, b]$. Prove that a function is uniformly continuous if and only if it has a modulus of continuity.",
+        "header": "import Mathlib\n\nopen Filter Real Function\nopen scoped Topology\n\n",
+        "name": "exercise_4_15a",
+        "FL (Label)": "theorem exercise_4_15a {α : Type*}   (a b : ℝ) (F : Set (ℝ → ℝ)) :   (∀ x : ℝ, ∀ ε > 0, ∃ U ∈ (𝓝 x),   (∀ y z : U, ∀ f : ℝ → ℝ, f ∈ F → (dist (f y) (f z) < ε)))   ↔   ∃ (μ : ℝ → ℝ), ∀ (x : ℝ), (0 : ℝ) ≤ μ x ∧ Tendsto μ (𝓝 0) (𝓝 0) ∧   (∀ (s t : ℝ) (f : ℝ → ℝ), f ∈ F → |(f s) - (f t)| ≤ μ (|s - t|)) := by sorry",
+        "hover_formal_statement": "theorem exercise_4_15a.{u_1} {α : Type u_1} (a b : ℝ) (F : Set (ℝ → ℝ)) : (∀ (x ε : ℝ), ε > 0 → ∃ U ∈ 𝓝 x, ∀ (y z : ↑U), ∀ f ∈ F, dist (f ↑y) (f ↑z) < ε) ↔ ∃ μ, ∀ (x : ℝ), 0 ≤ μ x ∧ Tendsto μ (𝓝 0) (𝓝 0) ∧ ∀ (s t : ℝ), ∀ f ∈ F, |f s - f t| ≤ μ |s - t| := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_15a.{u_1} {α : Type u_1} (a b : ℝ) (F : Set (ℝ → ℝ)) : (∀ (x ε : ℝ), ε > 0 → ∃ U ∈ 𝓝 x, ∀ (y z : ↑U), ∀ f ∈ F, dist (f ↑y) (f ↑z) < ε) ↔ ∃ μ, ∀ (x : ℝ), 0 ≤ μ x ∧ Tendsto μ (𝓝 0) (𝓝 0) ∧ ∀ (s t : ℝ), ∀ f ∈ F, |f s - f t| ≤ μ |s - t| := by sorry",
+        "sub_questions": [
+            {
+                "header": "",
+                "name": "tm_name",
+                "FL (Prediction)": "theorem tm_name {f : ℝ → ℝ} {a b : ℝ} :     UniformContinuousOn f (Icc a b) ↔ ∃ μ : ℝ → ℝ,       ContinuousOn μ (Icc 0 (b - a)) ∧         StrictMonoOn μ (Ioi 0) ∧           ∀ s t, s ∈ Icc a b → t ∈ Icc a b → |f s - f t| ≤ μ |s - t| := by sorry",
+                "hover_formal_statement": "theorem tm_name {f : ℝ → ℝ} {a b : ℝ} : UniformContinuousOn f (Icc a b) ↔ ∃ μ, ContinuousOn μ (Icc 0 (b - a)) ∧ StrictMonoOn μ (Ioi 0) ∧ ∀ (s t : ℝ), s ∈ Icc a b → t ∈ Icc a b → |f s - f t| ≤ μ |s - t| := by sorry",
+                "reorganized_hover_formal_statement": "theorem tm_name {f : ℝ → ℝ} {a b : ℝ} : UniformContinuousOn f (Icc a b) ↔ ∃ μ, ContinuousOn μ (Icc 0 (b - a)) ∧ StrictMonoOn μ (Ioi 0) ∧ ∀ (s t : ℝ), s ∈ Icc a b → t ∈ Icc a b → |f s - f t| ≤ μ |s - t| := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $f$ is a real-valued function on the interval $[a,b]$, then $f$ is uniformly continuous if and only if there exists a continuous function $\\mu: [0, b-a] \\to \\mathbb{R}$ such that $\\mu$ is strictly increasing on $(0, b-a)$ and $|f(s) - f(t)| \\leq \\mu(|s-t|)$ for all $s, t \\in [a,b]$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that the products $a b$ and $b a$ are conjugate elements in a group.",
+        "header": "import Mathlib\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_3_2",
+        "FL (Label)": "theorem exercise_2_3_2 {G : Type*} [Group G] (a b : G) :     ∃ g : G, b* a = g * a * b * g⁻¹ := by sorry",
+        "hover_formal_statement": "theorem exercise_2_3_2.{u_1} {G : Type u_1} [Group G] (a b : G) : ∃ g, b * a = g * a * b * g⁻¹ := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_3_2.{u_1} {G : Type u_1} [Group G] (a : G) (b : G) : ∃ g, b * a = g * a * b * g⁻¹ := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n\n",
+                "name": "isConj_mul_comm",
+                "FL (Prediction)": "theorem isConj_mul_comm (a b : G) [Group G] : IsConj (a * b) (b * a) := by sorry",
+                "hover_formal_statement": "theorem isConj_mul_comm.{u_1} {G : Type u_1} (a b : G) [Group G] : IsConj (a * b) (b * a) := by sorry",
+                "reorganized_hover_formal_statement": "theorem isConj_mul_comm.{u_1} {G : Type u_1} (a : G) (b : G) [Group G] : IsConj (a * b) (b * a) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that $ab$ is conjugate to $ba$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that the center of the product of two groups is the product of their centers.",
+        "header": "import Mathlib\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\n\n--center of (G × H) equivalent, preserves multiplication with (center G) × (center H)\n",
+        "name": "exercise_2_8_6",
+        "FL (Label)": "theorem exercise_2_8_6 {G H : Type*} [Group G] [Group H] :     center (G × H) ≃* (center G) × (center H) := by sorry",
+        "hover_formal_statement": "theorem exercise_2_8_6 : {G : Type u_1} →  {H : Type u_2} → [inst : Group G] → [inst_1 : Group H] → ↥(center (G × H)) ≃* ↥(center G) × ↥(center H) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_8_6 : {G : Type u_1} → {H : Type u_2} → [inst : Group G] → [inst_1 : Group H] → ↥(center (G × H)) ≃* ↥(center G) × ↥(center H) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n\n",
+                "name": "center_prod",
+                "FL (Prediction)": "theorem center_prod {G H : Type*} [Group G] [Group H] :   Subgroup.center (G × H) = (Subgroup.center G).prod (Subgroup.center H) := by sorry",
+                "hover_formal_statement": "theorem center_prod.{u_1, u_2} {G : Type u_1} {H : Type u_2} [Group G] [Group H] :  Subgroup.center (G × H) = (Subgroup.center G).prod (Subgroup.center H) := by sorry",
+                "reorganized_hover_formal_statement": "theorem center_prod.{u_1, u_2} {G : Type u_1} {H : Type u_2} [Group G] [Group H] : Subgroup.center (G × H) = (Subgroup.center G).prod (Subgroup.center H) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that the center of the product of two groups is the product of the centers.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "An element $x$ of a ring $R$ is called nilpotent if some power of $x$ is zero. Prove that if $x$ is nilpotent, then $1+x$ is a unit in $R$.",
+        "header": "import Mathlib\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\n\n",
+        "name": "exercise_10_1_13",
+        "FL (Label)": "theorem exercise_10_1_13 {R : Type*} [Ring R] {x : R}   (hx : IsNilpotent x) : IsUnit (1 + x) := by sorry",
+        "hover_formal_statement": "theorem exercise_10_1_13.{u_1} {R : Type u_1} [Ring R] {x : R} (hx : IsNilpotent x) : IsUnit (1 + x) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_10_1_13.{u_1} {R : Type u_1} [Ring R] {x : R} (hx : IsNilpotent x) : IsUnit (1 + x) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n\n",
+                "name": "isUnit_one_add_of_isNilpotent",
+                "FL (Prediction)": "theorem isUnit_one_add_of_isNilpotent (x : R) [Ring R] (hx : IsNilpotent x) : IsUnit (1 + x) := by sorry",
+                "hover_formal_statement": "theorem isUnit_one_add_of_isNilpotent.{u_1} {R : Type u_1} (x : R) [Ring R] (hx : IsNilpotent x) : IsUnit (1 + x) := by sorry",
+                "reorganized_hover_formal_statement": "theorem isUnit_one_add_of_isNilpotent.{u_1} {R : Type u_1} (x : R) [Ring R] (hx : IsNilpotent x) : IsUnit (1 + x) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $R$ be a ring and $x\\in R$ be a nilpotent element. Prove that $1+x$ is a unit in $R$.",
+                "label --> predict | verified_code": "import Mathlib\n\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\ntheorem tm_nameP {R : Type*} [Ring R] {x : R}   (hx : IsNilpotent x) : IsUnit (1 + x) := by sorry\ntheorem tm_nameQ (x : R) [Ring R] (hx : IsNilpotent x) : IsUnit (1 + x) := by exact?",
+                "label --> predict | proof_content": "exact?",
+                "predict --> label | verified_code": "import Mathlib\n\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\ntheorem tm_nameP (x : R) [Ring R] (hx : IsNilpotent x) : IsUnit (1 + x) := by sorry\ntheorem tm_nameQ {R : Type*} [Ring R] {x : R}   (hx : IsNilpotent x) : IsUnit (1 + x) := by exact?",
+                "predict --> label | proof_content": "exact?",
+                "beq": "same"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that every nonzero ideal in the ring of Gauss integers contains a nonzero integer.",
+        "header": "import Mathlib\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\n\n",
+        "name": "exercise_10_6_7",
+        "FL (Label)": "theorem exercise_10_6_7 {I : Ideal GaussianInt}   (hI : I ≠ ⊥) : ∃ (z : I), z ≠ 0 ∧ (z : GaussianInt).im = 0 := by sorry",
+        "hover_formal_statement": "theorem exercise_10_6_7 {I : Ideal GaussianInt} (hI : I ≠ ⊥) : ∃ z, z ≠ 0 ∧ (↑z).im = 0 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_10_6_7 {I : Ideal GaussianInt} (hI : I ≠ ⊥) : ∃ z, z ≠ 0 ∧ (↑z).im = 0 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Nat\nopen Int\nopen Multiplicative\n",
+                "name": "contains_nonzero_integer_of_nonzero_ideal",
+                "FL (Prediction)": "theorem contains_nonzero_integer_of_nonzero_ideal (I : Ideal ℤ) (hI : I ≠ 0) : ∃ x ∈ I, x ≠ 0 := by sorry",
+                "hover_formal_statement": "theorem contains_nonzero_integer_of_nonzero_ideal (I : Ideal ℤ) (hI : I ≠ 0) : ∃ x ∈ I, x ≠ 0 := by sorry",
+                "reorganized_hover_formal_statement": "theorem contains_nonzero_integer_of_nonzero_ideal (I : Ideal ℤ) (hI : I ≠ 0) : ∃ x ∈ I, x ≠ 0 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that for any nonzero ideal $I$ of $\\mathbb{Z}$, there exists a nonzero element in $I$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $I, J$ be ideals of a ring $R$ such that $I+J=R$. Prove that $I J=I \\cap J$.",
+        "header": "import Mathlib\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\n\n",
+        "name": "exercise_10_4_7a",
+        "FL (Label)": "theorem exercise_10_4_7a {R : Type*} [CommRing R] [NoZeroDivisors R]   (I J : Ideal R) (hIJ : I + J = ⊤) : I * J = I ⊓ J := by sorry",
+        "hover_formal_statement": "theorem exercise_10_4_7a.{u_1} {R : Type u_1} [CommRing R] [NoZeroDivisors R] (I J : Ideal R) (hIJ : I + J = ⊤) : I * J = I ⊓ J := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_10_4_7a.{u_1} {R : Type u_1} [CommRing R] [NoZeroDivisors R] (I : Ideal R) (J : Ideal R) (hIJ : I + J = ⊤) : I * J = I ⊓ J := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Pointwise\nopen Pointwise\nopen Pointwise in\n",
+                "name": "mul_eq_inf_of_coprime",
+                "FL (Prediction)": "theorem mul_eq_inf_of_coprime {R : Type*} [CommSemiring R] {I J : Ideal R} (h : I + J = ⊤) :     I * J = I ⊓ J := by sorry",
+                "hover_formal_statement": "theorem mul_eq_inf_of_coprime.{u_1} {R : Type u_1} [CommSemiring R] {I J : Ideal R} (h : I + J = ⊤) : I * J = I ⊓ J := by sorry",
+                "reorganized_hover_formal_statement": "theorem mul_eq_inf_of_coprime.{u_1} {R : Type u_1} [CommSemiring R] {I J : Ideal R} (h : I + J = ⊤) : I * J = I ⊓ J := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $R$ be a commutative semiring and $I, J$ be ideals. If $I + J = R$, prove that $IJ = I \\cap J$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $a, b$ are integers and if $a$ divides $b$ in the ring of Gauss integers, then $a$ divides $b$ in $\\mathbb{Z}$.",
+        "header": "import Mathlib\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\n\n",
+        "name": "exercise_11_2_13",
+        "FL (Label)": "theorem exercise_11_2_13 (a b : ℤ) :   (ofInt a : GaussianInt) ∣ ofInt b → a ∣ b := by sorry",
+        "hover_formal_statement": "theorem exercise_11_2_13 (a b : ℤ) : ofInt a ∣ ofInt b → a ∣ b := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_11_2_13 (a : ℤ) (b : ℤ) : ofInt a ∣ ofInt b → a ∣ b := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Nat\nopen Multiplicative\n",
+                "name": "of_dvd_gcd_ext",
+                "FL (Prediction)": "theorem of_dvd_gcd_ext {a b : ℤ} : ↑a ∣ ↑b → a ∣ b := by sorry",
+                "hover_formal_statement": "theorem of_dvd_gcd_ext {a b : ℤ} : a ∣ b → a ∣ b := by sorry",
+                "reorganized_hover_formal_statement": "theorem of_dvd_gcd_ext {a b : ℤ} : a ∣ b → a ∣ b := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "If $a$ divides $b$ in the integers, then $a$ divides $b$ in the integers.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that $x^2+x+1$ is irreducible in the field $\\mathbb{F}_2$.",
+        "header": "import Mathlib\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\n\n",
+        "name": "exercise_11_4_6a",
+        "FL (Label)": "theorem exercise_11_4_6a {F : Type*} [Field F] [Fintype F] (hF : card F = 7) :   Irreducible (X ^ 2 + 1 : Polynomial F) := by sorry",
+        "hover_formal_statement": "theorem exercise_11_4_6a.{u_1} {F : Type u_1} [Field F] [Fintype F] (hF : card F = 7) : Irreducible (X ^ 2 + 1) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_11_4_6a.{u_1} {F : Type u_1} [Field F] [Fintype F] (hF : card F = 7) : Irreducible (X ^ 2 + 1) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Polynomial\nopen Finset\nopen Polynomial\n",
+                "name": "X_sq_add_X_add_one_irreducible_two",
+                "FL (Prediction)": "theorem X_sq_add_X_add_one_irreducible_two : Irreducible (X ^ 2 + X + 1 : Polynomial (ZMod 2)) := by sorry",
+                "hover_formal_statement": "theorem X_sq_add_X_add_one_irreducible_two : Irreducible (X ^ 2 + X + 1) := by sorry",
+                "reorganized_hover_formal_statement": "theorem X_sq_add_X_add_one_irreducible_two : Irreducible (X ^ 2 + X + 1) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that $x^2 + x + 1$ is irreducible over $\\mathbb{F}_2$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $K$ be a finite field. Prove that the product of the nonzero elements of $K$ is $-1$.",
+        "header": "import Mathlib\n\nopen Function Fintype Subgroup Ideal Polynomial Submodule Zsqrtd\nopen scoped BigOperators\n\n",
+        "name": "exercise_13_6_10",
+        "FL (Label)": "theorem exercise_13_6_10 {K : Type*} [Field K] [Fintype Kˣ] :   (∏ x : Kˣ,  x) = -1 := by sorry",
+        "hover_formal_statement": "theorem exercise_13_6_10.{u_1} {K : Type u_1} [Field K] [Fintype Kˣ] : ∏ x, x = -1 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_13_6_10.{u_1} {K : Type u_1} [Field K] [Fintype Kˣ] : ∏ x, x = -1 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Finset\nopen scoped Polynomial\nopen Polynomial\n",
+                "name": "prod_univ_eq_neg_one",
+                "FL (Prediction)": "theorem prod_univ_eq_neg_one {K : Type*} [Field K] [Fintype K] :     ∏ x : K, x = -1 := by sorry",
+                "hover_formal_statement": "theorem prod_univ_eq_neg_one.{u_1} {K : Type u_1} [Field K] [Fintype K] : ∏ x, x = -1 := by sorry",
+                "reorganized_hover_formal_statement": "theorem prod_univ_eq_neg_one.{u_1} {K : Type u_1} [Field K] [Fintype K] : ∏ x, x = -1 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that the product of all elements in a finite field $K$ is $-1$ if the number of elements is odd.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that if $a \\in \\mathbf{F}$, $v \\in V$, and $av = 0$, then $a = 0$ or $v = 0$.",
+        "header": "import Mathlib\n\nopen Fintype Complex Polynomial LinearMap FiniteDimensional Module Module.End\nopen scoped BigOperators\n\n",
+        "name": "exercise_1_4",
+        "FL (Label)": "theorem exercise_1_4 {F V : Type*} [AddCommGroup V] [Field F]   [Module F V] (v : V) (a : F): a • v = 0 ↔ a = 0 ∨ v = 0 := by sorry",
+        "hover_formal_statement": "theorem exercise_1_4.{u_1, u_2} {F : Type u_1} {V : Type u_2} [AddCommGroup V] [Field F] [Module F V] (v : V) (a : F) :  a • v = 0 ↔ a = 0 ∨ v = 0 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_4.{u_1, u_2} {F : Type u_1} {V : Type u_2} [AddCommGroup V] [Field F] [Module F V] (v : V) (a : F) : a • v = 0 ↔ a = 0 ∨ v = 0 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Function\n",
+                "name": "eq_zero_or_eq_zero_of_smul_eq_zero",
+                "FL (Prediction)": "theorem eq_zero_or_eq_zero_of_smul_eq_zero (a : k) (v : V) [Field k] [AddCommGroup V]     [Module k V] : a • v = 0 → a = 0 ∨ v = 0 := by sorry",
+                "hover_formal_statement": "theorem eq_zero_or_eq_zero_of_smul_eq_zero.{u_1, u_2} {k : Type u_1} {V : Type u_2} (a : k) (v : V) [Field k] [AddCommGroup V]  [Module k V] : a • v = 0 → a = 0 ∨ v = 0 := by sorry",
+                "reorganized_hover_formal_statement": "theorem eq_zero_or_eq_zero_of_smul_eq_zero.{u_1, u_2} {k : Type u_1} {V : Type u_2} (a : k) (v : V) [Field k] [AddCommGroup V] [Module k V] : a • v = 0 → a = 0 ∨ v = 0 := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $a$ is a scalar and $v$ is a vector, then $av=0$ implies $a=0$ or $v=0$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that $\\left(\\sum_{j=1}^{n} a_{j} b_{j}\\right)^{2} \\leq\\left(\\sum_{j=1}^{n} j a_{j}{ }^{2}\\right)\\left(\\sum_{j=1}^{n} \\frac{b_{j}{ }^{2}}{j}\\right)$ for all real numbers $a_{1}, \\ldots, a_{n}$ and $b_{1}, \\ldots, b_{n}$.",
+        "header": "import Mathlib\n\nopen Fintype Complex Polynomial LinearMap FiniteDimensional Module Module.End\nopen scoped BigOperators\n\n",
+        "name": "exercise_6_3",
+        "FL (Label)": "theorem exercise_6_3 {n : ℕ} (a b : Fin n → ℝ) :   (∑ i, a i * b i) ^ 2 ≤ (∑ i : Fin n, i * a i ^ 2) * (∑ i, b i ^ 2 / i) := by sorry",
+        "hover_formal_statement": "theorem exercise_6_3 {n : ℕ} (a b : Fin n → ℝ) : (∑ i, a i * b i) ^ 2 ≤ (∑ i, ↑↑i * a i ^ 2) * ∑ i, b i ^ 2 / ↑↑i := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_6_3 {n : ℕ} (a : Fin n → ℝ) (b : Fin n → ℝ) : (∑ i, a i * b i) ^ 2 ≤ (∑ i, ↑↑i * a i ^ 2) * ∑ i, b i ^ 2 / ↑↑i := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen BigOperators\nopen Real Nat Topology\n\n",
+                "name": "lean_favorite_theorem_2022",
+                "FL (Prediction)": "theorem lean_favorite_theorem_2022 (n : ℕ) (a b : ℕ → ℝ) :   (∑ j in Finset.range n, a j * b j) ^ 2 ≤ (∑ j in Finset.range n, j * a j ^ 2) * (∑ j in Finset.range n, b j ^ 2 / j)   := by sorry",
+                "hover_formal_statement": "theorem lean_favorite_theorem_2022 (n : ℕ) (a b : ℕ → ℝ) :  (∑ j ∈ Finset.range n, a j * b j) ^ 2 ≤ (∑ j ∈ Finset.range n, ↑j * a j ^ 2) * ∑ j ∈ Finset.range n, b j ^ 2 / ↑j := by sorry",
+                "reorganized_hover_formal_statement": "theorem lean_favorite_theorem_2022 (n : ℕ) (a : ℕ → ℝ) (b : ℕ → ℝ) : (∑ j ∈ Finset.range n, a j * b j) ^ 2 ≤ (∑ j ∈ Finset.range n, ↑j * a j ^ 2) * ∑ j ∈ Finset.range n, b j ^ 2 / ↑j := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that for all $n \\in \\mathbb{N}$ and all real sequences $a_1, a_2, \\ldots, a_n$ and $b_1, b_2, \\ldots, b_n$, we have $\\left(\\sum_{j=1}^n a_j b_j\\right)^2 \\leq \\left(\\sum_{j=1}^n j a_j^2\\right) \\left(\\sum_{j=1}^n \\frac{b_j^2}{j}\\right)$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that the multiplication of residue class $\\mathbb{Z}/n\\mathbb{Z}$ is associative.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_1_1_4",
+        "FL (Label)": "theorem exercise_1_1_4 (n : ℕ) :   ∀ (a b c : ℕ), (a * b) * c ≡ a * (b * c) [ZMOD n] := by sorry",
+        "hover_formal_statement": "theorem exercise_1_1_4 (n a b c : ℕ) : ↑a * ↑b * ↑c ≡ ↑a * (↑b * ↑c) [ZMOD ↑n] := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_1_4 (n : ℕ) (a : ℕ) (b : ℕ) (c : ℕ) : ↑a * ↑b * ↑c ≡ ↑a * (↑b * ↑c) [ZMOD ↑n] := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n\n",
+                "name": "mul_assoc_ext",
+                "FL (Prediction)": "theorem mul_assoc_ext (n : ℕ) (a b c : ZMod n) : a * b * c = a * (b * c) := by sorry",
+                "hover_formal_statement": "theorem mul_assoc_ext (n : ℕ) (a b c : ZMod n) : a * b * c = a * (b * c) := by sorry",
+                "reorganized_hover_formal_statement": "theorem mul_assoc_ext (n : ℕ) (a : ZMod n) (b : ZMod n) (c : ZMod n) : a * b * c = a * (b * c) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that the product of three integers $a, b, c$ modulo $n$ is associative.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that if $\\Omega=\\{1,2,3, \\ldots\\}$ then $S_{\\Omega}$ is an infinite group",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_1_3_8",
+        "FL (Label)": "theorem exercise_1_3_8 : Infinite (Equiv.Perm ℕ) := by sorry",
+        "hover_formal_statement": "theorem exercise_1_3_8 : Infinite (Equiv.Perm ℕ) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1_3_8 : Infinite (Equiv.Perm ℕ) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Equiv\nopen Equiv.Perm\n",
+                "name": "infinite_of_infinite_card_aux",
+                "FL (Prediction)": "theorem infinite_of_infinite_card_aux {Ω : Type u_1} [Infinite Ω] : Infinite (Equiv.Perm Ω) := by sorry",
+                "hover_formal_statement": "theorem infinite_of_infinite_card_aux.{u_1} {Ω : Type u_1} [Infinite Ω] : Infinite (Perm Ω) := by sorry",
+                "reorganized_hover_formal_statement": "theorem infinite_of_infinite_card_aux.{u_1} {Ω : Type u_1} [Infinite Ω] : Infinite (Perm Ω) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that the permutations of an infinite set form an infinite group.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $H$ be a subgroup of the additive group of rational numbers with the property that $1 / x \\in H$ for every nonzero element $x$ of $H$. Prove that $H=0$ or $\\mathbb{Q}$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_1_13",
+        "FL (Label)": "theorem exercise_2_1_13 (H : AddSubgroup ℚ) {x : ℚ}   (hH : x ∈ H → (1 / x) ∈ H):   H = ⊥ ∨ H = ⊤ := by sorry",
+        "hover_formal_statement": "theorem exercise_2_1_13 (H : AddSubgroup ℚ) {x : ℚ} (hH : x ∈ H → 1 / x ∈ H) : H = ⊥ ∨ H = ⊤ := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_1_13 (H : AddSubgroup ℚ) {x : ℚ} (hH : x ∈ H → 1 / x ∈ H) : H = ⊥ ∨ H = ⊤ := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n\n",
+                "name": "eq_bot_or_top",
+                "FL (Prediction)": "theorem eq_bot_or_top {H : AddSubgroup ℚ} (hH : ∀ x ∈ H, 1 / x ∈ H) : H = ⊥ ∨ H = ⊤ := by sorry",
+                "hover_formal_statement": "theorem eq_bot_or_top {H : AddSubgroup ℚ} (hH : ∀ x ∈ H, 1 / x ∈ H) : H = ⊥ ∨ H = ⊤ := by sorry",
+                "reorganized_hover_formal_statement": "theorem eq_bot_or_top {H : AddSubgroup ℚ} (hH : ∀ x ∈ H, 1 / x ∈ H) : H = ⊥ ∨ H = ⊤ := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $H$ be a subgroup of the additive group of rational numbers. Prove that if $1/x \\in H$ for every nonzero $x \\in H$, then $H$ is either trivial or the whole group.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "A subgroup $M$ of a group $G$ is called a maximal subgroup if $M \\neq G$ and the only subgroups of $G$ which contain $M$ are $M$ and $G$. Prove that if $H$ is a proper subgroup of the finite group $G$ then there is a maximal subgroup of $G$ containing $H$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_4_16a",
+        "FL (Label)": "theorem exercise_2_4_16a {G : Type*} [Group G] {H : Subgroup G}   (hH : H ≠ ⊤) :   ∃ M : Subgroup G, M ≠ ⊤ ∧   ∀ K : Subgroup G, M ≤ K → K = M ∨ K = ⊤ ∧   H ≤ M := by sorry",
+        "hover_formal_statement": "theorem exercise_2_4_16a.{u_1} {G : Type u_1} [Group G] {H : Subgroup G} (hH : H ≠ ⊤) :  ∃ M, M ≠ ⊤ ∧ ∀ (K : Subgroup G), M ≤ K → K = M ∨ K = ⊤ ∧ H ≤ M := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_4_16a.{u_1} {G : Type u_1} [Group G] {H : Subgroup G} (hH : H ≠ ⊤) : ∃ M, M ≠ ⊤ ∧ ∀ (K : Subgroup G), M ≤ K → K = M ∨ K = ⊤ ∧ H ≤ M := by sorry",
+        "sub_questions": [
+            {
+                "header": "",
+                "name": "tm_name",
+                "FL (Prediction)": "theorem tm_name {G : Type*} [Group G] [Finite G] (H : Subgroup G) :     H < ⊤ → ∃ M : Subgroup G, H ≤ M ∧ ∀ K : Subgroup G, H ≤ K → K = M ∨ K = ⊤ := by sorry",
+                "hover_formal_statement": "theorem tm_name.{u_1} {G : Type u_1} [Group G] [Finite G] (H : Subgroup G) : H < ⊤ → ∃ M, H ≤ M ∧ ∀ (K : Subgroup G), H ≤ K → K = M ∨ K = ⊤ := by sorry",
+                "reorganized_hover_formal_statement": "theorem tm_name.{u_1} {G : Type u_1} [Group G] [Finite G] (H : Subgroup G) : H < ⊤ → ∃ M, H ≤ M ∧ ∀ (K : Subgroup G), H ≤ K → K = M ∨ K = ⊤ := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $G$ be a finite group and $H$ a subgroup of $G$. If $H$ is not equal to $G$, then there exists a unique subgroup $M$ of $G$ such that $H$ is a proper subgroup of $M$ and $M$ is a maximal subgroup of $G$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that if $H$ and $K$ are normal subgroups of a group $G$ then their intersection $H \\cap K$ is also a normal subgroup of $G$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_3_1_22a",
+        "FL (Label)": "theorem exercise_3_1_22a (G : Type*) [Group G] (H K : Subgroup G)   [Normal H] [Normal K] :   Normal (H ⊓ K) := by sorry",
+        "hover_formal_statement": "theorem exercise_3_1_22a.{u_1} (G : Type u_1) [Group G] (H K : Subgroup G) [H.Normal] [K.Normal] : (H ⊓ K).Normal := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_3_1_22a.{u_1} (G : Type u_1) [Group G] (H : Subgroup G) (K : Subgroup G) [H.Normal] [K.Normal] : (H ⊓ K).Normal := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n\n",
+                "name": "inter_normal",
+                "FL (Prediction)": "theorem inter_normal {G : Type*} [Group G] (H K : Subgroup G) [H.Normal] [K.Normal] : (H ⊓ K).Normal := by sorry",
+                "hover_formal_statement": "theorem inter_normal.{u_1} {G : Type u_1} [Group G] (H K : Subgroup G) [H.Normal] [K.Normal] : (H ⊓ K).Normal := by sorry",
+                "reorganized_hover_formal_statement": "theorem inter_normal.{u_1} {G : Type u_1} [Group G] (H : Subgroup G) (K : Subgroup G) [H.Normal] [K.Normal] : (H ⊓ K).Normal := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "If $H$ and $K$ are normal subgroups of $G$, prove that $H \\cap K$ is also a normal subgroup of $G$.",
+                "label --> predict | verified_code": "import Mathlib\n\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\ntheorem tm_nameP (G : Type*) [Group G] (H K : Subgroup G)   [Normal H] [Normal K] :   Normal (H ⊓ K) := by sorry\ntheorem tm_nameQ {G : Type*} [Group G] (H K : Subgroup G) [H.Normal] [K.Normal] : (H ⊓ K).Normal := by exact?",
+                "label --> predict | proof_content": "exact?",
+                "predict --> label | verified_code": "import Mathlib\n\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\ntheorem tm_nameP {G : Type*} [Group G] (H K : Subgroup G) [H.Normal] [K.Normal] : (H ⊓ K).Normal := by sorry\ntheorem tm_nameQ (G : Type*) [Group G] (H K : Subgroup G)   [Normal H] [Normal K] :   Normal (H ⊓ K) := by exact?",
+                "predict --> label | proof_content": "exact?",
+                "beq": "same"
+            }
+        ]
+    },
+    {
+        "NL": "Use Lagrange's Theorem in the multiplicative group $(\\mathbb{Z} / p \\mathbb{Z})^{\\times}$to prove Fermat's Little Theorem: if $p$ is a prime then $a^{p} \\equiv a(\\bmod p)$ for all $a \\in \\mathbb{Z}$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_3_2_16",
+        "FL (Label)": "theorem exercise_3_2_16 (p : ℕ) (hp : Nat.Prime p) (a : ℕ) :   Nat.Coprime a p → a ^ p ≡ a [ZMOD p] := by sorry",
+        "hover_formal_statement": "theorem exercise_3_2_16 (p : ℕ) (hp : Nat.Prime p) (a : ℕ) : a.Coprime p → ↑a ^ p ≡ ↑a [ZMOD ↑p] := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_3_2_16 (p : ℕ) (hp : Nat.Prime p) (a : ℕ) : a.Coprime p → ↑a ^ p ≡ ↑a [ZMOD ↑p] := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Finset\nopen scoped Polynomial\nopen Polynomial\nopen Polynomial\nopen Polynomial\nopen FiniteField Polynomial\nopen scoped Nat\n",
+                "name": "pow_card_modEq_ext",
+                "FL (Prediction)": "theorem pow_card_modEq_ext {p : ℕ} [Fact p.Prime] (a : ℤ) : a ^ p ≡ a [ZMOD p] := by sorry",
+                "hover_formal_statement": "theorem pow_card_modEq_ext {p : ℕ} [Fact (Nat.Prime p)] (a : ℤ) : a ^ p ≡ a [ZMOD ↑p] := by sorry",
+                "reorganized_hover_formal_statement": "theorem pow_card_modEq_ext {p : ℕ} [Fact (Nat.Prime p)] (a : ℤ) : a ^ p ≡ a [ZMOD ↑p] := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that for any prime $p$ and any integer $a$, $a^p \\equiv a \\pmod p$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that quotient groups of a solvable group are solvable.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_3_4_5b",
+        "FL (Label)": "theorem exercise_3_4_5b {G : Type*} [Group G] [IsSolvable G]   (H : Subgroup G) [Normal H] :   IsSolvable (G ⧸ H) := by sorry",
+        "hover_formal_statement": "theorem exercise_3_4_5b.{u_1} {G : Type u_1} [Group G] [IsSolvable G] (H : Subgroup G) [H.Normal] : IsSolvable (G ⧸ H) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_3_4_5b.{u_1} {G : Type u_1} [Group G] [IsSolvable G] (H : Subgroup G) [H.Normal] : IsSolvable (G ⧸ H) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Subgroup\n",
+                "name": "quotient_isSolvable",
+                "FL (Prediction)": "theorem quotient_isSolvable (G : Type u) [Group G] [IsSolvable G] (N : Subgroup G) [h : N.Normal] :     IsSolvable (G ⧸ N) := by sorry",
+                "hover_formal_statement": "theorem quotient_isSolvable.{u} (G : Type u) [Group G] [IsSolvable G] (N : Subgroup G) [h : N.Normal] : IsSolvable (G ⧸ N) := by sorry",
+                "reorganized_hover_formal_statement": "theorem quotient_isSolvable.{u} (G : Type u) [Group G] [IsSolvable G] (N : Subgroup G) [h : N.Normal] : IsSolvable (G ⧸ N) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $G$ is a solvable group and $N$ is a normal subgroup of $G$, then $G/N$ is solvable.",
+                "label --> predict | verified_code": "import Mathlib\n\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\nopen Subgroup\ntheorem tm_nameP {G : Type*} [Group G] [IsSolvable G]   (H : Subgroup G) [Normal H] :   IsSolvable (G ⧸ H) := by sorry\ntheorem tm_nameQ (G : Type u) [Group G] [IsSolvable G] (N : Subgroup G) [h : N.Normal] :     IsSolvable (G ⧸ N) := by exact?",
+                "label --> predict | proof_content": "exact?",
+                "predict --> label | verified_code": "import Mathlib\n\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\nopen Subgroup\ntheorem tm_nameP (G : Type u) [Group G] [IsSolvable G] (N : Subgroup G) [h : N.Normal] :     IsSolvable (G ⧸ N) := by sorry\ntheorem tm_nameQ {G : Type*} [Group G] [IsSolvable G]   (H : Subgroup G) [Normal H] :   IsSolvable (G ⧸ H) := by exact?",
+                "predict --> label | proof_content": "exact?",
+                "beq": "same"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that if $p$ is a prime and $G$ is a group of order $p^{\\alpha}$ for some $\\alpha \\in \\mathbb{Z}^{+}$, then every subgroup of index $p$ is normal in $G$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_2_9a",
+        "FL (Label)": "theorem exercise_4_2_9a {G : Type*} [Fintype G] [Group G] {p α : ℕ}   (hp : p.Prime) (ha : α > 0) (hG : card G = p ^ α) :   ∀ H : Subgroup G, H.index = p → H.Normal := by sorry",
+        "hover_formal_statement": "theorem exercise_4_2_9a.{u_1} {G : Type u_1} [Fintype G] [Group G] {p α : ℕ} (hp : Nat.Prime p) (ha : α > 0)  (hG : card G = p ^ α) (H : Subgroup G) : H.index = p → H.Normal := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_2_9a.{u_1} {G : Type u_1} [Fintype G] [Group G] {p α : ℕ} (hp : Nat.Prime p) (ha : α > 0) (hG : card G = p ^ α) (H : Subgroup G) : H.index = p → H.Normal := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen MulAction Subgroup\nopen Pointwise\nopen Equiv Equiv.Perm Finset Function List QuotientGroup\n",
+                "name": "normal_of_index_eq_prime_pow_ext",
+                "FL (Prediction)": "theorem normal_of_index_eq_prime_pow_ext {p : ℕ} [Group G] [hp : Fact p.Prime] {α : ℕ} (G_order : Nat.card G = p ^ α)     (H : Subgroup G) (index_H : H.index = p) : H.Normal := by sorry",
+                "hover_formal_statement": "theorem normal_of_index_eq_prime_pow_ext.{u_1} {G : Type u_1} {p : ℕ} [Group G] [hp : Fact (Nat.Prime p)] {α : ℕ}  (G_order : Nat.card G = p ^ α) (H : Subgroup G) (index_H : H.index = p) : H.Normal := by sorry",
+                "reorganized_hover_formal_statement": "theorem normal_of_index_eq_prime_pow_ext.{u_1} {G : Type u_1} {p : ℕ} [Group G] [hp : Fact (Nat.Prime p)] {α : ℕ} (G_order : Nat.card G = p ^ α) (H : Subgroup G) (index_H : H.index = p) : H.Normal := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $G$ be a group of order $p^n$ where $p$ is a prime number and $n$ is a positive integer. If $H$ is a subgroup of $G$ with index $p$, then $H$ is normal in $G$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that if $G$ is an abelian group of order $p q$, where $p$ and $q$ are distinct primes, then $G$ is cyclic.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_4_2",
+        "FL (Label)": "theorem exercise_4_4_2 {G : Type*} [Fintype G] [Group G]   {p q : Nat.Primes} (hpq : p ≠ q) (hG : card G = p*q) :   IsCyclic G := by sorry",
+        "hover_formal_statement": "theorem exercise_4_4_2.{u_1} {G : Type u_1} [Fintype G] [Group G] {p q : Nat.Primes} (hpq : p ≠ q) (hG : card G = ↑p * ↑q) :  IsCyclic G := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_4_2.{u_1} {G : Type u_1} [Fintype G] [Group G] {p q : Nat.Primes} (hpq : p ≠ q) (hG : card G = ↑p * ↑q) : IsCyclic G := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Finset\nopen scoped Polynomial\nopen Polynomial\n",
+                "name": "isCyclic_of_order_eq_mul_ext",
+                "FL (Prediction)": "theorem isCyclic_of_order_eq_mul_ext {G : Type*} [CommGroup G] [Fintype G] {p q : ℕ} (hp : p.Prime) (hq : q.Prime)     (hG : Fintype.card G = p * q) : IsCyclic G := by sorry",
+                "hover_formal_statement": "theorem isCyclic_of_order_eq_mul_ext.{u_1} {G : Type u_1} [CommGroup G] [Fintype G] {p q : ℕ} (hp : Nat.Prime p)  (hq : Nat.Prime q) (hG : Fintype.card G = p * q) : IsCyclic G := by sorry",
+                "reorganized_hover_formal_statement": "theorem isCyclic_of_order_eq_mul_ext.{u_1} {G : Type u_1} [CommGroup G] [Fintype G] {p q : ℕ} (hp : Nat.Prime p) (hq : Nat.Prime q) (hG : Fintype.card G = p * q) : IsCyclic G := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $G$ be a group of order $pq$, where $p$ and $q$ are distinct primes. Prove that $G$ is cyclic.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $G$ be a group with subgroups $H$ and $K$ with $H \\leq K$. Prove that if $H$ is characteristic in $K$ and $K$ is normal in $G$ then $H$ is normal in $G$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_4_8a",
+        "FL (Label)": "theorem exercise_4_4_8a {G : Type*} [Group G] (H K : Subgroup G)   (hHK : H ≤ K) [hHK1 : (H.subgroupOf K).Normal] [hK : K.Normal] :   H.Normal := by sorry",
+        "hover_formal_statement": "theorem exercise_4_4_8a.{u_1} {G : Type u_1} [Group G] (H K : Subgroup G) (hHK : H ≤ K) [hHK1 : (H.subgroupOf K).Normal]  [hK : K.Normal] : H.Normal := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_4_8a.{u_1} {G : Type u_1} [Group G] (H : Subgroup G) (K : Subgroup G) (hHK : H ≤ K) [hHK1 : (H.subgroupOf K).Normal] [hK : K.Normal] : H.Normal := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n",
+                "name": "tm_name",
+                "FL (Prediction)": "theorem tm_name {G : Type*} [Group G] (H K : Subgroup G) (h₁ : H ≤ K) (h₂ : K.Normal) : H.Normal := by sorry",
+                "hover_formal_statement": "theorem tm_name.{u_1} {G : Type u_1} [Group G] (H K : Subgroup G) (h₁ : H ≤ K) (h₂ : K.Normal) : H.Normal := by sorry",
+                "reorganized_hover_formal_statement": "theorem tm_name.{u_1} {G : Type u_1} [Group G] (H : Subgroup G) (K : Subgroup G) (h₁ : H ≤ K) (h₂ : K.Normal) : H.Normal := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $H \\leq K \\triangleleft G$, then $H \\triangleleft G$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that if $|G|=2907$ then $G$ is not simple.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_5_21",
+        "FL (Label)": "theorem exercise_4_5_21 {G : Type*} [Fintype G] [Group G]   (hG : card G = 2907) : ¬ IsSimpleGroup G := by sorry",
+        "hover_formal_statement": "theorem exercise_4_5_21.{u_1} {G : Type u_1} [Fintype G] [Group G] (hG : card G = 2907) : ¬IsSimpleGroup G := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_5_21.{u_1} {G : Type u_1} [Fintype G] [Group G] (hG : card G = 2907) : ¬IsSimpleGroup G := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Nat\nopen Finset\nopen scoped Polynomial\nopen Polynomial\nopen Polynomial\nopen Polynomial\nopen FiniteField Polynomial\n",
+                "name": "not_isSimpleGroup_of_card_eq_2907",
+                "FL (Prediction)": "theorem not_isSimpleGroup_of_card_eq_2907 (G : Type*) [Group G] (h : Nat.card G = 2907) : ¬IsSimpleGroup G := by sorry",
+                "hover_formal_statement": "theorem not_isSimpleGroup_of_card_eq_2907.{u_1} (G : Type u_1) [Group G] (h : Nat.card G = 2907) : ¬IsSimpleGroup G := by sorry",
+                "reorganized_hover_formal_statement": "theorem not_isSimpleGroup_of_card_eq_2907.{u_1} (G : Type u_1) [Group G] (h : Nat.card G = 2907) : ¬IsSimpleGroup G := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that a group of order 2907 is not simple.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $p(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\\cdots+a_{1} x+a_{0}$ be an element of the polynomial ring $R[x]$. Prove that $p(x)$ is a zero divisor in $R[x]$ if and only if there is a nonzero $b \\in R$ such that $b p(x)=0$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_7_2_2",
+        "FL (Label)": "theorem exercise_7_2_2 {R : Type*} [Ring R] (p : Polynomial R) :   p ∣ 0 ↔ ∃ b : R, b ≠ 0 ∧ b • p = 0 := by sorry",
+        "hover_formal_statement": "theorem exercise_7_2_2.{u_1} {R : Type u_1} [Ring R] (p : R[X]) : p ∣ 0 ↔ ∃ b, b ≠ 0 ∧ b • p = 0 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_7_2_2.{u_1} {R : Type u_1} [Ring R] (p : R[X]) : p ∣ 0 ↔ ∃ b, b ≠ 0 ∧ b • p = 0 := by sorry",
+        "sub_questions": [
+            {
+                "header": "",
+                "name": "tm_name",
+                "FL (Prediction)": "theorem tm_name {R : Type*} [Semiring R] {p : R[X]} :     p ∈ nonZeroDivisors R[X] ↔ p = 0 ∨ p.degree ≠ 0 := by sorry",
+                "hover_formal_statement": "theorem tm_name : ∀ {idx : Type u_2} {X : idx} {R : Type u_1} [inst : Semiring R] {p : R[X]}, p ∈ nonZeroDivisors R[X] ↔ p = 0 ∨ sorry ≠ 0 := by sorry",
+                "reorganized_hover_formal_statement": "theorem tm_name : ∀ {idx : Type u_2} {X : idx} {R : Type u_1} [inst : Semiring R] {p : R[X]}, p ∈ nonZeroDivisors R[X] ↔ p = 0 ∨ sorry ≠ 0 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $p(x)$ be a polynomial in $R[x]$. Prove that $p(x)$ is a non-zero divisor in $R[x]$ if and only if $p(x)$ is not the zero polynomial or the degree of $p(x)$ is not zero.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $\\varphi: R \\rightarrow S$ be a surjective homomorphism of rings. Prove that the image of the center of $R$ is contained in the center of $S$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_7_3_16",
+        "FL (Label)": "theorem exercise_7_3_16 {R S : Type*} [Ring R] [Ring S]   {φ : R →+* S} (hf : Function.Surjective φ) :   φ '' (center R) ⊂ center S := by sorry",
+        "hover_formal_statement": "theorem exercise_7_3_16.{u_1, u_2} {R : Type u_1} {S : Type u_2} [Ring R] [Ring S] {φ : R →+* S} (hf : Function.Surjective ⇑φ) :  ⇑φ '' Set.center R ⊂ Set.center S := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_7_3_16.{u_1, u_2} {R : Type u_1} {S : Type u_2} [Ring R] [Ring S] {φ : R →+* S} (hf : Function.Surjective ⇑φ) : ⇑φ '' Set.center R ⊂ Set.center S := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n\n",
+                "name": "map_center_extracted",
+                "FL (Prediction)": "theorem map_center_extracted [Ring R] [Ring S] (φ : R →+* S) :  Function.Surjective ⇑φ → Subring.map φ (Subring.center R) ≤ Subring.center S := by sorry",
+                "hover_formal_statement": "theorem map_center_extracted.{u_1, u_2} {R : Type u_1} {S : Type u_2} [Ring R] [Ring S] (φ : R →+* S) :  Function.Surjective ⇑φ → Subring.map φ (Subring.center R) ≤ Subring.center S := by sorry",
+                "reorganized_hover_formal_statement": "theorem map_center_extracted.{u_1, u_2} {R : Type u_1} {S : Type u_2} [Ring R] [Ring S] (φ : R →+* S) : Function.Surjective ⇑φ → Subring.map φ (Subring.center R) ≤ Subring.center S := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $\\phi: R \\to S$ be a surjective ring homomorphism. Prove that $\\phi(Z(R)) \\subseteq Z(S)$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $R$ be a commutative ring with $1 \\neq 0$. Prove that if $a$ is a nilpotent element of $R$ then $1-a b$ is a unit for all $b \\in R$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_7_4_27",
+        "FL (Label)": "theorem exercise_7_4_27 {R : Type*} [CommRing R] (hR : (0 : R) ≠ 1)   {a : R} (ha : IsNilpotent a) (b : R) :   IsUnit (1-a*b) := by sorry",
+        "hover_formal_statement": "theorem exercise_7_4_27.{u_1} {R : Type u_1} [CommRing R] (hR : 0 ≠ 1) {a : R} (ha : IsNilpotent a) (b : R) : IsUnit (1 - a * b) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_7_4_27.{u_1} {R : Type u_1} [CommRing R] (hR : 0 ≠ 1) {a : R} (ha : IsNilpotent a) (b : R) : IsUnit (1 - a * b) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Function Set\n",
+                "name": "isUnit_one_sub_mul_of_isNilpotent",
+                "FL (Prediction)": "theorem isUnit_one_sub_mul_of_isNilpotent {R : Type*} [CommRing R] [NoZeroDivisors R] {a : R}     (hnil : IsNilpotent a) (b : R) : IsUnit (1 - a * b) := by sorry",
+                "hover_formal_statement": "theorem isUnit_one_sub_mul_of_isNilpotent.{u_1} {R : Type u_1} [CommRing R] [NoZeroDivisors R] {a : R} (hnil : IsNilpotent a)  (b : R) : IsUnit (1 - a * b) := by sorry",
+                "reorganized_hover_formal_statement": "theorem isUnit_one_sub_mul_of_isNilpotent.{u_1} {R : Type u_1} [CommRing R] [NoZeroDivisors R] {a : R} (hnil : IsNilpotent a) (b : R) : IsUnit (1 - a * b) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $a$ be a nilpotent element of a commutative ring $R$. Prove that $1 - ab$ is a unit for every $b \\in R$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $R=\\mathbb{Z}[\\sqrt{-n}]$ where $n$ is a squarefree integer greater than 3. Prove that $2, \\sqrt{-n}$ and $1+\\sqrt{-n}$ are irreducibles in $R$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_8_3_5a",
+        "FL (Label)": "theorem exercise_8_3_5a {n : ℤ} (hn0 : n > 3) (hn1 : Squarefree n) :   Irreducible (2 : Zsqrtd $ -n) ∧   Irreducible (⟨0, 1⟩ : Zsqrtd $ -n) ∧   Irreducible (1 + ⟨0, 1⟩ : Zsqrtd $ -n) := by sorry",
+        "hover_formal_statement": "theorem exercise_8_3_5a {n : ℤ} (hn0 : n > 3) (hn1 : Squarefree n) :  Irreducible 2 ∧ Irreducible { re := 0, im := 1 } ∧ Irreducible (1 + { re := 0, im := 1 }) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_8_3_5a {n : ℤ} (hn0 : n > 3) (hn1 : Squarefree n) : Irreducible 2 ∧ Irreducible { re := 0, im := 1 } ∧ Irreducible (1 + { re := 0, im := 1 }) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n\n",
+                "name": "zsqrtd_irreducible",
+                "FL (Prediction)": "theorem zsqrtd_irreducible {n : ℤ} (hn : Squarefree n) (h : 3 < n) :     Irreducible (2 : ℤ√(n : ℤ)) := by sorry",
+                "hover_formal_statement": "theorem zsqrtd_irreducible {n : ℤ} (hn : Squarefree n) (h : 3 < n) : Irreducible 2 := by sorry",
+                "reorganized_hover_formal_statement": "theorem zsqrtd_irreducible {n : ℤ} (hn : Squarefree n) (h : 3 < n) : Irreducible 2 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that $2$ is irreducible in $\\mathbb{Z}\\sqrt{n}$ if $n$ is square-free and $n > 3$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $q \\in \\mathbb{Z}$ be a prime with $q \\equiv 3 \\bmod 4$. Prove that the quotient ring $\\mathbb{Z}[i] /(q)$ is a field with $q^{2}$ elements.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_8_3_6b",
+        "FL (Label)": "theorem exercise_8_3_6b {q : ℕ} (hq0 : q.Prime)   (hq1 : q ≡ 3 [ZMOD 4]) {R : Type} [Ring R]   (hR : R = (GaussianInt ⧸ span ({↑q} : Set GaussianInt))) :   IsField R ∧ ∃ finR : Fintype R, @card R finR = q^2 := by sorry",
+        "hover_formal_statement": "theorem exercise_8_3_6b {q : ℕ} (hq0 : Nat.Prime q) (hq1 : ↑q ≡ 3 [ZMOD 4]) {R : Type} [Ring R]  (hR : R = (GaussianInt ⧸ span {↑q})) : IsField R ∧ ∃ finR, card R = q ^ 2 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_8_3_6b {q : ℕ} (hq0 : Nat.Prime q) (hq1 : ↑q ≡ 3 [ZMOD 4]) {R : Type} [Ring R] (hR : R = (GaussianInt ⧸ span {↑q})) : IsField R ∧ ∃ finR, card R = q ^ 2 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\n",
+                "name": "tm_name",
+                "FL (Prediction)": "theorem tm_name {q : ℕ} [Fact (Nat.Prime q)] (hq : q ≡ 3 [ZMOD 4]) : IsField (ZMod (q^2)) := by sorry",
+                "hover_formal_statement": "theorem tm_name {q : ℕ} [Fact (Nat.Prime q)] (hq : ↑q ≡ 3 [ZMOD 4]) : IsField (ZMod (q ^ 2)) := by sorry",
+                "reorganized_hover_formal_statement": "theorem tm_name {q : ℕ} [Fact (Nat.Prime q)] (hq : ↑q ≡ 3 [ZMOD 4]) : IsField (ZMod (q ^ 2)) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that $Z_{q^2}$ is a field if $q\\equiv 3 \\pmod 4$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that $x^4+4x^3+6x^2+2x+1$ is irreducible in $\\mathbb{Z}[x]$.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_9_4_2c",
+        "FL (Label)": "theorem exercise_9_4_2c : Irreducible   (X^4 + 4*X^3 + 6*X^2 + 2*X + 1 : Polynomial ℤ) := by sorry",
+        "hover_formal_statement": "theorem exercise_9_4_2c : Irreducible (X ^ 4 + 4 * X ^ 3 + 6 * X ^ 2 + 2 * X + 1) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_9_4_2c : Irreducible (X ^ 4 + 4 * X ^ 3 + 6 * X ^ 2 + 2 * X + 1) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Polynomial\nopen Finset\nopen Polynomial\n",
+                "name": "irreducible_wilsons_poly",
+                "FL (Prediction)": "theorem irreducible_wilsons_poly : Irreducible (wilsons_poly : ℤ[X]) := by sorry",
+                "hover_formal_statement": "theorem irreducible_wilsons_poly {wilsons_poly : ℤ[X]} : Irreducible wilsons_poly := by sorry",
+                "reorganized_hover_formal_statement": "theorem irreducible_wilsons_poly {wilsons_poly : ℤ[X]} : Irreducible wilsons_poly := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that the polynomial $x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$ is irreducible over the integers.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that the polynomial $x^{2}-\\sqrt{2}$ is irreducible over $\\mathbb{Z}[\\sqrt{2}]$. You may assume that $\\mathbb{Z}[\\sqrt{2}]$ is a U.F.D.",
+        "header": "import Mathlib\n\nopen Fintype Subgroup Set Polynomial Ideal\nopen scoped BigOperators\n\n",
+        "name": "exercise_9_4_9",
+        "FL (Label)": "theorem exercise_9_4_9 :   Irreducible (X^2 - C Zsqrtd.sqrtd : Polynomial (Zsqrtd 2)) := by sorry",
+        "hover_formal_statement": "theorem exercise_9_4_9 : Irreducible (X ^ 2 - C Zsqrtd.sqrtd) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_9_4_9 : Irreducible (X ^ 2 - C Zsqrtd.sqrtd) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Polynomial\nopen Int\nopen Polynomial\nopen Int\nopen IsLocalization\n",
+                "name": "irreducible_X_sq_sub_C_sqrt_two",
+                "FL (Prediction)": "theorem irreducible_X_sq_sub_C_sqrt_two : Irreducible (X ^ 2 - C √a2) := by sorry",
+                "hover_formal_statement": "theorem irreducible_X_sq_sub_C_sqrt_two {a2 : ℝ} : Irreducible (X ^ 2 - C √a2) := by sorry",
+                "reorganized_hover_formal_statement": "theorem irreducible_X_sq_sub_C_sqrt_two {a2 : ℝ} : Irreducible (X ^ 2 - C √a2) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that $x^2 - a$ is irreducible",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $\\mathcal{T}_\\alpha$ be a family of topologies on $X$. Show that there is a unique largest topology on $X$ contained in all the collections $\\mathcal{T}_\\alpha$.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\ndef is_topology (X : Type*) (T : Set (Set X)) :=\n  univ ∈ T ∧\n  (∀ s t, s ∈ T → t ∈ T → s ∩ t ∈ T) ∧\n  (∀s, (∀t ∈ s, t ∈ T) → sUnion s ∈ T)\n\n",
+        "name": "exercise_13_4b2",
+        "FL (Label)": "theorem exercise_13_4b2 (X I : Type*) (T : I → Set (Set X)) (h : ∀ i, is_topology X (T i)) :   ∃! T', is_topology X T' ∧ (∀ i, T' ⊆ T i) ∧   ∀ T'', is_topology X T'' → (∀ i, T'' ⊆ T i) → T' ⊆ T'' := by sorry",
+        "hover_formal_statement": "theorem exercise_13_4b2.{u_1, u_2} (X : Type u_1) (I : Type u_2) (T : I → Set (Set X)) (h : ∀ (i : I), is_topology X (T i)) :  ∃! T',    is_topology X T' ∧      (∀ (i : I), T' ⊆ T i) ∧ ∀ (T'' : Set (Set X)), is_topology X T'' → (∀ (i : I), T'' ⊆ T i) → T' ⊆ T'' := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_13_4b2.{u_1, u_2} (X : Type u_1) (I : Type u_2) (T : I → Set (Set X)) (h : ∀ (i : I), is_topology X (T i)) : ∃! T', is_topology X T' ∧ (∀ (i : I), T' ⊆ T i) ∧ ∀ (T'' : Set (Set X)), is_topology X T'' → (∀ (i : I), T'' ⊆ T i) → T' ⊆ T'' := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set\n",
+                "name": "unique_largest_topology_of_collections",
+                "FL (Prediction)": "theorem unique_largest_topology_of_collections {ι : Sort u_1} {X : Type u_2} ( collections : ι → Set (Set X))     ( topologies : ι → TopologicalSpace X) : ∃! t : TopologicalSpace X, ∀ i, t ≤ topologies i := by sorry",
+                "hover_formal_statement": "theorem unique_largest_topology_of_collections.{u_1, u_2} {ι : Sort u_1} {X : Type u_2} (collections : ι → Set (Set X))  (topologies : ι → TopologicalSpace X) : ∃! t, ∀ (i : ι), t ≤ topologies i := by sorry",
+                "reorganized_hover_formal_statement": "theorem unique_largest_topology_of_collections.{u_1, u_2} {ι : Sort u_1} {X : Type u_2} (collections : ι → Set (Set X)) (topologies : ι → TopologicalSpace X) : ∃! t, ∀ (i : ι), t ≤ topologies i := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $X$ be a set. Let $\\mathcal{T}$ be a family of topologies on $X$. Show that there is a unique (up to equality) largest (coarsest) topology on $X$ that is contained in $\\mathcal{T}$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Show that the collection $\\{(a,b) \\mid a < b, a \\text{ and } b \\text{ rational}\\}$ is a basis that generates the standard topology on $\\mathbb{R}$.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\n",
+        "name": "exercise_13_8a",
+        "FL (Label)": "theorem exercise_13_8a :   IsTopologicalBasis {S : Set ℝ | ∃ a b : ℚ, a < b ∧ S = Ioo ↑a ↑b} := by sorry",
+        "hover_formal_statement": "theorem exercise_13_8a : IsTopologicalBasis {S | ∃ a b, a < b ∧ S = Ioo ↑a ↑b} := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_13_8a : IsTopologicalBasis {S | ∃ a b, a < b ∧ S = Ioo ↑a ↑b} := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Filter Function Topology\n",
+                "name": "isBasis_Ioo_rat",
+                "FL (Prediction)": "theorem isBasis_Ioo_rat : IsBasis (fun x : ℚ × ℚ => x.1 < x.2) fun x : ℚ × ℚ => Ioo x.1 x.2 := by sorry",
+                "hover_formal_statement": "theorem isBasis_Ioo_rat : IsBasis (fun x => x.1 < x.2) fun x => Ioo x.1 x.2 := by sorry",
+                "reorganized_hover_formal_statement": "theorem isBasis_Ioo_rat : IsBasis (fun x => x.1 < x.2) fun x => Ioo x.1 x.2 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that the collection of all open intervals in $\\mathbb{R}$ with rational endpoints forms a basis for the standard Euclidean topology on $\\mathbb{R}$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $Y$ be an ordered set in the order topology. Let $f, g: X \\rightarrow Y$ be continuous. Show that the set $\\{x \\mid f(x) \\leq g(x)\\}$ is closed in $X$.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\n",
+        "name": "exercise_18_8a",
+        "FL (Label)": "theorem exercise_18_8a {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]   [LinearOrder Y] [OrderTopology Y] {f g : X → Y}   (hf : Continuous f) (hg : Continuous g) :   IsClosed {x | f x ≤ g x} := by sorry",
+        "hover_formal_statement": "theorem exercise_18_8a.{u_1, u_2} {X : Type u_1} {Y : Type u_2} [TopologicalSpace X] [TopologicalSpace Y] [LinearOrder Y]  [OrderTopology Y] {f g : X → Y} (hf : Continuous f) (hg : Continuous g) : IsClosed {x | f x ≤ g x} := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_18_8a.{u_1, u_2} {X : Type u_1} {Y : Type u_2} [TopologicalSpace X] [TopologicalSpace Y] [LinearOrder Y] [OrderTopology Y] {f g : X → Y} (hf : Continuous f) (hg : Continuous g) : IsClosed {x | f x ≤ g x} := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Filter\nopen OrderDual (toDual)\nopen scoped Topology\n",
+                "name": "isClosed_le_ext",
+                "FL (Prediction)": "theorem isClosed_le_ext [TopologicalSpace α] [LinearOrder α] [OrderClosedTopology α]     {f g : β → α} [TopologicalSpace β] : Continuous f → Continuous g → IsClosed {b : β | f b ≤ g b} := by sorry",
+                "hover_formal_statement": "theorem isClosed_le_ext.{u_1, u_2} {α : Type u_1} {β : Type u_2} [TopologicalSpace α] [LinearOrder α] [OrderClosedTopology α]  {f g : β → α} [TopologicalSpace β] : Continuous f → Continuous g → IsClosed {b | f b ≤ g b} := by sorry",
+                "reorganized_hover_formal_statement": "theorem isClosed_le_ext.{u_1, u_2} {α : Type u_1} {β : Type u_2} [TopologicalSpace α] [LinearOrder α] [OrderClosedTopology α] {f g : β → α} [TopologicalSpace β] : Continuous f → Continuous g → IsClosed {b | f b ≤ g b} := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $f$ and $g$ be continuous real-valued functions on a topological space $X$. Prove that the set $\\{x \\in X | f(x) \\le g(x)\\}$ is closed.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Show that $\\mathbb{R} \\times \\mathbb{R}$ in the dictionary order topology is metrizable.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\n",
+        "name": "exercise_20_2",
+        "FL (Label)": "theorem exercise_20_2   [TopologicalSpace (ℝ ×ₗ ℝ)] [OrderTopology (ℝ ×ₗ ℝ)]   : MetrizableSpace (ℝ ×ₗ ℝ) := by sorry",
+        "hover_formal_statement": "theorem exercise_20_2 [TopologicalSpace (Lex (ℝ × ℝ))] [OrderTopology (Lex (ℝ × ℝ))] : MetrizableSpace (Lex (ℝ × ℝ)) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_20_2 [TopologicalSpace (Lex (ℝ × ℝ))] [OrderTopology (Lex (ℝ × ℝ))] : MetrizableSpace (Lex (ℝ × ℝ)) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Function Filter TopologicalSpace Bornology\nopen scoped Topology Uniformity\nopen TopologicalSpace\n",
+                "name": "metrizableSpace_of_ordered",
+                "FL (Prediction)": "theorem metrizableSpace_of_ordered {α : Type*} [TopologicalSpace α] [LinearOrder α]     [OrderTopology α] : MetrizableSpace α := by sorry",
+                "hover_formal_statement": "theorem metrizableSpace_of_ordered.{u_1} {α : Type u_1} [TopologicalSpace α] [LinearOrder α] [OrderTopology α] :  MetrizableSpace α := by sorry",
+                "reorganized_hover_formal_statement": "theorem metrizableSpace_of_ordered.{u_1} {α : Type u_1} [TopologicalSpace α] [LinearOrder α] [OrderTopology α] : MetrizableSpace α := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that a linearly ordered topological space with the order topology is metrizable.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Define $f_{n}:[0,1] \\rightarrow \\mathbb{R}$ by the equation $f_{n}(x)=x^{n}$. Show that the sequence $\\left(f_{n}\\right)$ does not converge uniformly.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\nabbrev I : Set ℝ := Icc 0 1\n\n",
+        "name": "exercise_21_6b",
+        "FL (Label)": "theorem exercise_21_6b   (f : ℕ → I → ℝ )   (h : ∀ x n, f n x = x ^ n) :   ¬ ∃ f₀, TendstoUniformly f f₀ atTop := by sorry",
+        "hover_formal_statement": "theorem exercise_21_6b (f : ℕ → ↑I → ℝ) (h : ∀ (x : ↑I) (n : ℕ), f n x = ↑x ^ n) : ¬∃ f₀, TendstoUniformly f f₀ atTop := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_21_6b (f : ℕ → ↑I → ℝ) (h : ∀ (x : ↑I) (n : ℕ), f n x = ↑x ^ n) : ¬∃ f₀, TendstoUniformly f f₀ atTop := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen scoped Uniformity Topology\nopen Filter UniformSpace Function Set\n",
+                "name": "not_tendstoUniformly_pow_on_Icc",
+                "FL (Prediction)": "theorem not_tendstoUniformly_pow_on_Icc : ¬TendstoUniformlyOn (fun n : ℕ => fun x : ℝ => x ^ n) (fun x => 0) atTop (Icc 0 1) := by sorry",
+                "hover_formal_statement": "theorem not_tendstoUniformly_pow_on_Icc : ¬TendstoUniformlyOn (fun n x => x ^ n) (fun x => 0) atTop (Icc 0 1) := by sorry",
+                "reorganized_hover_formal_statement": "theorem not_tendstoUniformly_pow_on_Icc : ¬TendstoUniformlyOn (fun n x => x ^ n) (fun x => 0) atTop (Icc 0 1) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that the function $f_n(x) = x^n$ does not converge uniformly to $0$ on the interval $[0,1]$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $p: X \\rightarrow Y$ be a continuous map. Show that if there is a continuous map $f: Y \\rightarrow X$ such that $p \\circ f$ equals the identity map of $Y$, then $p$ is a quotient map.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\n",
+        "name": "exercise_22_2a",
+        "FL (Label)": "theorem exercise_22_2a {X Y : Type*} [TopologicalSpace X]   [TopologicalSpace Y] (p : X → Y) (h : Continuous p) :   QuotientMap p ↔ ∃ (f : Y → X), Continuous f ∧ p ∘ f = id := by sorry",
+        "hover_formal_statement": "theorem exercise_22_2a.{u_1, u_2, u_3} {x✝ : Sort u_3} {QuotientMap : x✝} {X : Type u_1} {Y : Type u_2} [TopologicalSpace X]  [TopologicalSpace Y] (p : X → Y) (h : Continuous p) : sorry ↔ ∃ f, Continuous f ∧ p ∘ f = id := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_22_2a.{u_1, u_2, u_3} {x✝ : Sort u_3} {QuotientMap : x✝} {X : Type u_1} {Y : Type u_2} [TopologicalSpace X] [TopologicalSpace Y] (p : X → Y) (h : Continuous p) : sorry ↔ ∃ f, Continuous f ∧ p ∘ f = id := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Filter Topology\nopen TopologicalSpace\n",
+                "name": "of_section",
+                "FL (Prediction)": "theorem of_section {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y] {p : X → Y}     (f : Y → X) (hp : Continuous p) (hf : Continuous f) (h : p ∘ f = id) : QuotientMap p := by sorry",
+                "hover_formal_statement": "theorem of_section.{u_1, u_2} {X : Type u_1} {Y : Type u_2} [TopologicalSpace X] [TopologicalSpace Y] {p : X → Y} (f : Y → X)  (hp : Continuous p) (hf : Continuous f) (h : p ∘ f = id) : QuotientMap p := by sorry",
+                "reorganized_hover_formal_statement": "theorem of_section.{u_1, u_2} {X : Type u_1} {Y : Type u_2} [TopologicalSpace X] [TopologicalSpace Y] {p : X → Y} (f : Y → X) (hp : Continuous p) (hf : Continuous f) (h : p ∘ f = id) : QuotientMap p := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $p: X \\rightarrow Y$ be a continuous map. Show that the following are equivalent: (a) $p$ is a quotient map. (b) For every topological space $Z$, a function $f: Y \\rightarrow Z$ is continuous if and only if $f \\circ p$ is continuous.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $A \\subset X$. Show that if $C$ is a connected subspace of $X$ that intersects both $A$ and $X-A$, then $C$ intersects $\\operatorname{Bd} A$.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\n",
+        "name": "exercise_23_6",
+        "FL (Label)": "theorem exercise_23_6 {X : Type*}   [TopologicalSpace X] {A C : Set X} (hc : IsConnected C)   (hCA : C ∩ A ≠ ∅) (hCXA : C ∩ Aᶜ ≠ ∅) :   C ∩ (frontier A) ≠ ∅ := by sorry",
+        "hover_formal_statement": "theorem exercise_23_6.{u_1} {X : Type u_1} [TopologicalSpace X] {A C : Set X} (hc : IsConnected C) (hCA : C ∩ A ≠ ∅)  (hCXA : C ∩ Aᶜ ≠ ∅) : C ∩ frontier A ≠ ∅ := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_23_6.{u_1} {X : Type u_1} [TopologicalSpace X] {A C : Set X} (hc : IsConnected C) (hCA : C ∩ A ≠ ∅) (hCXA : C ∩ Aᶜ ≠ ∅) : C ∩ frontier A ≠ ∅ := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Function Topology TopologicalSpace Relation\nopen Order\n",
+                "name": "mem_boundary_of_inter_nhds_of_inter_compl_of_connected",
+                "FL (Prediction)": "theorem mem_boundary_of_inter_nhds_of_inter_compl_of_connected {A : Set X} {C : Set X}     [TopologicalSpace X] (hC : IsConnected C) : C ∩ A ≠ ∅ → C ∩ Aᶜ ≠ ∅ → ∃ x, x ∈ C ∩ frontier A := by sorry",
+                "hover_formal_statement": "theorem mem_boundary_of_inter_nhds_of_inter_compl_of_connected.{u_1} {X : Type u_1} {A C : Set X} [TopologicalSpace X]  (hC : IsConnected C) : C ∩ A ≠ ∅ → C ∩ Aᶜ ≠ ∅ → ∃ x, x ∈ C ∩ frontier A := by sorry",
+                "reorganized_hover_formal_statement": "theorem mem_boundary_of_inter_nhds_of_inter_compl_of_connected.{u_1} {X : Type u_1} {A C : Set X} [TopologicalSpace X] (hC : IsConnected C) : C ∩ A ≠ ∅ → C ∩ Aᶜ ≠ ∅ → ∃ x, x ∈ C ∩ frontier A := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $A$ be a subset of a topological space $X$. Prove that if $C$ is a connected subset of $X$ that intersects both $A$ and $A^c$, then $C$ intersects $∂A$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $f \\colon X \\rightarrow X$ be continuous. Show that if $X = [0, 1]$, there is a point $x$ such that $f(x) = x$. (The point $x$ is called a fixed point of $f$.)",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\n",
+        "name": "exercise_24_3a",
+        "FL (Label)": "theorem exercise_24_3a [TopologicalSpace I] [CompactSpace I]   (f : I → I) (hf : Continuous f) :   ∃ (x : I), f x = x := by sorry",
+        "hover_formal_statement": "theorem exercise_24_3a.{u_1} {I : Type u_1} [TopologicalSpace I] [CompactSpace I] (f : I → I) (hf : Continuous f) : ∃ x, f x = x := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_24_3a.{u_1} {I : Type u_1} [TopologicalSpace I] [CompactSpace I] (f : I → I) (hf : Continuous f) : ∃ x, f x = x := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Function Filter TopologicalSpace\nopen Topology OnePoint\n",
+                "name": "exists_fixed_point",
+                "FL (Prediction)": "theorem exists_fixed_point {f : ℝ → ℝ} (hf : ContinuousOn f (Icc 0 1)) : ∃ x ∈ Icc 0 1, f x = x := by sorry",
+                "hover_formal_statement": "theorem exists_fixed_point {f : ℝ → ℝ} (hf : ContinuousOn f (Icc 0 1)) : ∃ x ∈ Icc 0 1, f x = x := by sorry",
+                "reorganized_hover_formal_statement": "theorem exists_fixed_point {f : ℝ → ℝ} (hf : ContinuousOn f (Icc 0 1)) : ∃ x ∈ Icc 0 1, f x = x := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $f$ be a continuous function on the interval $[0,1]$. Prove that there exists a point $x$ in the interval $[0,1]$ such that $f(x)=x$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $(X, d)$ be a metric space. If $f: X \\rightarrow X$ satisfies the condition $d(f(x), f(y))=d(x, y)$ for all $x, y \\in X$, then $f$ is called an isometry of $X$. Show that if $f$ is an isometry and $X$ is compact, then $f$ is bijective and hence a homeomorphism.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\n",
+        "name": "exercise_28_6",
+        "FL (Label)": "theorem exercise_28_6 {X : Type*} [MetricSpace X]   [CompactSpace X] {f : X → X} (hf : Isometry f) :   Function.Bijective f := by sorry",
+        "hover_formal_statement": "theorem exercise_28_6.{u_1} {X : Type u_1} [MetricSpace X] [CompactSpace X] {f : X → X} (hf : Isometry f) : Function.Bijective f := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_28_6.{u_1} {X : Type u_1} [MetricSpace X] [CompactSpace X] {f : X → X} (hf : Isometry f) : Function.Bijective f := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Function Set Topology NNReal ENNReal Bornology\nopen EMetric\n",
+                "name": "isHomeomorph_of_isCompact_univ_ext",
+                "FL (Prediction)": "theorem isHomeomorph_of_isCompact_univ_ext :     ∀ {X : Type*} [MetricSpace X] {f : X → X},       (∀ x y, dist (f x) (f y) = dist x y) → IsCompact (univ : Set X) → IsHomeomorph f := by sorry",
+                "hover_formal_statement": "theorem isHomeomorph_of_isCompact_univ_ext.{u_1} {X : Type u_1} [MetricSpace X] {f : X → X} :  (∀ (x y : X), dist (f x) (f y) = dist x y) → IsCompact univ → IsHomeomorph f := by sorry",
+                "reorganized_hover_formal_statement": "theorem isHomeomorph_of_isCompact_univ_ext.{u_1} {X : Type u_1} [MetricSpace X] {f : X → X} : (∀ (x y : X), dist (f x) (f y) = dist x y) → IsCompact univ → IsHomeomorph f := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $X$ be a compact metric space. Show that if $f: X \\to X$ is an isometry, then $f$ is a homeomorphism.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Show that if $\\prod X_\\alpha$ is Hausdorff, then so is $X_\\alpha$. Assume that each $X_\\alpha$ is nonempty.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\n",
+        "name": "exercise_32_2a",
+        "FL (Label)": "theorem exercise_32_2a   {ι : Type*} {X : ι → Type*} [∀ i, TopologicalSpace (X i)]   (h : ∀ i, Nonempty (X i)) (h2 : T2Space (Π i, X i)) :   ∀ i, T2Space (X i) := by sorry",
+        "hover_formal_statement": "theorem exercise_32_2a.{u_1, u_2} {ι : Type u_1} {X : ι → Type u_2} [(i : ι) → TopologicalSpace (X i)]  (h : ∀ (i : ι), Nonempty (X i)) (h2 : T2Space ((i : ι) → X i)) (i : ι) : T2Space (X i) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_32_2a.{u_1, u_2} {ι : Type u_1} {X : ι → Type u_2} [(i : ι) → TopologicalSpace (X i)] (h : ∀ (i : ι), Nonempty (X i)) (h2 : T2Space ((i : ι) → X i)) (i : ι) : T2Space (X i) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Filter Topology\n",
+                "name": "of_pi",
+                "FL (Prediction)": "theorem of_pi {X : α → Type*} [∀ a, TopologicalSpace (X a)] [∀ a, Nonempty (X a)]     (H : ∀ a, T2Space (X a)) : T2Space (∀ a, X a) := by sorry",
+                "hover_formal_statement": "theorem of_pi.{u_1, u_2} {α : Type u_2} {X : α → Type u_1} [(a : α) → TopologicalSpace (X a)] [∀ (a : α), Nonempty (X a)]  (H : ∀ (a : α), T2Space (X a)) : T2Space ((a : α) → X a) := by sorry",
+                "reorganized_hover_formal_statement": "theorem of_pi.{u_1, u_2} {α : Type u_2} {X : α → Type u_1} [(a : α) → TopologicalSpace (X a)] [∀ (a : α), Nonempty (X a)] (H : ∀ (a : α), T2Space (X a)) : T2Space ((a : α) → X a) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $X$ be a set with the product of the discrete topologies. Show that $X$ is a $T_2$ space.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Show that every locally compact Hausdorff space is completely regular.",
+        "header": "import Mathlib\n\nopen Filter Set TopologicalSpace\nopen scoped Topology\n\nabbrev I : Set ℝ := Icc 0 1\n\n",
+        "name": "exercise_33_7",
+        "FL (Label)": "theorem exercise_33_7 {X : Type*} [TopologicalSpace X]   (hX : LocallyCompactSpace X) (hX' : T2Space X) :   ∀ x A, IsClosed A ∧ ¬ x ∈ A →   ∃ (f : X → I), Continuous f ∧ f x = 1 ∧ f '' A = {0} := by sorry",
+        "hover_formal_statement": "theorem exercise_33_7.{u_1} {X : Type u_1} [TopologicalSpace X] (hX : LocallyCompactSpace X) (hX' : T2Space X) (x : X)  (A : Set X) : IsClosed A ∧ x ∉ A → ∃ f, Continuous f ∧ f x = 1 ∧ f '' A = {0} := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_33_7.{u_1} {X : Type u_1} [TopologicalSpace X] (hX : LocallyCompactSpace X) (hX' : T2Space X) (x : X) (A : Set X) : IsClosed A ∧ x ∉ A → ∃ f, Continuous f ∧ f x = 1 ∧ f '' A = {0} := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Topology Filter unitInterval\n",
+                "name": "instCompletelyRegularSpace_tac_2988",
+                "FL (Prediction)": "theorem instCompletelyRegularSpace_tac_2988 [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X] : CompletelyRegularSpace X := by sorry",
+                "hover_formal_statement": "theorem instCompletelyRegularSpace_tac_2988.{u_1} {X : Type u_1} [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X] :  CompletelyRegularSpace X := by sorry",
+                "reorganized_hover_formal_statement": "theorem instCompletelyRegularSpace_tac_2988.{u_1} {X : Type u_1} [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X] : CompletelyRegularSpace X := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $a$ is a nonzero integer, then for $n>m$ show that $\\left(a^{2^{n}}+1, a^{2^{m}}+1\\right)=1$ or 2 depending on whether $a$ is odd or even.",
+        "header": "import Mathlib\n\nopen Real\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_4",
+        "FL (Label)": "theorem exercise_2_4 {a : ℤ} (ha : a ≠ 0)   (f_a := λ n m : ℕ => Int.gcd (a^(2^n) + 1) (a^(2^m)+1)) {n m : ℕ}   (hnm : n > m) :   (Odd a → f_a n m = 1) ∧ (Even a → f_a n m = 2) := by sorry",
+        "hover_formal_statement": "theorem exercise_2_4 {a : ℤ} (ha : a ≠ 0) (f_a : ℕ → ℕ → ℕ := fun n m => (a ^ 2 ^ n + 1).gcd (a ^ 2 ^ m + 1)) {n m : ℕ}  (hnm : n > m) : (Odd a → f_a n m = 1) ∧ (Even a → f_a n m = 2) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_4 {a : ℤ} (ha : a ≠ 0) (f_a : ℕ → ℕ → ℕ := fun n m => (a ^ 2 ^ n + 1).gcd (a ^ 2 ^ m + 1)) {n m : ℕ} (hnm : n > m) : (Odd a → f_a n m = 1) ∧ (Even a → f_a n m = 2) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Nat\n",
+                "name": "coprime_two_pow_add_one_two_pow_add_one",
+                "FL (Prediction)": "theorem coprime_two_pow_add_one_two_pow_add_one {a : ℤ} (ha : a ≠ 0) {m n : ℕ} (h : m < n) :     (a ^ 2 ^ n + 1).gcd (a ^ 2 ^ m + 1) = if Even a then 2 else 1 := by sorry",
+                "hover_formal_statement": "theorem coprime_two_pow_add_one_two_pow_add_one {a : ℤ} (ha : a ≠ 0) {m n : ℕ} (h : m < n) :  (a ^ 2 ^ n + 1).gcd (a ^ 2 ^ m + 1) = if Even a then 2 else 1 := by sorry",
+                "reorganized_hover_formal_statement": "theorem coprime_two_pow_add_one_two_pow_add_one {a : ℤ} (ha : a ≠ 0) {m n : ℕ} (h : m < n) : (a ^ 2 ^ n + 1).gcd (a ^ 2 ^ m + 1) = if Even a then 2 else 1 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that $\\gcd(a^{2^m}+1, a^{2^n}+1) = 2$ if $a$ is even, and $1$ if $a$ is odd.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Show that $\\sum^{\\prime} 1 / n$, the sum being over square free integers, diverges.",
+        "header": "import Mathlib\n\nopen Real\nopen scoped BigOperators\n\n",
+        "name": "exercise_2_27a",
+        "FL (Label)": "theorem exercise_2_27a :   ¬ Summable (λ i : {p : ℤ // Squarefree p} => (1 : ℚ) / i) := by sorry",
+        "hover_formal_statement": "theorem exercise_2_27a : ¬Summable fun i => 1 / ↑↑i := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2_27a : ¬Summable fun i => 1 / ↑↑i := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Set Nat\nopen scoped ArithmeticFunction\n",
+                "name": "not_summable_moebius_on_squarefree",
+                "FL (Prediction)": "theorem not_summable_moebius_on_squarefree : ¬Summable ({n : ℕ | Squarefree n}.indicator fun n => (μ n : ℝ)) := by sorry",
+                "hover_formal_statement": "theorem not_summable_moebius_on_squarefree : ¬Summable ({n | Squarefree n}.indicator fun n => ↑(μ n)) := by sorry",
+                "reorganized_hover_formal_statement": "theorem not_summable_moebius_on_squarefree : ¬Summable ({n | Squarefree n}.indicator fun n => ↑(μ n)) := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that the sum of the reciprocals of the square-free numbers does not converge.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $n$ is not a prime, show that $(n-1) ! \\equiv 0(n)$, except when $n=4$.",
+        "header": "import Mathlib\n\nopen Real\nopen scoped BigOperators\n\n",
+        "name": "exercise_3_10",
+        "FL (Label)": "theorem exercise_3_10 {n : ℕ} (hn0 : ¬ n.Prime) (hn1 : n ≠ 4) :   Nat.factorial (n-1) ≡ 0 [MOD n] := by sorry",
+        "hover_formal_statement": "theorem exercise_3_10 {n : ℕ} (hn0 : ¬Nat.Prime n) (hn1 : n ≠ 4) : (n - 1).factorial ≡ 0 [MOD n] := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_3_10 {n : ℕ} (hn0 : ¬Nat.Prime n) (hn1 : n ≠ 4) : (n - 1).factorial ≡ 0 [MOD n] := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Bool Subtype\nopen Nat\n",
+                "name": "not_prime_resolve",
+                "FL (Prediction)": "theorem not_prime_resolve {n : ℕ} (n_not_prime : ¬ n.Prime) : n ≠ 4 → (n - 1)! ≡ 0 [ZMOD n] := by sorry",
+                "hover_formal_statement": "theorem not_prime_resolve {n : ℕ} (n_not_prime : ¬Nat.Prime n) : n ≠ 4 → ↑(n - 1)! ≡ 0 [ZMOD ↑n] := by sorry",
+                "reorganized_hover_formal_statement": "theorem not_prime_resolve {n : ℕ} (n_not_prime : ¬Nat.Prime n) : n ≠ 4 → ↑(n - 1)! ≡ 0 [ZMOD ↑n] := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that if $n$ is not prime, then $(n-1)! \\equiv 0 \\pmod n$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "If $p=2^{n}+1$ is a Fermat prime, show that 3 is a primitive root modulo $p$.",
+        "header": "import Mathlib\n\nopen Real\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_6",
+        "FL (Label)": "theorem exercise_4_6 {p n : ℕ} (hp : p.Prime) (hpn : p = 2^n + 1) :   IsPrimitiveRoot 3 p := by sorry",
+        "hover_formal_statement": "theorem exercise_4_6 {p n : ℕ} (hp : Nat.Prime p) (hpn : p = 2 ^ n + 1) : IsPrimitiveRoot 3 p := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_6 {p n : ℕ} (hp : Nat.Prime p) (hpn : p = 2 ^ n + 1) : IsPrimitiveRoot 3 p := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen ZMod\nopen Finset in\nopen Finset Int in\n",
+                "name": "isFermatPrime_two_pow_add_one_tac_3561",
+                "FL (Prediction)": "theorem isFermatPrime_two_pow_add_one_tac_3561 (p : ℕ) (hp : Nat.Prime p) (h : p = 2 ^ n + 1) (this : Fact (Nat.Prime p)) : IsPrimitiveRoot 3 p := by sorry",
+                "hover_formal_statement": "theorem isFermatPrime_two_pow_add_one_tac_3561 {n : ℕ} (p : ℕ) (hp : Nat.Prime p) (h : p = 2 ^ n + 1)  (this : Fact (Nat.Prime p)) : IsPrimitiveRoot 3 p := by sorry",
+                "reorganized_hover_formal_statement": "theorem isFermatPrime_two_pow_add_one_tac_3561 {n : ℕ} (p : ℕ) (hp : Nat.Prime p) (h : p = 2 ^ n + 1) (this : Fact (Nat.Prime p)) : IsPrimitiveRoot 3 p := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $p$ be a prime number of the form $2^n+1$. Show that $3$ is a primitive root modulo $p$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that $1^{k}+2^{k}+\\cdots+(p-1)^{k} \\equiv 0(p)$ if $p-1 \\nmid k$ and $-1(p)$ if $p-1 \\mid k$.",
+        "header": "import Mathlib\n\nopen Real\nopen scoped BigOperators\n\n",
+        "name": "exercise_4_11",
+        "FL (Label)": "theorem exercise_4_11 {p : ℕ} (hp : p.Prime) (k s: ℕ)   (s := ∑ n : Fin p, (n : ℕ) ^ k) :   ((¬ p - 1 ∣ k) → s ≡ 0 [MOD p]) ∧ (p - 1 ∣ k → s ≡ 0 [MOD p]) := by sorry",
+        "hover_formal_statement": "theorem exercise_4_11 {p : ℕ} (hp : Nat.Prime p) (k s : ℕ) (s✝ : ℕ := ∑ n, ↑n ^ k) :  (¬p - 1 ∣ k → s✝ ≡ 0 [MOD p]) ∧ (p - 1 ∣ k → s✝ ≡ 0 [MOD p]) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_4_11 {p : ℕ} (hp : Nat.Prime p) (k : ℕ) (s : ℕ) (s✝ : ℕ := ∑ n, ↑n ^ k) : (¬p - 1 ∣ k → s✝ ≡ 0 [MOD p]) ∧ (p - 1 ∣ k → s✝ ≡ 0 [MOD p]) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen BigOperators\nopen Real Nat Topology\n\n",
+                "name": "sum_k_factorial_mod_p_eq_neg_one_pow_k",
+                "FL (Prediction)": "theorem sum_k_factorial_mod_p_eq_neg_one_pow_k {p : ℕ} (hp : p.Prime) {k : ℕ} :     (∑ i in Finset.range p, i ^ k) % p = (-1 : ℤ) ^ k  := by sorry",
+                "hover_formal_statement": "theorem sum_k_factorial_mod_p_eq_neg_one_pow_k {p : ℕ} (hp : Nat.Prime p) {k : ℕ} :  ↑(∑ i ∈ Finset.range p, i ^ k) % ↑p = (-1) ^ k := by sorry",
+                "reorganized_hover_formal_statement": "theorem sum_k_factorial_mod_p_eq_neg_one_pow_k {p : ℕ} (hp : Nat.Prime p) {k : ℕ} : ↑(∑ i ∈ Finset.range p, i ^ k) % ↑p = (-1) ^ k := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Prove that for a prime number $p$ and a natural number $k$, we have $\\sum_{i=0}^{p-1} i^k \\equiv (-1)^k \\pmod p$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Show that $x^{4} \\equiv 2(p)$ has a solution for $p \\equiv 1(4)$ iff $p$ is of the form $A^{2}+64 B^{2}$.",
+        "header": "import Mathlib\n\nopen Real\nopen scoped BigOperators\n\n",
+        "name": "exercise_5_28",
+        "FL (Label)": "theorem exercise_5_28 {p : ℕ} (hp : p.Prime) (hp1 : p ≡ 1 [MOD 4]):   ∃ x, x^4 ≡ 2 [MOD p] ↔ ∃ A B, p = A^2 + 64*B^2 := by sorry",
+        "hover_formal_statement": "theorem exercise_5_28 {p : ℕ} (hp : Nat.Prime p) (hp1 : p ≡ 1 [MOD 4]) : ∃ x, x ^ 4 ≡ 2 [MOD p] ↔ ∃ A B, p = A ^ 2 + 64 * B ^ 2 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_5_28 {p : ℕ} (hp : Nat.Prime p) (hp1 : p ≡ 1 [MOD 4]) : ∃ x, x ^ 4 ≡ 2 [MOD p] ↔ ∃ A B, p = A ^ 2 + 64 * B ^ 2 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Nat\nopen ZMod\nopen ZMod\n",
+                "name": "exists_sq_eq_two_iff_tac_13321",
+                "FL (Prediction)": "theorem exists_sq_eq_two_iff_tac_13321 (p : ℕ) [Fact (Nat.Prime p)] (hp : p ≡ 1 [ZMOD 4]) : (∃ x, x ^ 4 ≡ 2 [ZMOD p]) ↔ ∃ a b, p = a ^ 2 + 64 * b ^ 2 := by sorry",
+                "hover_formal_statement": "theorem exists_sq_eq_two_iff_tac_13321 (p : ℕ) [Fact (Nat.Prime p)] (hp : ↑p ≡ 1 [ZMOD 4]) :  (∃ x, x ^ 4 ≡ 2 [ZMOD ↑p]) ↔ ∃ a b, p = a ^ 2 + 64 * b ^ 2 := by sorry",
+                "reorganized_hover_formal_statement": "theorem exists_sq_eq_two_iff_tac_13321 (p : ℕ) [Fact (Nat.Prime p)] (hp : ↑p ≡ 1 [ZMOD 4]) : (∃ x, x ^ 4 ≡ 2 [ZMOD ↑p]) ↔ ∃ a b, p = a ^ 2 + 64 * b ^ 2 := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that $p$ is of the form $a^2+64b^2$ if and only if $p\\equiv 1\\pmod 4$ and $2$ is a fourth power modulo $p$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Show that $\\sin (\\pi / 12)$ is an algebraic number.",
+        "header": "import Mathlib\n\nopen Real\nopen scoped BigOperators\n\n",
+        "name": "exercise_12_12",
+        "FL (Label)": "theorem exercise_12_12 : IsAlgebraic ℚ (sin (Real.pi/12)) := by sorry",
+        "hover_formal_statement": "theorem exercise_12_12 : IsAlgebraic ℚ (sin (π / 12)) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_12_12 : IsAlgebraic ℚ (sin (π / 12)) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen scoped Classical\nopen Topology Filter Set\nopen Lean.Meta Qq\nopen Real\nopen Real NNReal\nopen Real\nopen Real\n",
+                "name": "is_algebraic_sin_pi_div_twelve",
+                "FL (Prediction)": "theorem is_algebraic_sin_pi_div_twelve : IsAlgebraic ℚ (sin (π / 12)) := by sorry",
+                "hover_formal_statement": "theorem is_algebraic_sin_pi_div_twelve : IsAlgebraic ℚ (sin (π / 12)) := by sorry",
+                "reorganized_hover_formal_statement": "theorem is_algebraic_sin_pi_div_twelve : IsAlgebraic ℚ (sin (π / 12)) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that $\\sin \\left(\\frac{\\pi}{12}\\right)$ is an algebraic number.",
+                "label --> predict | verified_code": "import Mathlib\n\n\nopen Real\nopen scoped BigOperators\n\nopen scoped Classical\nopen Topology Filter Set\nopen Lean.Meta Qq\nopen Real\nopen Real NNReal\nopen Real\nopen Real\ntheorem tm_nameP : IsAlgebraic ℚ (sin (Real.pi/12)) := by sorry\ntheorem tm_nameQ : IsAlgebraic ℚ (sin (π / 12)) := by exact?",
+                "label --> predict | proof_content": "exact?",
+                "predict --> label | verified_code": "import Mathlib\n\n\nopen Real\nopen scoped BigOperators\n\nopen scoped Classical\nopen Topology Filter Set\nopen Lean.Meta Qq\nopen Real\nopen Real NNReal\nopen Real\nopen Real\ntheorem tm_nameP : IsAlgebraic ℚ (sin (π / 12)) := by sorry\ntheorem tm_nameQ : IsAlgebraic ℚ (sin (Real.pi/12)) := by exact?",
+                "predict --> label | proof_content": "exact?",
+                "beq": "same"
+            }
+        ]
+    },
+    {
+        "NL": "Let $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ be an infinitely differentiable function satisfying $f(0)=0, f(1)=1$, and $f(x) \\geq 0$ for all $x \\in$ $\\mathbb{R}$. Show that there exist a positive integer $n$ and a real number $x$ such that $f^{(n)}(x)<0$.",
+        "header": "import Mathlib\n\nopen scoped BigOperators\n\n",
+        "name": "exercise_2018_a5",
+        "FL (Label)": "theorem exercise_2018_a5 (f : ℝ → ℝ) (hf : ContDiff ℝ ⊤ f)   (hf0 : f 0 = 0) (hf1 : f 1 = 1) (hf2 : ∀ x, f x ≥ 0) :   ∃ (n : ℕ) (x : ℝ), iteratedDeriv n f x = 0 := by sorry",
+        "hover_formal_statement": "theorem exercise_2018_a5 (f : ℝ → ℝ) (hf : ContDiff ℝ ⊤ f) (hf0 : f 0 = 0) (hf1 : f 1 = 1) (hf2 : ∀ (x : ℝ), f x ≥ 0) :  ∃ n x, iteratedDeriv n f x = 0 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2018_a5 (f : ℝ → ℝ) (hf : ContDiff ℝ ⊤ f) (hf0 : f 0 = 0) (hf1 : f 1 = 1) (hf2 : ∀ (x : ℝ), f x ≥ 0) : ∃ n x, iteratedDeriv n f x = 0 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen Polynomial\nopen Polynomial\nopen Nat\n",
+                "name": "exists_deriv_neg",
+                "FL (Prediction)": "theorem exists_deriv_neg (f : ℝ → ℝ) (hf0 : f 0 = 0) (hf1 : f 1 = 1) (hf_pos : ∀ x, 0 ≤ f x) :     ∃ n x, (f^[n] x < 0) := by sorry",
+                "hover_formal_statement": "theorem exists_deriv_neg (f : ℝ → ℝ) (hf0 : f 0 = 0) (hf1 : f 1 = 1) (hf_pos : ∀ (x : ℝ), 0 ≤ f x) : ∃ n x, f^[n] x < 0 := by sorry",
+                "reorganized_hover_formal_statement": "theorem exists_deriv_neg (f : ℝ → ℝ) (hf0 : f 0 = 0) (hf1 : f 1 = 1) (hf_pos : ∀ (x : ℝ), 0 ≤ f x) : ∃ n x, f^[n] x < 0 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a function such that $f(0) = 0$, $f(1) = 1$, and $f(x) \\ge 0$ for all $x$. Prove that there exists a positive integer $n$ and a real number $x$ such that $f^{(n)}(x) < 0$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Given a real number $a$, we define a sequence by $x_{0}=1$, $x_{1}=x_{2}=a$, and $x_{n+1}=2 x_{n} x_{n-1}-x_{n-2}$ for $n \\geq 2$. Prove that if $x_{n}=0$ for some $n$, then the sequence is periodic.",
+        "header": "import Mathlib\n\nopen scoped BigOperators\n\n",
+        "name": "exercise_2018_b4",
+        "FL (Label)": "theorem exercise_2018_b4 (a : ℝ) (x : ℕ → ℝ) (hx0 : x 0 = a)   (hx1 : x 1 = a)   (hxn : ∀ n : ℕ, n ≥ 2 → x (n+1) = 2*(x n)*(x (n-1)) - x (n-2))   (h : ∃ n, x n = 0) :   ∃ c, Function.Periodic x c := by sorry",
+        "hover_formal_statement": "theorem exercise_2018_b4 (a : ℝ) (x : ℕ → ℝ) (hx0 : x 0 = a) (hx1 : x 1 = a)  (hxn : ∀ n ≥ 2, x (n + 1) = 2 * x n * x (n - 1) - x (n - 2)) (h : ∃ n, x n = 0) : ∃ c, Function.Periodic x c := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2018_b4 (a : ℝ) (x : ℕ → ℝ) (hx0 : x 0 = a) (hx1 : x 1 = a) (hxn : ∀ n ≥ 2, x (n + 1) = 2 * x n * x (n - 1) - x (n - 2)) (h : ∃ n, x n = 0) : ∃ c, Function.Periodic x c := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen BigOperators\nopen Real Nat Topology\n\n",
+                "name": "periodic_of_zero_of_sequence",
+                "FL (Prediction)": "theorem periodic_of_zero_of_sequence (a : ℝ) (x : ℕ → ℝ) (h : x 0 = 1 ∧ x 1 = a ∧ ∀ n ≥ 2, x (n + 1) = 2 * x n * x (n - 1) - x (n - 2)) : ∃ n, 0 < n ∧ ∃ k, 0 < k ∧ ∀ m, 0 < m ∧ m < n + k → x m = 0   := by sorry",
+                "hover_formal_statement": "theorem periodic_of_zero_of_sequence (a : ℝ) (x : ℕ → ℝ)  (h : x 0 = 1 ∧ x 1 = a ∧ ∀ n ≥ 2, x (n + 1) = 2 * x n * x (n - 1) - x (n - 2)) :  ∃ n, 0 < n ∧ ∃ k, 0 < k ∧ ∀ (m : ℕ), 0 < m ∧ m < n + k → x m = 0 := by sorry",
+                "reorganized_hover_formal_statement": "theorem periodic_of_zero_of_sequence (a : ℝ) (x : ℕ → ℝ) (h : x 0 = 1 ∧ x 1 = a ∧ ∀ n ≥ 2, x (n + 1) = 2 * x n * x (n - 1) - x (n - 2)) : ∃ n, 0 < n ∧ ∃ k, 0 < k ∧ ∀ (m : ℕ), 0 < m ∧ m < n + k → x m = 0 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Let $a$ be a real number and let $x_0, x_1, x_2, \\dots$ be a sequence of real numbers such that $x_0 = 1, x_1 = a,$ and $x_{n + 1} = 2x_nx_{n - 1} - x_{n - 2}$ for $n \\ge 2$. Prove that there exists a positive integer $n$ such that $x_n = 0$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Let $P_n(x)=1+2 x+3 x^2+\\cdots+n x^{n-1} .$ Prove that the polynomials $P_j(x)$ and $P_k(x)$ are relatively prime for all positive integers $j$ and $k$ with $j \\neq k$.",
+        "header": "import Mathlib\n\nopen scoped BigOperators\n\n",
+        "name": "exercise_2014_a5",
+        "FL (Label)": "theorem exercise_2014_a5 (P : ℕ → Polynomial ℤ)   (hP : ∀ n, P n = ∑ i : Fin n, (n+1) * Polynomial.X ^ n) :   ∀ (j k : ℕ), j ≠ k → IsCoprime (P j) (P k) := by sorry",
+        "hover_formal_statement": "theorem exercise_2014_a5 (P : ℕ → Polynomial ℤ) (hP : ∀ (n : ℕ), P n = ∑ i, (↑n + 1) * Polynomial.X ^ n) (j k : ℕ) :  j ≠ k → IsCoprime (P j) (P k) := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2014_a5 (P : ℕ → Polynomial ℤ) (hP : ∀ (n : ℕ), P n = ∑ i, (↑n + 1) * Polynomial.X ^ n) (j : ℕ) (k : ℕ) : j ≠ k → IsCoprime (P j) (P k) := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen BigOperators\nopen Real Nat Topology\n\n",
+                "name": "my_favorite_theorem",
+                "FL (Prediction)": "theorem my_favorite_theorem (j k : ℕ) (h : j ≠ k) :     IsRelPrime (∑ i in Finset.range j, (i + 1) * X ^ i) (∑ i in Finset.range k, (i + 1) * X ^ i)  := by sorry",
+                "hover_formal_statement": "theorem my_favorite_theorem {X : ℕ} (j k : ℕ) (h : j ≠ k) :  IsRelPrime (∑ i ∈ Finset.range j, (i + 1) * X ^ i) (∑ i ∈ Finset.range k, (i + 1) * X ^ i) := by sorry",
+                "reorganized_hover_formal_statement": "theorem my_favorite_theorem {X : ℕ} (j : ℕ) (k : ℕ) (h : j ≠ k) : IsRelPrime (∑ i ∈ Finset.range j, (i + 1) * X ^ i) (∑ i ∈ Finset.range k, (i + 1) * X ^ i) := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Let $p(x) = \\sum_{i=0}^{n} a_i x^i$ and $q(x) = \\sum_{i=0}^{m} b_i x^i$ be two polynomials with integer coefficients. Prove that if $p(x)$ and $q(x)$ are relatively prime, then $p(n)$ and $q(n)$ are relatively prime for any integer $n$.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that there are unique positive integers $a, n$ such that $a^{n+1}-(a+1)^n=2001$.",
+        "header": "import Mathlib\n\nopen scoped BigOperators\n\n",
+        "name": "exercise_2001_a5",
+        "FL (Label)": "theorem exercise_2001_a5 :   ∃! a : ℕ, ∃! n : ℕ, a > 0 ∧ n > 0 ∧ a^(n+1) - (a+1)^n = 2001 := by sorry",
+        "hover_formal_statement": "theorem exercise_2001_a5 : ∃! a, ∃! n, a > 0 ∧ n > 0 ∧ a ^ (n + 1) - (a + 1) ^ n = 2001 := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_2001_a5 : ∃! a, ∃! n, a > 0 ∧ n > 0 ∧ a ^ (n + 1) - (a + 1) ^ n = 2001 := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen BigOperators\nopen Real Nat Topology\n\n",
+                "name": "my_favorite_theorem",
+                "FL (Prediction)": "theorem my_favorite_theorem : ∃! a : ℕ, ∃! n : ℕ, a^(n+1) - (a+1)^n = 2001  := by sorry",
+                "hover_formal_statement": "theorem my_favorite_theorem : ∃! a, ∃! n, a ^ (n + 1) - (a + 1) ^ n = 2001 := by sorry",
+                "reorganized_hover_formal_statement": "theorem my_favorite_theorem : ∃! a, ∃! n, a ^ (n + 1) - (a + 1) ^ n = 2001 := by sorry",
+                "Human_Evaluation": false,
+                "compiler_check": "success",
+                "back_translation": "Find all pairs $(a, n)$ of positive integers that satisfy the equation $a^{n+1} - (a+1)^n = 2001$. Show that it is 10.",
+                "beq": "different"
+            }
+        ]
+    },
+    {
+        "NL": "Prove that, for any integers $a, b, c$, there exists a positive integer $n$ such that $\\sqrt{n^3+a n^2+b n+c}$ is not an integer.",
+        "header": "import Mathlib\n\nopen scoped BigOperators\n\n",
+        "name": "exercise_1998_b6",
+        "FL (Label)": "theorem exercise_1998_b6 (a b c : ℤ) :   ∃ n : ℤ, n > 0 ∧ ¬ ∃ m : ℤ, Real.sqrt (n^3 + a*n^2 + b*n + c) = m := by sorry",
+        "hover_formal_statement": "theorem exercise_1998_b6 (a b c : ℤ) : ∃ n > 0, ¬∃ m, √(↑n ^ 3 + ↑a * ↑n ^ 2 + ↑b * ↑n + ↑c) = ↑m := by sorry",
+        "reorganized_hover_formal_statement": "theorem exercise_1998_b6 (a : ℤ) (b : ℤ) (c : ℤ) : ∃ n > 0, ¬∃ m, √(↑n ^ 3 + ↑a * ↑n ^ 2 + ↑b * ↑n + ↑c) = ↑m := by sorry",
+        "sub_questions": [
+            {
+                "header": "import Mathlib\nopen BigOperators\nopen Real Nat Topology\n\n",
+                "name": "exists_n_sqrt_n3_an2_bn_c_not_int",
+                "FL (Prediction)": "theorem exists_n_sqrt_n3_an2_bn_c_not_int (a b c : ℤ) : ∃ n : ℤ, 0 < n ∧ ¬ ∃ k : ℤ, k^2 = n^3 + a * n^2 + b * n + c   := by sorry",
+                "hover_formal_statement": "theorem exists_n_sqrt_n3_an2_bn_c_not_int (a b c : ℤ) : ∃ n, 0 < n ∧ ¬∃ k, k ^ 2 = n ^ 3 + a * n ^ 2 + b * n + c := by sorry",
+                "reorganized_hover_formal_statement": "theorem exists_n_sqrt_n3_an2_bn_c_not_int (a : ℤ) (b : ℤ) (c : ℤ) : ∃ n, 0 < n ∧ ¬∃ k, k ^ 2 = n ^ 3 + a * n ^ 2 + b * n + c := by sorry",
+                "Human_Evaluation": true,
+                "compiler_check": "success",
+                "back_translation": "Prove that there exists an integer $n$ such that $0 < n$ and $n^3 + an^2 + bn + c$ is not a perfect square for any integer $k$.",
+                "beq": "different"
+            }
+        ]
+    }
+]

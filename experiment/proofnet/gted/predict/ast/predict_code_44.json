@@ -1,0 +1,118 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1, _ u_2}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "G",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "H",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_2",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Group _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Group _ ",
+                            "children": [
+                                {
+                                    "content": "H",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "Subgroup.center _ ",
+                            "children": [
+                                {
+                                    "content": " _ × _ ",
+                                    "children": [
+                                        {
+                                            "content": "G",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "H",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "_._ _ ",
+                            "children": [
+                                {
+                                    "content": "Subgroup.center _ ",
+                                    "children": [
+                                        {
+                                            "content": "G",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "prod",
+                                    "children": []
+                                },
+                                {
+                                    "content": "Subgroup.center _ ",
+                                    "children": [
+                                        {
+                                            "content": "H",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "G",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Group _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "Nat.card _ ",
+                                    "children": [
+                                        {
+                                            "content": "G",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "2907",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "¬",
+                    "children": [
+                        {
+                            "content": "IsSimpleGroup _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

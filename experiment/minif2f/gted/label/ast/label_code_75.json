@@ -1,0 +1,95 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": " _ / _ ",
+                            "children": [
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "2",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "2014",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "2",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "2012",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ - _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "2",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "2014",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "2",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "2012",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ / _ ",
+                            "children": [
+                                {
+                                    "content": "5",
+                                    "children": []
+                                },
+                                {
+                                    "content": "3",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

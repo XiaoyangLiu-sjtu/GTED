@@ -1,0 +1,105 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "MetricSpace _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "CompactSpace _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "f",
+                            "children": []
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                },
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hf",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "Isometry _ ",
+                            "children": [
+                                {
+                                    "content": "f",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "Function.Bijective _ ",
+                    "children": [
+                        {
+                            "content": "f",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

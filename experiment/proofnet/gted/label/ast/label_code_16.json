@@ -1,0 +1,148 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _  _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "α",
+                            "children": []
+                        },
+                        {
+                            "content": "Type",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "MetricSpace _ ",
+                            "children": [
+                                {
+                                    "content": "α",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "f",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "α",
+                                    "children": []
+                                },
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "Continuous _ ",
+                            "children": [
+                                {
+                                    "content": "f",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "z",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "α",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "g",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "z",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": " _ ⁻¹' _ ",
+                                    "children": [
+                                        {
+                                            "content": "f",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "{}",
+                                            "children": [
+                                                {
+                                                    "content": "0",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "IsClosed _ ",
+                    "children": [
+                        {
+                            "content": "z",
+                            "children": [],
+                            "variable_freecost": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

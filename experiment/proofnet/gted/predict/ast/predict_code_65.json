@@ -1,0 +1,144 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1, _ u_2}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "R",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "S",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_2",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Ring _ ",
+                            "children": [
+                                {
+                                    "content": "R",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Ring _ ",
+                            "children": [
+                                {
+                                    "content": "S",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "φ",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ →+* _ ",
+                            "children": [
+                                {
+                                    "content": "R",
+                                    "children": []
+                                },
+                                {
+                                    "content": "S",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": "Function.Surjective _ ",
+                            "children": [
+                                {
+                                    "content": "⇑",
+                                    "children": [
+                                        {
+                                            "content": "φ",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ ≤ _ ",
+                            "children": [
+                                {
+                                    "content": "Subring.map _  _ ",
+                                    "children": [
+                                        {
+                                            "content": "φ",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "Subring.center _ ",
+                                            "children": [
+                                                {
+                                                    "content": "R",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "Subring.center _ ",
+                                    "children": [
+                                        {
+                                            "content": "S",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

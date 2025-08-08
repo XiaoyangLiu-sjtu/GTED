@@ -1,0 +1,91 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "_._",
+                            "children": [
+                                {
+                                    "content": "{ _  _ | _ }",
+                                    "children": [
+                                        {
+                                            "content": "x",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "∈",
+                                            "children": [
+                                                {
+                                                    "content": "{ _  _ | _ }",
+                                                    "children": [
+                                                        {
+                                                            "content": "x",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "∈",
+                                                            "children": [
+                                                                {
+                                                                    "content": "Finset.Icc _  _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "1000",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "9999",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "Even _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "x",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ∣ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "5",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "x",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "card",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "100",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

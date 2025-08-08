@@ -1,0 +1,133 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "f",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                },
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "x",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ℝ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "f _ ",
+                                    "children": [
+                                        {
+                                            "content": "x",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ - _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ ^ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "x",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        },
+                                                        {
+                                                            "content": "2",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ * _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "14",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "x",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "3",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ ≤ _ ",
+                            "children": [
+                                {
+                                    "content": "f _ ",
+                                    "children": [
+                                        {
+                                            "content": "7",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "f _ ",
+                                    "children": [
+                                        {
+                                            "content": "x",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

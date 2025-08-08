@@ -1,0 +1,121 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "G",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Type _ u",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Group _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "IsSolvable _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "N",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Subgroup _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[ _ : _ ]",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": []
+                        },
+                        {
+                            "content": "_._",
+                            "children": [
+                                {
+                                    "content": "N",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "Normal",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "IsSolvable _ ",
+                    "children": [
+                        {
+                            "content": " _ ⧸ _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "N",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

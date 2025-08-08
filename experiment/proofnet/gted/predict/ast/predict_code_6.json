@@ -1,0 +1,29 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": "¬",
+                    "children": [
+                        {
+                            "content": "Nonempty _ ",
+                            "children": [
+                                {
+                                    "content": "OrderedRing _ ",
+                                    "children": [
+                                        {
+                                            "content": "ℂ",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

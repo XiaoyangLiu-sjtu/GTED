@@ -1,0 +1,127 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "p",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hp",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "Nat.Prime _ ",
+                            "children": [
+                                {
+                                    "content": "p",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "a",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": "_._ _ ",
+                            "children": [
+                                {
+                                    "content": "a",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "Coprime",
+                                    "children": []
+                                },
+                                {
+                                    "content": "p",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ ≡ _  _ [ZMOD _ ]",
+                            "children": [
+                                {
+                                    "content": " _ ^ _ ",
+                                    "children": [
+                                        {
+                                            "content": "↑",
+                                            "children": [
+                                                {
+                                                    "content": "a",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "p",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "↑",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "↑",
+                                    "children": [
+                                        {
+                                            "content": "p",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,151 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "n",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h₀",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ < _ ",
+                            "children": [
+                                {
+                                    "content": "0",
+                                    "children": []
+                                },
+                                {
+                                    "content": "n",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h₁",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "logb _  _ ",
+                                    "children": [
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "logb _  _ ",
+                                            "children": [
+                                                {
+                                                    "content": "16",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "↑",
+                                                    "children": [
+                                                        {
+                                                            "content": "n",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "logb _  _ ",
+                                    "children": [
+                                        {
+                                            "content": "4",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "logb _  _ ",
+                                            "children": [
+                                                {
+                                                    "content": "4",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "↑",
+                                                    "children": [
+                                                        {
+                                                            "content": "n",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "_._",
+                            "children": [
+                                {
+                                    "content": "digits _  _ ",
+                                    "children": [
+                                        {
+                                            "content": "10",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "n",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "sum",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "13",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

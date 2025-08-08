@@ -1,0 +1,202 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "S",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Finset _ ",
+                            "children": [
+                                {
+                                    "content": "ℕ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h₀",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "n",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ℕ",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ↔ _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ ∈ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "n",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "S",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ∧ _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ ≤ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "2010",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "n",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ ∧ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ ≤ _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "n",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "2019",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "∃ _ , _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "m",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": " _ ∧ _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": ".divisors.card _ = _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "m",
+                                                                                    "children": []
+                                                                                },
+                                                                                {
+                                                                                    "content": "4",
+                                                                                    "children": []
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "content": " _ = _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "∑ _  _ , _ ",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "content": "p",
+                                                                                            "children": []
+                                                                                        },
+                                                                                        {
+                                                                                            "content": "∈.divisors",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "content": "m",
+                                                                                                    "children": []
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "content": "p",
+                                                                                            "children": []
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "content": "n",
+                                                                                    "children": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "∑ _  _ , _ ",
+                            "children": [
+                                {
+                                    "content": "k",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∈",
+                                    "children": [
+                                        {
+                                            "content": "S",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "k",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "2016",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

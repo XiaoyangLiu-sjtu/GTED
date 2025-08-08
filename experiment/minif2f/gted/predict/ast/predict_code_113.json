@@ -1,0 +1,212 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "a",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "ℕ",
+                                    "children": []
+                                },
+                                {
+                                    "content": "ℕ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "n",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ℕ",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ = _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ - _ ",
+                                            "children": [
+                                                {
+                                                    "content": "a _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ + _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "n",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "1",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "a _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "n",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "1",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h2",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "∑ _  _ , _ ",
+                                    "children": [
+                                        {
+                                            "content": "k",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "∈",
+                                            "children": [
+                                                {
+                                                    "content": "Finset.range _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "98",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "a _ ",
+                                            "children": [
+                                                {
+                                                    "content": "k",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "137",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "∑ _  _ , _ ",
+                            "children": [
+                                {
+                                    "content": "k",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∈",
+                                    "children": [
+                                        {
+                                            "content": "Finset.range _ ",
+                                            "children": [
+                                                {
+                                                    "content": "49",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "a _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ + _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ * _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "2",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "k",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "2",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "93",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

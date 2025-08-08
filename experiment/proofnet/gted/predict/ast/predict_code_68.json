@@ -1,0 +1,97 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "q",
+                            "children": []
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Fact _ ",
+                            "children": [
+                                {
+                                    "content": "Nat.Prime _ ",
+                                    "children": [
+                                        {
+                                            "content": "q",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hq",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ ≡ _  _ [ZMOD _ ]",
+                            "children": [
+                                {
+                                    "content": "↑",
+                                    "children": [
+                                        {
+                                            "content": "q",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "3",
+                                    "children": []
+                                },
+                                {
+                                    "content": "4",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "IsField _ ",
+                    "children": [
+                        {
+                            "content": "ZMod _ ",
+                            "children": [
+                                {
+                                    "content": " _ ^ _ ",
+                                    "children": [
+                                        {
+                                            "content": "q",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

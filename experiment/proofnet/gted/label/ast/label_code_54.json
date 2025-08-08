@@ -1,0 +1,24 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": "Infinite _ ",
+                    "children": [
+                        {
+                            "content": "Equiv.Perm _ ",
+                            "children": [
+                                {
+                                    "content": "ℕ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

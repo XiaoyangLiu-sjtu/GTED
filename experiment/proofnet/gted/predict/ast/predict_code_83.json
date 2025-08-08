@@ -1,0 +1,70 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": "¬",
+                    "children": [
+                        {
+                            "content": "Summable _ ",
+                            "children": [
+                                {
+                                    "content": "_._ _ ",
+                                    "children": [
+                                        {
+                                            "content": "{| _ }",
+                                            "children": [
+                                                {
+                                                    "content": "n",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "Squarefree _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "n",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "indicator",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "fun _ => _ ",
+                                            "children": [
+                                                {
+                                                    "content": "n",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "↑",
+                                                    "children": [
+                                                        {
+                                                            "content": "μ _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "n",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

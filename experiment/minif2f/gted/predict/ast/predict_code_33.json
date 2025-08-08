@@ -1,0 +1,86 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": " _ % _ ",
+                            "children": [
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ + _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ + _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ + _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": " _ + _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": " _ + _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "2000",
+                                                                                    "children": []
+                                                                                },
+                                                                                {
+                                                                                    "content": "2001",
+                                                                                    "children": []
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "content": "2002",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "2003",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "2004",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "2005",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "2006",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "7",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "0",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

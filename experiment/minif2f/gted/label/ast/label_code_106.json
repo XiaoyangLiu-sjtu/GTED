@@ -1,0 +1,72 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "n",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ZMod _ ",
+                            "children": [
+                                {
+                                    "content": "1399",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h₁",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "n",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "⁻¹",
+                                    "children": [
+                                        {
+                                            "content": "160",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "n",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "1058",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

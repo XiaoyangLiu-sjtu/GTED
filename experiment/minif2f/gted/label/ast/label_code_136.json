@@ -1,0 +1,147 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "a",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "ℕ",
+                                    "children": []
+                                },
+                                {
+                                    "content": "NNReal",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "n",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h₀",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "∑ _  _ , _ ",
+                                    "children": [
+                                        {
+                                            "content": "x",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "∈",
+                                            "children": [
+                                                {
+                                                    "content": "Finset.range _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "n",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "a _ ",
+                                            "children": [
+                                                {
+                                                    "content": "x",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "↑",
+                                    "children": [
+                                        {
+                                            "content": "n",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ ≤ _ ",
+                    "children": [
+                        {
+                            "content": "∏ _  _ , _ ",
+                            "children": [
+                                {
+                                    "content": "x",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∈",
+                                    "children": [
+                                        {
+                                            "content": "Finset.range _ ",
+                                            "children": [
+                                                {
+                                                    "content": "n",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "a _ ",
+                                    "children": [
+                                        {
+                                            "content": "x",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "1",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

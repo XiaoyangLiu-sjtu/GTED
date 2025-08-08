@@ -1,0 +1,146 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1, _ u_2}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "ι",
+                            "children": []
+                        },
+                        {
+                            "content": "Sort _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_2",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "collections",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "ι",
+                                    "children": []
+                                },
+                                {
+                                    "content": "Set _ ",
+                                    "children": [
+                                        {
+                                            "content": "Set _ ",
+                                            "children": [
+                                                {
+                                                    "content": "X",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "topologies",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "ι",
+                                    "children": []
+                                },
+                                {
+                                    "content": "TopologicalSpace _ ",
+                                    "children": [
+                                        {
+                                            "content": "X",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "∃! _ , _ ",
+                    "children": [
+                        {
+                            "content": "t",
+                            "children": []
+                        },
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "i",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ι",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ≤ _ ",
+                                    "children": [
+                                        {
+                                            "content": "t",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "topologies _ ",
+                                            "children": [
+                                                {
+                                                    "content": "i",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

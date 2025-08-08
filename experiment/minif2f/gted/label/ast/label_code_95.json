@@ -1,0 +1,69 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ < _ ",
+                    "children": [
+                        {
+                            "content": "∑ _  _ , _ ",
+                            "children": [
+                                {
+                                    "content": "k",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∈",
+                                    "children": [
+                                        {
+                                            "content": "Finset.Icc _  _ ",
+                                            "children": [
+                                                {
+                                                    "content": "2",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "10000",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ / _ ",
+                                    "children": [
+                                        {
+                                            "content": "1",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "√",
+                                            "children": [
+                                                {
+                                                    "content": "↑",
+                                                    "children": [
+                                                        {
+                                                            "content": "k",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "198",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "a",
+                            "children": []
+                        },
+                        {
+                            "content": "b",
+                            "children": []
+                        },
+                        {
+                            "content": "ℤ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": " _ ∣ _ ",
+                            "children": [
+                                {
+                                    "content": "a",
+                                    "children": []
+                                },
+                                {
+                                    "content": "b",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ ∣ _ ",
+                            "children": [
+                                {
+                                    "content": "a",
+                                    "children": []
+                                },
+                                {
+                                    "content": "b",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

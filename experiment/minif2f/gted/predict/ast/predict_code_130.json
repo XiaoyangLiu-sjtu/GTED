@@ -1,0 +1,72 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ ≡ _  _ [ZMOD _ ]",
+                    "children": [
+                        {
+                            "content": " _ * _ ",
+                            "children": [
+                                {
+                                    "content": " _ * _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "16",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "17",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ^ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "17",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "18",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ^ _ ",
+                                    "children": [
+                                        {
+                                            "content": "18",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "19",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "8",
+                            "children": []
+                        },
+                        {
+                            "content": "10",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

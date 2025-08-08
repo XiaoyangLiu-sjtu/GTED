@@ -1,0 +1,109 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": "Irreducible _ ",
+                    "children": [
+                        {
+                            "content": " _ + _ ",
+                            "children": [
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ + _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ + _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ ^ _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "X",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "4",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": " _ * _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "4",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": " _ ^ _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "X",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "3",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ * _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "6",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": " _ ^ _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "X",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "2",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ * _ ",
+                                            "children": [
+                                                {
+                                                    "content": "2",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "X",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "1",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

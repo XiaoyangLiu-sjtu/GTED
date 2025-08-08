@@ -1,0 +1,13 @@
+{
+    "identity_match": {
+        "true_positive": 14,
+        "true_negative": 83,
+        "false_positive": 0,
+        "false_negative": 108,
+        "total": 205,
+        "precision": 1.0,
+        "recall": 0.11475409836065574,
+        "accuracy": 0.47317073170731705,
+        "kappa": 0.09499672988881616
+    }
+}

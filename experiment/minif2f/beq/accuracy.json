@@ -1,0 +1,13 @@
+{
+    "beq": {
+        "true_positive": 57,
+        "true_negative": 82,
+        "false_positive": 1,
+        "false_negative": 65,
+        "total": 205,
+        "precision": 0.9827586206896551,
+        "recall": 0.4672131147540984,
+        "accuracy": 0.6780487804878049,
+        "kappa": 0.40522243713733086
+    }
+}

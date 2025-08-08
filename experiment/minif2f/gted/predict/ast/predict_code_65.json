@@ -1,0 +1,171 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ ∧ _ ",
+                    "children": [
+                        {
+                            "content": "∃ _ , _ ",
+                            "children": [
+                                {
+                                    "content": "n",
+                                    "children": []
+                                },
+                                {
+                                    "content": " _ ∧ _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ < _ ",
+                                            "children": [
+                                                {
+                                                    "content": "0",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "n",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ = _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ / _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ + _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "↑",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "n",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "1000",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "70",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "⌊⌋",
+                                                    "children": [
+                                                        {
+                                                            "content": "√",
+                                                            "children": [
+                                                                {
+                                                                    "content": "↑",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "n",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "∃! _ , _ ",
+                            "children": [
+                                {
+                                    "content": "n",
+                                    "children": []
+                                },
+                                {
+                                    "content": " _ ∧ _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ < _ ",
+                                            "children": [
+                                                {
+                                                    "content": "0",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "n",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ = _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ / _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ + _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "↑",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "n",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "1000",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "70",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "⌊⌋",
+                                                    "children": [
+                                                        {
+                                                            "content": "√",
+                                                            "children": [
+                                                                {
+                                                                    "content": "↑",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "n",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

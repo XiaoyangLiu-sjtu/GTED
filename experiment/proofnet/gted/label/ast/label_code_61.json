@@ -1,0 +1,151 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "G",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Fintype _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Group _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "p",
+                            "children": []
+                        },
+                        {
+                            "content": "q",
+                            "children": []
+                        },
+                        {
+                            "content": "Nat.Primes",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hpq",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ ≠ _ ",
+                            "children": [
+                                {
+                                    "content": "p",
+                                    "children": []
+                                },
+                                {
+                                    "content": "q",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hG",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "card _ ",
+                                    "children": [
+                                        {
+                                            "content": "G",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ * _ ",
+                                    "children": [
+                                        {
+                                            "content": "↑",
+                                            "children": [
+                                                {
+                                                    "content": "p",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "↑",
+                                            "children": [
+                                                {
+                                                    "content": "q",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "IsCyclic _ ",
+                    "children": [
+                        {
+                            "content": "G",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

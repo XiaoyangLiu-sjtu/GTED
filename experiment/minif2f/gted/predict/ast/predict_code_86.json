@@ -1,0 +1,245 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "A",
+                            "children": []
+                        },
+                        {
+                            "content": "B",
+                            "children": []
+                        },
+                        {
+                            "content": "C",
+                            "children": []
+                        },
+                        {
+                            "content": "D",
+                            "children": []
+                        },
+                        {
+                            "content": "E",
+                            "children": []
+                        },
+                        {
+                            "content": "F",
+                            "children": []
+                        },
+                        {
+                            "content": "G",
+                            "children": []
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hx",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ ∧ _ ",
+                            "children": [
+                                {
+                                    "content": " _ = _ ",
+                                    "children": [
+                                        {
+                                            "content": "A",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "1",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ∧ _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ = _ ",
+                                            "children": [
+                                                {
+                                                    "content": "B",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "8",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ∧ _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ = _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "C",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "27",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ ∧ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ = _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "D",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "64",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": " _ ∧ _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": " _ = _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "E",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "125",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": " _ ∧ _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": " _ = _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "F",
+                                                                                    "children": []
+                                                                                },
+                                                                                {
+                                                                                    "content": "216",
+                                                                                    "children": []
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "content": " _ = _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "G",
+                                                                                    "children": []
+                                                                                },
+                                                                                {
+                                                                                    "content": "343",
+                                                                                    "children": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": " _ + _ ",
+                            "children": [
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ + _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ + _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ + _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": " _ + _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "A",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "B",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "C",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "D",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "E",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "F",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "G",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "658",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

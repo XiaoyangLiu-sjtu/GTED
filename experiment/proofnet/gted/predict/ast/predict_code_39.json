@@ -1,0 +1,19 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": "TotallyDisconnectedSpace _ ",
+                    "children": [
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

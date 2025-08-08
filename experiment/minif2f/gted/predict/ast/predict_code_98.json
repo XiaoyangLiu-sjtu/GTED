@@ -1,0 +1,233 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "k",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "n",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ℕ",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ∧ _ ",
+                                    "children": [
+                                        {
+                                            "content": "_._ _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ + _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ * _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "6",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "n",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "k",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "Coprime",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": " _ + _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ * _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "6",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "n",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "3",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ∧ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "_._ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ + _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": " _ * _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "6",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "n",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "k",
+                                                                    "children": [],
+                                                                    "variable_freecost": true
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "Coprime",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": " _ + _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": " _ * _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "6",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "n",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "2",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "_._ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ + _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": " _ * _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "6",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "n",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "k",
+                                                                    "children": [],
+                                                                    "variable_freecost": true
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "Coprime",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": " _ + _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": " _ * _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "6",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "n",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "1",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ ≥ _ ",
+                            "children": [
+                                {
+                                    "content": "k",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "5",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

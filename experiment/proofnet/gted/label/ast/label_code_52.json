@@ -1,0 +1,222 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "n",
+                            "children": []
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "a",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "Fin _ ",
+                                    "children": [
+                                        {
+                                            "content": "n",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "b",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "Fin _ ",
+                                    "children": [
+                                        {
+                                            "content": "n",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ ≤ _ ",
+                    "children": [
+                        {
+                            "content": " _ ^ _ ",
+                            "children": [
+                                {
+                                    "content": "∑, _ ",
+                                    "children": [
+                                        {
+                                            "content": "i",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": " _ * _ ",
+                                            "children": [
+                                                {
+                                                    "content": "a _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "i",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "b _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "i",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "2",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ * _ ",
+                            "children": [
+                                {
+                                    "content": "∑, _ ",
+                                    "children": [
+                                        {
+                                            "content": "i",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": " _ * _ ",
+                                            "children": [
+                                                {
+                                                    "content": "↑",
+                                                    "children": [
+                                                        {
+                                                            "content": "↑",
+                                                            "children": [
+                                                                {
+                                                                    "content": "i",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ ^ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "a _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "i",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "2",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "∑, _ ",
+                                    "children": [
+                                        {
+                                            "content": "i",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": " _ / _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ ^ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "b _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "i",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "2",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "↑",
+                                                    "children": [
+                                                        {
+                                                            "content": "↑",
+                                                            "children": [
+                                                                {
+                                                                    "content": "i",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

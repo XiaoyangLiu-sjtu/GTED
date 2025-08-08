@@ -1,0 +1,185 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "α",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "MetricSpace _ ",
+                            "children": [
+                                {
+                                    "content": "α",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "K",
+                            "children": []
+                        },
+                        {
+                            "content": "F",
+                            "children": []
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "α",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": "IsCompact _ ",
+                            "children": [
+                                {
+                                    "content": "K",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "IsClosed _ ",
+                                    "children": [
+                                        {
+                                            "content": "F",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": "Disjoint _  _ ",
+                                            "children": [
+                                                {
+                                                    "content": "K",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "F",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "∃ _ , _ ",
+                                            "children": [
+                                                {
+                                                    "content": "δ",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": ">",
+                                                    "children": [
+                                                        {
+                                                            "content": "0",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "∀ _ , _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "p",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "∈",
+                                                            "children": [
+                                                                {
+                                                                    "content": "K",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "∀ _ , _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "q",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "∈",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "F",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": " _ < _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "δ",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "dist _  _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "p",
+                                                                                    "children": []
+                                                                                },
+                                                                                {
+                                                                                    "content": "q",
+                                                                                    "children": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

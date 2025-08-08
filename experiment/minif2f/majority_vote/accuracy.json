@@ -1,0 +1,13 @@
+{
+    "majority_vote": {
+        "true_positive": 66,
+        "true_negative": 74,
+        "false_positive": 9,
+        "false_negative": 56,
+        "total": 205,
+        "precision": 0.88,
+        "recall": 0.5409836065573771,
+        "accuracy": 0.6829268292682927,
+        "kappa": 0.39664930948607663
+    }
+}

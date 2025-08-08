@@ -1,0 +1,142 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "G",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Group _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "Fintype _ ",
+                            "children": [
+                                {
+                                    "content": "G",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hG",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "H",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "Subgroup _ ",
+                                            "children": [
+                                                {
+                                                    "content": "G",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ ≠ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "H",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "⊤",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ≠ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "_._",
+                                                    "children": [
+                                                        {
+                                                            "content": "H",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "index",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "0",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "IsCyclic _ ",
+                    "children": [
+                        {
+                            "content": "G",
+                            "children": [],
+                            "variable_freecost": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

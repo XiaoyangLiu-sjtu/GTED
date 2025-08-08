@@ -1,0 +1,244 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "MetricSpace _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "K",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "F",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hK",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "IsCompact _ ",
+                            "children": [
+                                {
+                                    "content": "K",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hF",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "IsClosed _ ",
+                            "children": [
+                                {
+                                    "content": "F",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hKF",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "Disjoint _  _ ",
+                            "children": [
+                                {
+                                    "content": "K",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "F",
+                                    "children": [],
+                                    "variable_freecost": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "∃ _ , _ ",
+                    "children": [
+                        {
+                            "content": "δ",
+                            "children": []
+                        },
+                        {
+                            "content": ">",
+                            "children": [
+                                {
+                                    "content": "0",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "p",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "q",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "X",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ ∈ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "p",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "K",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ → _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ ∈ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "q",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "F",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ ≥ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "dist _  _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "p",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "q",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "δ",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

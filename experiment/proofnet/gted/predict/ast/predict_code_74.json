@@ -1,0 +1,78 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "α",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "TopologicalSpace _ ",
+                            "children": [
+                                {
+                                    "content": "α",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "LinearOrder _ ",
+                            "children": [
+                                {
+                                    "content": "α",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "OrderTopology _ ",
+                            "children": [
+                                {
+                                    "content": "α",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "MetrizableSpace _ ",
+                    "children": [
+                        {
+                            "content": "α",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

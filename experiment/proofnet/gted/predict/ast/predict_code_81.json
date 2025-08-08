@@ -1,0 +1,78 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "TopologicalSpace _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "LocallyCompactSpace _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "T2Space _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "CompletelyRegularSpace _ ",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

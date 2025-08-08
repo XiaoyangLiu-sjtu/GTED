@@ -1,0 +1,298 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1, _ u_2}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "I",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Type _ u_2",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "T",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "I",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "Set _ ",
+                                    "children": [
+                                        {
+                                            "content": "Set _ ",
+                                            "children": [
+                                                {
+                                                    "content": "X",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "i",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "I",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "is_topology _  _ ",
+                                    "children": [
+                                        {
+                                            "content": "X",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "T _ ",
+                                            "children": [
+                                                {
+                                                    "content": "i",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "∃! _ , _ ",
+                    "children": [
+                        {
+                            "content": "T'",
+                            "children": []
+                        },
+                        {
+                            "content": " _ ∧ _ ",
+                            "children": [
+                                {
+                                    "content": "is_topology _  _ ",
+                                    "children": [
+                                        {
+                                            "content": "X",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "T'",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ∧ _ ",
+                                    "children": [
+                                        {
+                                            "content": "∀ _ , _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ : _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "i",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "I",
+                                                            "children": [],
+                                                            "variable_freecost": true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ ⊆ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "T'",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "T _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "i",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "∀ _ , _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ : _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "T''",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "Set _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "Set _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "X",
+                                                                            "children": [],
+                                                                            "variable_freecost": true
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ → _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "is_topology _  _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "X",
+                                                                    "children": [],
+                                                                    "variable_freecost": true
+                                                                },
+                                                                {
+                                                                    "content": "T''",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": " _ → _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "∀ _ , _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": " _ : _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "i",
+                                                                                    "children": []
+                                                                                },
+                                                                                {
+                                                                                    "content": "I",
+                                                                                    "children": [],
+                                                                                    "variable_freecost": true
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "content": " _ ⊆ _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "T''",
+                                                                                    "children": []
+                                                                                },
+                                                                                {
+                                                                                    "content": "T _ ",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "content": "i",
+                                                                                            "children": []
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": " _ ⊆ _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "T'",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "T''",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

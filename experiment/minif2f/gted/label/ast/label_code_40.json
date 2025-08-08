@@ -1,0 +1,125 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "σ",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": " _ ≃ _ ",
+                            "children": [
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                },
+                                {
+                                    "content": "ℝ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "_._ _ ",
+                                    "children": [
+                                        {
+                                            "content": "σ",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "toFun",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "_._ _ ",
+                                    "children": [
+                                        {
+                                            "content": "σ",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "invFun",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "_._ _ ",
+                            "children": [
+                                {
+                                    "content": "σ",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "toFun",
+                                    "children": []
+                                },
+                                {
+                                    "content": "_._ _ ",
+                                    "children": [
+                                        {
+                                            "content": "σ",
+                                            "children": [],
+                                            "variable_freecost": true
+                                        },
+                                        {
+                                            "content": "toFun",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "2",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "2",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

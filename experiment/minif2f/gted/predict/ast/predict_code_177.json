@@ -1,0 +1,100 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "x",
+                            "children": []
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h1",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "Nat.gcd _  _ ",
+                                    "children": [
+                                        {
+                                            "content": "120",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "x",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "8",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h2",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": "Nat.lcm _  _ ",
+                                    "children": [
+                                        {
+                                            "content": "120",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "x",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "3720",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "x",
+                            "children": []
+                        },
+                        {
+                            "content": "248",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h₁",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ < _ ",
+                            "children": [
+                                {
+                                    "content": "12223",
+                                    "children": []
+                                },
+                                {
+                                    "content": "100003",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "12223",
+                            "children": []
+                        },
+                        {
+                            "content": "53",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

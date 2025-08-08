@@ -1,0 +1,54 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "n!",
+                            "children": []
+                        },
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "IsLeast _  _ ",
+                    "children": [
+                        {
+                            "content": "{| _ }",
+                            "children": [
+                                {
+                                    "content": "n",
+                                    "children": []
+                                },
+                                {
+                                    "content": " _ ∣ _ ",
+                                    "children": [
+                                        {
+                                            "content": "80325",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "n!",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "17",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

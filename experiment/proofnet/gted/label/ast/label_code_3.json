@@ -1,0 +1,46 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": "Tendsto _ ",
+                    "children": [
+                        {
+                            "content": "fun _ => _ ",
+                            "children": [
+                                {
+                                    "content": "y",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∫ _  _  _  _ in _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ : _ ",
+                                            "children": [
+                                                {
+                                                    "content": "x",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "ℝ",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "0",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "definitional_equality": {
+        "true_positive": 3,
+        "true_negative": 42,
+        "false_positive": 2,
+        "false_negative": 46,
+        "total": 93,
+        "precision": 0.6,
+        "recall": 0.061224489795918366,
+        "accuracy": 0.4838709677419355,
+        "kappa": 0.015004413062665535
+    }
+}

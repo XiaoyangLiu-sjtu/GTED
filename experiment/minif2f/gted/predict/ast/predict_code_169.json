@@ -1,0 +1,32 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": " _ % _ ",
+                            "children": [
+                                {
+                                    "content": "194",
+                                    "children": []
+                                },
+                                {
+                                    "content": "11",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "7",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

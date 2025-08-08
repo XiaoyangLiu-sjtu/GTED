@@ -1,0 +1,89 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": "idx",
+            "children": []
+        },
+        {
+            "content": "Type _ u_2",
+            "children": []
+        },
+        {
+            "content": "{ _ : _ }",
+            "children": [
+                {
+                    "content": "X",
+                    "children": []
+                },
+                {
+                    "content": "idx",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "content": "{ _ : _ }",
+            "children": [
+                {
+                    "content": "R",
+                    "children": []
+                },
+                {
+                    "content": "Type _ u_1",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "content": "[inst _ : _ R]",
+            "children": [
+                {
+                    "content": "Semiring",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "content": "{p _ : _ }",
+            "children": [
+                {
+                    "content": "R[X]",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "content": "↔",
+            "children": [
+                {
+                    "content": "p∈nonZeroDivisors",
+                    "children": [
+                        {
+                            "content": "R[X]",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "∨",
+                    "children": [
+                        {
+                            "content": "p=0",
+                            "children": []
+                        },
+                        {
+                            "content": "≠0",
+                            "children": [
+                                {
+                                    "content": "sorry",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

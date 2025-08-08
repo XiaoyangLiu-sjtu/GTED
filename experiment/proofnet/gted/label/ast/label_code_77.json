@@ -1,0 +1,178 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "TopologicalSpace _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "A",
+                            "children": []
+                        },
+                        {
+                            "content": "C",
+                            "children": []
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hc",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "IsConnected _ ",
+                            "children": [
+                                {
+                                    "content": "C",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hCA",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ ≠ _ ",
+                            "children": [
+                                {
+                                    "content": " _ ∩ _ ",
+                                    "children": [
+                                        {
+                                            "content": "C",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "A",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "∅",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hCXA",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ ≠ _ ",
+                            "children": [
+                                {
+                                    "content": " _ ∩ _ ",
+                                    "children": [
+                                        {
+                                            "content": "C",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ᶜ",
+                                            "children": [
+                                                {
+                                                    "content": "A",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "∅",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ ≠ _ ",
+                    "children": [
+                        {
+                            "content": " _ ∩ _ ",
+                            "children": [
+                                {
+                                    "content": "C",
+                                    "children": []
+                                },
+                                {
+                                    "content": "frontier _ ",
+                                    "children": [
+                                        {
+                                            "content": "A",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "∅",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

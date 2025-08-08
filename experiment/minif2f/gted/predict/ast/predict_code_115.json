@@ -1,0 +1,36 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ ≡ _  _ [ZMOD _ ]",
+                    "children": [
+                        {
+                            "content": " _ ^ _ ",
+                            "children": [
+                                {
+                                    "content": "5",
+                                    "children": []
+                                },
+                                {
+                                    "content": "30",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "1",
+                            "children": []
+                        },
+                        {
+                            "content": "7",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

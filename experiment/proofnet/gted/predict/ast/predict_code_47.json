@@ -1,0 +1,126 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "R",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "CommSemiring _ ",
+                            "children": [
+                                {
+                                    "content": "R",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "I",
+                            "children": []
+                        },
+                        {
+                            "content": "J",
+                            "children": []
+                        },
+                        {
+                            "content": "Ideal _ ",
+                            "children": [
+                                {
+                                    "content": "R",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": " _ = _ ",
+                            "children": [
+                                {
+                                    "content": " _ + _ ",
+                                    "children": [
+                                        {
+                                            "content": "I",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "J",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "⊤",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": " _ * _ ",
+                            "children": [
+                                {
+                                    "content": "I",
+                                    "children": []
+                                },
+                                {
+                                    "content": "J",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ ⊓ _ ",
+                            "children": [
+                                {
+                                    "content": "I",
+                                    "children": []
+                                },
+                                {
+                                    "content": "J",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

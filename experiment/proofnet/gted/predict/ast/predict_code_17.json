@@ -1,0 +1,241 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1, _ u_2}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "Y",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_2",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "PseudoMetricSpace _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "PseudoMetricSpace _ ",
+                            "children": [
+                                {
+                                    "content": "Y",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "f",
+                            "children": []
+                        },
+                        {
+                            "content": "g",
+                            "children": []
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                },
+                                {
+                                    "content": "Y",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "E",
+                            "children": []
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "X",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": "Dense _ ",
+                            "children": [
+                                {
+                                    "content": "E",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "Continuous _ ",
+                                    "children": [
+                                        {
+                                            "content": "f",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": "Continuous _ ",
+                                            "children": [
+                                                {
+                                                    "content": "g",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ → _ ",
+                                            "children": [
+                                                {
+                                                    "content": "∀ _ , _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "p",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "∈",
+                                                            "children": [
+                                                                {
+                                                                    "content": "E",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": " _ = _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "g _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "p",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "f _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "p",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "∀ _ , _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ : _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "x",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "X",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": " _ = _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "g _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "x",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": "f _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "x",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

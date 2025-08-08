@@ -1,0 +1,273 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "M",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "MetricSpace _ ",
+                            "children": [
+                                {
+                                    "content": "M",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "A",
+                            "children": []
+                        },
+                        {
+                            "content": "B",
+                            "children": []
+                        },
+                        {
+                            "content": "Set _ ",
+                            "children": [
+                                {
+                                    "content": "M",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hA",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "IsCompact _ ",
+                            "children": [
+                                {
+                                    "content": "A",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hB",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "IsCompact _ ",
+                            "children": [
+                                {
+                                    "content": "B",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hA'",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "_._",
+                            "children": [
+                                {
+                                    "content": "A",
+                                    "children": []
+                                },
+                                {
+                                    "content": "Nonempty",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "hB'",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "_._",
+                            "children": [
+                                {
+                                    "content": "B",
+                                    "children": []
+                                },
+                                {
+                                    "content": "Nonempty",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "Disjoint _  _ ",
+                            "children": [
+                                {
+                                    "content": "A",
+                                    "children": []
+                                },
+                                {
+                                    "content": "B",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "∃ _ , _ ",
+                    "children": [
+                        {
+                            "content": "a₀",
+                            "children": []
+                        },
+                        {
+                            "content": "∈",
+                            "children": [
+                                {
+                                    "content": "A",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "∃ _ , _ ",
+                            "children": [
+                                {
+                                    "content": "b₀",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∈",
+                                    "children": [
+                                        {
+                                            "content": "B",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "∀ _ , _ ",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "∈",
+                                            "children": [
+                                                {
+                                                    "content": "A",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "∀ _ , _ ",
+                                            "children": [
+                                                {
+                                                    "content": "b",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "∈",
+                                                    "children": [
+                                                        {
+                                                            "content": "B",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ ≤ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "dist _  _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "a₀",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "b₀",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": "dist _  _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "a",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "b",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,108 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _  _  _ → _ ",
+                    "children": [
+                        {
+                            "content": " _ : _ ",
+                            "children": [
+                                {
+                                    "content": "f",
+                                    "children": []
+                                },
+                                {
+                                    "content": " _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": "ℝ",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ℝ",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "∀ _ , _ ",
+                                    "children": [
+                                        {
+                                            "content": "x",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": ">",
+                                            "children": [
+                                                {
+                                                    "content": "0",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "DifferentiableAt _  _  _ ",
+                                            "children": [
+                                                {
+                                                    "content": "ℝ",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "f",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "x",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": "Tendsto _  _  _ ",
+                                            "children": [
+                                                {
+                                                    "content": "deriv _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "f",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": "atTop",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "sorry",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "sorry",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

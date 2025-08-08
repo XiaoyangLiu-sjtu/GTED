@@ -1,0 +1,118 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _  _  _  _  _  _  _ : _ ",
+            "children": [
+                {
+                    "content": "{R _ : _ }",
+                    "children": [
+                        {
+                            "content": "Typeu_1",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[CommSemiringR]",
+                    "children": [],
+                    "variable_freecost": true
+                },
+                {
+                    "content": "x _ : _ R",
+                    "children": []
+                },
+                {
+                    "content": "y _ : _ R",
+                    "children": []
+                },
+                {
+                    "content": "p _ : _ ",
+                    "children": [
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "n _ : _ ",
+                    "children": [
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[hp _ : _ Fact]",
+                    "children": [
+                        {
+                            "content": "Nat.Primep",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "[CharPRp]",
+                    "children": [],
+                    "variable_freecost": true
+                },
+                {
+                    "content": "=",
+                    "children": [
+                        {
+                            "content": "^n",
+                            "children": [
+                                {
+                                    "content": "x+y",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "*",
+                            "children": [
+                                {
+                                    "content": "^",
+                                    "children": [
+                                        {
+                                            "content": "x+y",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "n%p",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "^",
+                                    "children": [
+                                        {
+                                            "content": "+",
+                                            "children": [
+                                                {
+                                                    "content": "x^p",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "y^p",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "n/p",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": " _ % _ ",
+                            "children": [
+                                {
+                                    "content": "∑ _  _ , _ ",
+                                    "children": [
+                                        {
+                                            "content": "k",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "∈",
+                                            "children": [
+                                                {
+                                                    "content": "Finset.Icc _  _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "2010",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "4018",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "k",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "2009",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "0",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

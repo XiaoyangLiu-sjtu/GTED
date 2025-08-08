@@ -1,0 +1,23 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "8529",
+                            "children": []
+                        },
+                        {
+                            "content": "69510",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

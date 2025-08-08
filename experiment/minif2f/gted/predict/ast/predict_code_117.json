@@ -1,0 +1,68 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": "_._",
+                    "children": [
+                        {
+                            "content": "{| _ }",
+                            "children": [
+                                {
+                                    "content": "m",
+                                    "children": []
+                                },
+                                {
+                                    "content": "∃ _ , _ ",
+                                    "children": [
+                                        {
+                                            "content": "n",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": " _ ≤ _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ * _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "m",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "n",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ + _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "m",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "n",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "content": "Infinite",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

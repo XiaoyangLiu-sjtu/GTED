@@ -1,0 +1,141 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": "f",
+            "children": []
+        },
+        {
+            "content": " _ → _ ",
+            "children": [
+                {
+                    "content": "ℝ",
+                    "children": []
+                },
+                {
+                    "content": "ℝ",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "content": "{ _ : _ }",
+            "children": [
+                {
+                    "content": "a",
+                    "children": []
+                },
+                {
+                    "content": "b",
+                    "children": []
+                },
+                {
+                    "content": "ℝ",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "content": "f _ ↔ _ ",
+            "children": [
+                {
+                    "content": "UniformContinuousOn",
+                    "children": []
+                },
+                {
+                    "content": "Iccab",
+                    "children": []
+                },
+                {
+                    "content": "∃ _ , _ ",
+                    "children": [
+                        {
+                            "content": "μ",
+                            "children": []
+                        },
+                        {
+                            "content": "μ _ ∧ _ ",
+                            "children": [
+                                {
+                                    "content": "ContinuousOn",
+                                    "children": []
+                                },
+                                {
+                                    "content": "Icc0",
+                                    "children": [
+                                        {
+                                            "content": "b-a",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "μ _ ∧ _ ",
+                                    "children": [
+                                        {
+                                            "content": "StrictMonoOn",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "Ioi0",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "∀ _ , _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ : _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "s",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "t",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "ℝ",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ → _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ ∈ _ ab",
+                                                            "children": [
+                                                                {
+                                                                    "content": "s",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "Icc",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": " _ ∈ _ ab",
+                                                            "children": [
+                                                                {
+                                                                    "content": "t",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

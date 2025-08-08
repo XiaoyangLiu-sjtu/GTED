@@ -1,0 +1,41 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ → _ ",
+                    "children": [
+                        {
+                            "content": "ℕ",
+                            "children": []
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": " _ → _ ",
+                                    "children": [
+                                        {
+                                            "content": "ℕ",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ℂ",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "sorry",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

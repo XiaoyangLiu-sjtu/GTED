@@ -1,0 +1,55 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": " _ % _ ",
+                            "children": [
+                                {
+                                    "content": "∑ _  _ , _ ",
+                                    "children": [
+                                        {
+                                            "content": "i",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "∈",
+                                            "children": [
+                                                {
+                                                    "content": "Finset.range _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "101",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": "i",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "6",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "4",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

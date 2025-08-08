@@ -1,0 +1,189 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": " _  _ : _ ",
+            "children": [
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "S",
+                            "children": [],
+                            "variable_freecost": true
+                        },
+                        {
+                            "content": "Finset _ ",
+                            "children": [
+                                {
+                                    "content": "ℕ",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "h₀",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "n",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "ℕ",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": " _ ↔ _ ",
+                                    "children": [
+                                        {
+                                            "content": " _ ∈ _ ",
+                                            "children": [
+                                                {
+                                                    "content": "n",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "content": "S",
+                                                    "children": [],
+                                                    "variable_freecost": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "content": " _ ∧ _ ",
+                                            "children": [
+                                                {
+                                                    "content": " _ ≤ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": "1000",
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "content": "n",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "content": " _ ∧ _ ",
+                                                    "children": [
+                                                        {
+                                                            "content": " _ ≤ _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "n",
+                                                                    "children": []
+                                                                },
+                                                                {
+                                                                    "content": "9999",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "content": " _ ∧ _ ",
+                                                            "children": [
+                                                                {
+                                                                    "content": "∀ _ , _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "d",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "∈",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "digits _  _ ",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "content": "10",
+                                                                                            "children": []
+                                                                                        },
+                                                                                        {
+                                                                                            "content": "n",
+                                                                                            "children": []
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "content": "Even _ ",
+                                                                            "children": [
+                                                                                {
+                                                                                    "content": "d",
+                                                                                    "children": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "content": " _ ∣ _ ",
+                                                                    "children": [
+                                                                        {
+                                                                            "content": "5",
+                                                                            "children": []
+                                                                        },
+                                                                        {
+                                                                            "content": "n",
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ = _ ",
+                    "children": [
+                        {
+                            "content": "_._",
+                            "children": [
+                                {
+                                    "content": "S",
+                                    "children": [],
+                                    "variable_freecost": true
+                                },
+                                {
+                                    "content": "card",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "content": "100",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

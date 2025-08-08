@@ -1,0 +1,197 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ".{u_1, _ u_2}",
+            "children": []
+        },
+        {
+            "content": " _ : _ ",
+            "children": [
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "α",
+                            "children": []
+                        },
+                        {
+                            "content": "Type _ u_2",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "content": "{ _ : _ }",
+                    "children": [
+                        {
+                            "content": "X",
+                            "children": []
+                        },
+                        {
+                            "content": " _ → _ ",
+                            "children": [
+                                {
+                                    "content": "α",
+                                    "children": []
+                                },
+                                {
+                                    "content": "Type _ u_1",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": " _  _  _ → _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "α",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "TopologicalSpace _ ",
+                                    "children": [
+                                        {
+                                            "content": "X _ ",
+                                            "children": [
+                                                {
+                                                    "content": "a",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "[]",
+                    "children": [
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "α",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "Nonempty _ ",
+                                    "children": [
+                                        {
+                                            "content": "X _ ",
+                                            "children": [
+                                                {
+                                                    "content": "a",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": " _ : _ ",
+                    "children": [
+                        {
+                            "content": "H",
+                            "children": [],
+                            "hypothesis_freecost": true
+                        },
+                        {
+                            "content": "∀ _ , _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "α",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "T2Space _ ",
+                                    "children": [
+                                        {
+                                            "content": "X _ ",
+                                            "children": [
+                                                {
+                                                    "content": "a",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "content": "T2Space _ ",
+                    "children": [
+                        {
+                            "content": " _  _  _ → _ ",
+                            "children": [
+                                {
+                                    "content": " _ : _ ",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        },
+                                        {
+                                            "content": "α",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "content": "X _ ",
+                                    "children": [
+                                        {
+                                            "content": "a",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "content": "theorem",
+    "children": [
+        {
+            "content": ": _ ",
+            "children": [
+                {
+                    "content": " _ ≡ _  _ [MOD _ ]",
+                    "children": [
+                        {
+                            "content": "123456",
+                            "children": []
+                        },
+                        {
+                            "content": "34",
+                            "children": []
+                        },
+                        {
+                            "content": "101",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
