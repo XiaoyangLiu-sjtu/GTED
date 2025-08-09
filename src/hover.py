@@ -8,73 +8,95 @@ import subprocess
 
 class HoverExtractor:
     """
-    Given Lean code, extract hover information using Lean's LSP server.
+    Given Lean code, extract hover information using a persistent Lean's LSP server.
     """
 
     class IdGenerator:
         def __init__(self):
             self.current_id = 1
-
         def next(self):
             used_id = self.current_id
             self.current_id += 1
             return used_id
-    
+
     def __init__(self, lean_bin="lean", virtual_uri="file:///virtual/code.lean"):
-        self.lean_bin = lean_bin  # Lean executable path
-        self.uri = virtual_uri  # Virtual file URI
-        self.language_id = "lean4"  # Language ID for Lean 4
-        self.proc = None  # Lean process
-        self.idgen = self.IdGenerator()  # ID generator
-        self.response_dict = {}       # id -> response
-        self.lock = threading.Lock()  # Lock for thread-safe access to response_dict
-        self.stdout_thread = None  # Thread for reading stdout
-        self.stderr_thread = None  # Thread for reading stderr
-        self.running = False  # Flag to indicate if the server is running
+        self.lean_bin = lean_bin
+        self.uri = virtual_uri
+        self.language_id = "lean4"
+        self.preamble = "import Mathlib\n" # Common preamble
+        self.doc_version = 1 # Document version for LSP
+        self.proc = None
+        self.idgen = self.IdGenerator()
+        self.response_dict = {}
+        self.lock = threading.Lock()
+        self.stdout_thread = None
+        self.stderr_thread = None
+        self.running = False
+
+    def __enter__(self):
+        """Starts the server and initializes it with the preamble."""
+        self._start_server()
+        self._initialize_session()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Stops the server."""
+        self._stop_server()
 
     def make_lsp_message(self, json_obj):
-        content = json.dumps(json_obj)  # Convert JSON object to string
-        return f"Content-Length: {len(content)}\r\n\r\n{content}".encode("utf-8")  # Create LSP message format
+        content = json.dumps(json_obj)
+        return f"Content-Length: {len(content)}\r\n\r\n{content}".encode("utf-8")
 
-    def start_server(self):  
+    def _start_server(self):
         try:
-            self.proc = subprocess.Popen([self.lean_bin, "--server"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd="../ATLAS/src/repl") # Start Lean process
+            self.proc = subprocess.Popen([self.lean_bin, "--server"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd="../ATLAS/src/repl")
         except FileNotFoundError:
             print("Failed to start Lean. Please ensure Lean is in your PATH.")
             sys.exit(1)
         except Exception as e:
-            print("Error starting Lean: ", e)
+            print(f"Error starting Lean: {e}")
             sys.exit(1)
         self.running = True
-        self.stdout_thread = threading.Thread(target=self.read_stdout, daemon=True)  # Thread for reading LSP responses
+        self.stdout_thread = threading.Thread(target=self._read_stdout, daemon=True)
         self.stdout_thread.start()
-        self.stderr_thread = threading.Thread(target=self.read_stderr, daemon=True)  # Thread for reading stderr
+        self.stderr_thread = threading.Thread(target=self._read_stderr, daemon=True)
         self.stderr_thread.start()
+        print("Lean server started and warming up with Mathlib...")
 
-    def stop_server(self):
+    def _stop_server(self):
+        print("Stopping Lean server...")
         self.running = False
         if self.proc:
+            shutdown_req = {"jsonrpc": "2.0", "id": self.idgen.next(), "method": "shutdown"}
+            self.proc.stdin.write(self.make_lsp_message(shutdown_req))
+            self.proc.stdin.flush()
+            time.sleep(0.1)
+            exit_notify = {"jsonrpc": "2.0", "method": "exit"}
+            self.proc.stdin.write(self.make_lsp_message(exit_notify))
+            self.proc.stdin.flush()
+
             self.proc.terminate()
+            self.proc.wait(timeout=2)
             self.proc = None
         if self.stdout_thread:
             self.stdout_thread.join(timeout=1)
         if self.stderr_thread:
             self.stderr_thread.join(timeout=1)
 
-    def read_stdout(self):
+    def _read_stdout(self):
         try:
-            f = self.proc.stdout  # Get the stdout of the Lean process
+            f = self.proc.stdout
             while self.running:
                 header = b""
                 while not header.endswith(b"\r\n\r\n"):
                     chunk = f.read(1)
-                    if not chunk or not self.running:
-                        return
+                    if not chunk or not self.running: return
                     header += chunk
+
                 header_text = header.decode(errors="ignore")
                 try:
-                    content_length = int(header_text.split("Content-Length:")[1].split("\r\n")[0].strip())
-                except Exception as e:
+                    content_length = int(header_text.split("Content-Length:")[1].strip())
+                except (IndexError, ValueError):
                     continue
 
                 body = f.read(content_length)
@@ -83,114 +105,115 @@ class HoverExtractor:
                     if "id" in parsed:
                         with self.lock:
                             self.response_dict[parsed["id"]] = parsed
-                except Exception:
+                except json.JSONDecodeError:
                     continue
         except Exception:
             pass
 
-    def read_stderr(self, stderr=None):
-        if stderr is None and self.proc:
-            stderr = self.proc.stderr
-        if stderr is None:
-            return
+    def _read_stderr(self):
         try:
-            for line in iter(stderr.readline, b""):
-                if not self.running:
-                    break
+            for line in iter(self.proc.stderr.readline, b""):
+                if not self.running: break
         except Exception:
             pass
 
-    def lsp_request_and_wait(self, request, timeout=3.0):
+    def _lsp_request_and_wait(self, request, timeout=3.0):
         req_id = request["id"]
         with self.lock:
             if req_id in self.response_dict:
                 del self.response_dict[req_id]
+
         self.proc.stdin.write(self.make_lsp_message(request))
         self.proc.stdin.flush()
 
-        waited = 0.0
-        interval = 0.01
-        while waited < timeout:
+        start_time = time.monotonic()
+        while time.monotonic() - start_time < timeout:
             with self.lock:
-                resp = self.response_dict.get(req_id)
-                if resp is not None:
-                    return resp
-            time.sleep(interval)
-            waited += interval
-        return None  
+                if req_id in self.response_dict:
+                    return self.response_dict.pop(req_id)
+            time.sleep(0.01)
+        return None
 
-    def init_lsp(self, code):
+    def _initialize_session(self):
+        """Sends the initial LSP handshake and opens the virtual document with the preamble."""
+        # 1. Initialize
         initialize_req = {
-            "jsonrpc": "2.0",
-            "id": self.idgen.next(),
-            "method": "initialize",
-            "params": {
-                "processId": None,
-                "rootUri": None,
-                "capabilities": {},
-            }
+            "jsonrpc": "2.0", "id": self.idgen.next(), "method": "initialize",
+            "params": {"processId": None, "rootUri": None, "capabilities": {}}
         }
-        self.proc.stdin.write(self.make_lsp_message(initialize_req))
-        self.proc.stdin.flush()
-        time.sleep(0.3)
+        self._lsp_request_and_wait(initialize_req) # Wait for response to ensure server is ready
 
-        initialized_notify = {
-            "jsonrpc": "2.0",
-            "method": "initialized",
-            "params": {}
-        }
+        # 2. Initialized
+        initialized_notify = {"jsonrpc": "2.0", "method": "initialized", "params": {}}
         self.proc.stdin.write(self.make_lsp_message(initialized_notify))
         self.proc.stdin.flush()
-        time.sleep(0.1)
 
+        # 3. DidOpen with only the preamble
         didopen_req = {
-            "jsonrpc": "2.0",
-            "method": "textDocument/didOpen",
+            "jsonrpc": "2.0", "method": "textDocument/didOpen",
             "params": {
                 "textDocument": {
-                    "uri": self.uri,
-                    "languageId": self.language_id,
-                    "version": 1,
-                    "text": code
+                    "uri": self.uri, "languageId": self.language_id,
+                    "version": self.doc_version, "text": self.preamble
                 }
             }
         }
         self.proc.stdin.write(self.make_lsp_message(didopen_req))
         self.proc.stdin.flush()
-        time.sleep(0.3)
 
-    def extract(self, code, out_path=None):
-        self.start_server()
-        try:
-            self.init_lsp(code)
-            extract_results = []
-            lines = code.splitlines()
-            for line_idx, line in enumerate(lines):
-                for char_idx, _ in enumerate(line):
-                    hover_req = {
-                        "jsonrpc": "2.0",
-                        "id": self.idgen.next(),
-                        "method": "textDocument/hover",
-                        "params": {
-                            "textDocument": {"uri": self.uri},
-                            "position": {"line": line_idx, "character": char_idx}
-                        }
+        # Give Lean time to process Mathlib. This is a crucial wait.
+        time.sleep(10) 
+        print("Mathlib loaded. Server is ready.")
+
+    def extract(self, code_snippet, out_path=None):
+        """Extracts hover info for a new code snippet, reusing the existing server."""
+        # Combine preamble with the new code
+        full_code = self.preamble + code_snippet
+        self.doc_version += 1
+
+        # Use `didChange` to update the document content instead of `didOpen`
+        didchange_req = {
+            "jsonrpc": "2.0",
+            "method": "textDocument/didChange",
+            "params": {
+                "textDocument": {"uri": self.uri, "version": self.doc_version},
+                "contentChanges": [{"text": full_code}]
+            }
+        }
+        self.proc.stdin.write(self.make_lsp_message(didchange_req))
+        self.proc.stdin.flush()
+
+        # Short sleep to allow the server to process the change
+        time.sleep(0.5)
+
+        extract_results = []
+        lines = full_code.splitlines()
+        preamble_lines = len(self.preamble.splitlines())
+
+        # We only iterate over the new code snippet
+        for line_idx_offset, line in enumerate(code_snippet.splitlines()):
+            line_idx_actual = line_idx_offset + preamble_lines # Adjust line number
+            for char_idx, _ in enumerate(line):
+                hover_req = {
+                    "jsonrpc": "2.0", "id": self.idgen.next(), "method": "textDocument/hover",
+                    "params": {
+                        "textDocument": {"uri": self.uri},
+                        "position": {"line": line_idx_actual, "character": char_idx}
                     }
-                    resp = self.lsp_request_and_wait(hover_req)
-                    new_entry = {"character": line[char_idx], "row": line_idx, "column": char_idx}           
-                    if resp and "result" in resp and resp["result"]:
-                        hover_content = resp["result"]
-                        new_entry.update(hover_content)
-                    else:
-                        hover_content = None
-                    extract_results.append(new_entry)
-            if out_path:
-                with open(out_path, "w", encoding="utf-8") as out_f:
-                    for item in extract_results:
-                        out_f.write(json.dumps(item, ensure_ascii=False) + "\n")   
-            return extract_results
-        finally:
-            self.stop_server()
+                }
+                resp = self._lsp_request_and_wait(hover_req)
+
+                new_entry = {"character": line[char_idx], "row": line_idx_actual, "column": char_idx}
+                if resp and "result" in resp and resp["result"]:
+                    new_entry.update(resp["result"])
+
+                extract_results.append(new_entry)
+
+        if out_path:
+            with open(out_path, "w", encoding="utf-8") as out_f:
+                for item in extract_results:
+                    out_f.write(json.dumps(item, ensure_ascii=False) + "\n")
+        return extract_results
 
 
 class HoverRewriter:

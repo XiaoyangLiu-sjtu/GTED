@@ -159,12 +159,13 @@ class _APConfig(Config):
         return 1
 
     def rename(self, n1: Node, n2: Node) -> int:
+        # Uncomment the following lines to enable freecost renaming
         # If either node has hypothesis_freecost or variable_freecost, cost is 0
         # If do not want to rename nodes with freecost, uncomment the following lines, then it is standard TED
-        if (n1.hypothesis_freecost and n2.hypothesis_freecost) or \
-           (n1.variable_freecost and n2.variable_freecost):
-            print(f"Renaming {n1.content} to {n2.content} with freecost, cost is 0")
-            return 0
+        # if (n1.hypothesis_freecost and n2.hypothesis_freecost) or \
+        #    (n1.variable_freecost and n2.variable_freecost):
+        #     print(f"Renaming {n1.content} to {n2.content} with freecost, cost is 0")
+        #     return 0
         if n1.content == n2.content:
             return 0
         else:

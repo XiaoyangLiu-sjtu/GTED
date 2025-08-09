@@ -171,6 +171,7 @@ class NameExtractor(Reorganizer):
         }
     
     def name_extractor(self, header, formal_statement):
+        header = "import Mathlib\n" + header
         parse_result = self.parse_formal_statement_further(header, formal_statement)
         result = {}
         variable = parse_result["theorem_variables"]

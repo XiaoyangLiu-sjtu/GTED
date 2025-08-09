@@ -46,12 +46,26 @@ Statement autoformalization, the automated translation of statement from natural
 3. **Build REPL**
     Follow the instructions on the [Lean REPL page](https://github.com/leanprover-community/repl.git) to set up Lean REPL and change the `DEFAULT_LEAN_WORKSPACE` parameter in `src/verifier.py` to your REPL path.
 4. **Evaluation**
-    - Evaluation on One Lean Code: function `test_one_lean_code` in `main.py`
-    - Evaluation on Benchmark (miniF2F or ProofNet): function `evaluation` in `main.py`
+    There are two functions `test_lean_codes` and `benchmark_evaluation` in `main.py` for evaluation.
+    - `test_lean_codes`: Pass in header_list and formal_statement_list (one-to-one correspondence), and call the funtion. This operation will return the operator trees corresponding to these lean_codes.
+        ```shell
+        # test lean codes
+        header = "import Mathlib"
+        formal_statement = "theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"
+        header_list = [header] * 3
+        formal_statement_list = [formal_statement] * 3
+        test_lean_codes(header_list, formal_statement_list)
+        ```
+    - `benchmark_evaluation`: Just pass in miniF2F or ProofNet. Please note that you may need to change the format of your own json file. This function is currently adapted to the json file format in `experiment/{benchmark}/human_evaluation.json`.
+        ```shell
+        # test benchmark
+        benchmark_evaluation("minif2f")
+        benchmark_evaluation("proofnet")
+        ```
 
 
 ## 4. Citation
-```latex
+```bibtex
 @inproceedings{
 liu2025generalized,
 title={Generalized Tree Edit Distance ({GTED}): A Faithful Evaluation Metric for Statement Autoformalization},
