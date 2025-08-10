@@ -4,7 +4,7 @@ import json
 from tqdm.contrib import tzip, tenumerate
 from src.hover import HoverExtractor, HoverProcessor, HoverRewriter
 from src.parser import Reorganizer, NameExtractor
-from src.aster import ASTBuilder, ASTVisualizer, ASTSimilarer
+from src.opter import OPTBuilder, OPTVisualizer, OPTSimilarer
 
 
 def read_json(file_path):
@@ -48,11 +48,11 @@ def syntax_standardization(header_list, formal_statement_list):
     return reorganized_formal_statement_list
 
 
-def build_ast(header_list, reorganized_formal_statement_list, extract_path=None, processed_path=None, ast_path=None, png_path=None):
+def build_opt(header_list, reorganized_formal_statement_list, extract_path=None, processed_path=None, opt_path=None, png_path=None):
     processor = HoverProcessor()
-    builder = ASTBuilder()
-    visualizer = ASTVisualizer()
-    path_templates = [extract_path, processed_path, ast_path, png_path]
+    builder = OPTBuilder()
+    visualizer = OPTVisualizer()
+    path_templates = [extract_path, processed_path, opt_path, png_path]
     tree_result_list = []
 
     with HoverExtractor() as extractor:
@@ -66,14 +66,13 @@ def build_ast(header_list, reorganized_formal_statement_list, extract_path=None,
             extract_result = extractor.extract(header_list[index]+"\n"+reorganized_formal_statement, path_used[0])
             process_result = processor.process(extract_result, path_used[1])
             tree_result = builder.build(process_result, path_used[2])
-            visualizer.visualize(tree_result, path_used[3])
+            visualizer.visualize(tree_result[0], path_used[3])
 
             # Uncomment the following lines to mark freecost nodes for variables and hypotheses
             # metadata = NameExtractor().name_extractor(header_list[index], reorganized_formal_statement)
             # mark_freecost_nodes(metadata, tree_result)
             
-            tree_result_list.append(tree_result)
-
+            tree_result_list.append(tree_result[0])
     return tree_result_list
 
 
@@ -93,24 +92,24 @@ def test_benchmark(benchmark):
     reorganized_label_formal_statement_list = syntax_standardization(label_header_list, label_formal_statement_list)
     reorganized_predict_formal_statement_list = syntax_standardization(predict_header_list, predict_formal_statement_list)
 
-    label_tree_result_list = build_ast(
+    label_tree_result_list = build_opt(
         label_header_list,
         reorganized_label_formal_statement_list,
-        extract_path=f"test_files/experiment/{benchmark}/gted/label/extract/label_code_index.jsonl",
-        processed_path=f"test_files/experiment/{benchmark}/gted/label/processed/label_code_index.jsonl",
-        ast_path=f"test_files/experiment/{benchmark}/gted/label/ast/label_code_index.json",
-        png_path=f"test_files/experiment/{benchmark}/gted/label/figures/label_code_index.png",
+        extract_path=f"test_files/experiment/{benchmark}/ted/label/extract/label_code_index.jsonl",
+        processed_path=f"test_files/experiment/{benchmark}/ted/label/processed/label_code_index.jsonl",
+        opt_path=f"test_files/experiment/{benchmark}/ted/label/opt/label_code_index.json",
+        png_path=f"test_files/experiment/{benchmark}/ted/label/figures/label_code_index.png",
     )
-    predict_tree_result_list = build_ast(
+    predict_tree_result_list = build_opt(
         predict_header_list,
         reorganized_predict_formal_statement_list,
-        extract_path=f"test_files/experiment/{benchmark}/gted/predict/extract/predict_code_index.jsonl",
-        processed_path=f"test_files/experiment/{benchmark}/gted/predict/processed/predict_code_index.jsonl",
-        ast_path=f"test_files/experiment/{benchmark}/gted/predict/ast/predict_code_index.json",
-        png_path=f"test_files/experiment/{benchmark}/gted/predict/figures/predict_code_index.png",
+        extract_path=f"test_files/experiment/{benchmark}/ted/predict/extract/predict_code_index.jsonl",
+        processed_path=f"test_files/experiment/{benchmark}/ted/predict/processed/predict_code_index.jsonl",
+        opt_path=f"test_files/experiment/{benchmark}/ted/predict/opt/predict_code_index.json",
+        png_path=f"test_files/experiment/{benchmark}/ted/predict/figures/predict_code_index.png",
     )
 
     for index, (label_tree_result, predict_tree_result) in enumerate(zip(label_tree_result_list, predict_tree_result_list)):
-        result = ASTSimilarer().similarer(data_a=label_tree_result, data_b=predict_tree_result)
-        data[index]["gted"] = result["ted_similarity"]
-    write_json(f"test_files/experiment/{benchmark}/gted/result.json", data)
+        result = OPTSimilarer().similarer(data_a=label_tree_result, data_b=predict_tree_result)
+        data[index]["ted"] = result["ted_similarity"]
+    write_json(f"test_files/experiment/{benchmark}/ted/result.json", data)

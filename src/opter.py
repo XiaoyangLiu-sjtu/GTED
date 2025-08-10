@@ -1,3 +1,4 @@
+import re
 import json
 import math
 import uuid
@@ -7,16 +8,18 @@ from typing import List, Dict
 from apted import APTED, Config
 
 
-class ASTBuilder:
+class OPTBuilder:
     class Node:
-        def __init__(self, content, range):
-            self.content = content
+        def __init__(self, formal_content, range, hover_information):
+            self.formal_content = formal_content
             self.range = range
+            self.hover_information = hover_information
             self.children = []
 
         def to_dict(self):
             return {
-                "content": self.content,
+                "formal_content": self.formal_content,
+                "hover_information": self.hover_information,
                 "children": [child.to_dict() for child in self.children]
             }
 
@@ -28,18 +31,19 @@ class ASTBuilder:
         ends_after = (el1 > el2) or (el1 == el2 and ec1 >= ec2)
         return starts_before and ends_after and a != b
 
-    def read_jsonl(self, process_results):
+    def read_jsonl_data(self, process_results):
         nodes = []
         for item in process_results:
             obj = json.loads(item)
-            assert len(obj) == 1
-            content, range = next(iter(obj.items()))
-            (sl, sc), (el, ec) = range
-            nodes.append(self.Node(content, (sl, sc, el, ec)))
+            formal_content = next(iter(obj))
+            range_content = obj[formal_content]  
+            hover_information = obj["hover_information"]
+            (sl, sc), (el, ec) = range_content
+            nodes.append(self.Node(formal_content, (sl, sc, el, ec), hover_information))
         return nodes
 
     def build_tree(self, nodes):
-        root = self.Node("theorem", (-1, -1, math.inf, math.inf))
+        root = self.Node("theorem", (-1, -1, math.inf, math.inf), "")
         nodes.sort(key=lambda n: (n.range[0], n.range[1], -n.range[2], -n.range[3]))
         for n in nodes:
             parent = root
@@ -57,38 +61,54 @@ class ASTBuilder:
                 strip_range(ch)
         strip_range(root)
         return root
+    
+    def add_placeholder_further(self, tree_results, character, delimiter):
+        for item in tree_results:
+            formal_content = item.get("formal_content")
+            if character in formal_content and delimiter in formal_content:
+                num_children = len(item.get("children", []))
+                placeholders = " _" * (num_children - 1)
 
-    def add_underscores(self, data):
-        if isinstance(data, dict):
-            if 'children' in data and len(data['children']) > 0:
-                if data.get('content') == 'theorem':
-                    outer_children = data['children'][0]
-                    if 'children' in outer_children:
-                        num_children = len(outer_children['children'])
-                        outer_children['content'] = outer_children['content'] + '_' * num_children
-                for child in data['children']:
-                    self.add_underscores(child)
-        elif isinstance(data, list):
-            for item in data:
-                self.add_underscores(item)
+                escaped_char = re.escape(character)
+                escaped_delim = re.escape(delimiter)
+                pattern = rf"({escaped_char})(.*?)({escaped_delim})"
+                
+                replacement_logic = lambda m: m.group(1) + placeholders + m.group(3)
+                new_content = re.sub(pattern, replacement_logic, formal_content, count=1)
+                item["formal_content"] = new_content
+
+            if "children" in item and item["children"]:
+                self.add_placeholder_further(item["children"], character, delimiter)
+        return tree_results
 
     def build(self, process_results, out_path=None):
-        nodes = self.read_jsonl(process_results)
+        nodes = self.read_jsonl_data(process_results)
         tree_results = self.build_tree(nodes).to_dict()
-        if tree_results == {"content": "theorem", "children": []}:
+        if tree_results == {"formal_content": "theorem", "children": [], "hover_information": ""}:
             return tree_results
-        content, number = tree_results["children"][0]["content"], len(tree_results["children"][0]["children"])-1
-        parts = content.split(":", 1)
-        new_left = " _ " * number if number > 0 else ""
-        new_content = new_left + ":" + parts[1] if len(parts) > 1 else content
-        tree_results["children"][0]["content"] = new_content
+
+        # placeholder further
+        formal_content, number = tree_results["children"][0]["formal_content"], len(tree_results["children"][0]["children"])-1
+        parts = formal_content.split(":", 1)
+        new_left = "_ " * number if number > 0 else ""
+        new_formal_content = new_left + ":" + parts[1] if len(parts) > 1 else formal_content
+        tree_results["children"][0]["formal_content"] = new_formal_content
+        tree_results = [tree_results]
+        self.add_placeholder_further(tree_results, "∏", ",")
+        self.add_placeholder_further(tree_results, "∑", ",")
+        self.add_placeholder_further(tree_results, "{", "|")
+        self.add_placeholder_further(tree_results, "fun", "=>")
+        self.add_placeholder_further(tree_results, "λ", "=>")
+        self.add_placeholder_further(tree_results, "∀", ",")
+        self.add_placeholder_further(tree_results, "∃", ",")
+
         if out_path:
             with open(out_path, "w", encoding="utf-8") as f:
                 json.dump(tree_results, f, ensure_ascii=False, indent=4)
         return tree_results
 
 
-class ASTVisualizer:
+class OPTVisualizer:
     def __init__(self,node_shape="box", font_name="Helvetica", font_size="20"):
         self.node_shape = node_shape
         self.font_name = font_name
@@ -96,16 +116,16 @@ class ASTVisualizer:
 
     def _build_dot(self, node, g: Digraph, parent_id=None):
         nid = f"n{uuid.uuid4().hex}"
-        content = node.get("content", "")
-        safe_content = content.replace('"', r'\"')
-        g.node(nid, safe_content)
+        formal_content = node.get("formal_content", "")
+        safe_formal_content = formal_content.replace('"', r'\"')
+        g.node(nid, safe_formal_content)
         if parent_id:
             g.edge(parent_id, nid)
         for ch in node.get("children", []):
             self._build_dot(ch, g, nid)
 
     def visualize(self, tree_results, out_path=None, out_format="png"):
-        g = Digraph("AST", graph_attr={"rankdir": "TB"}, node_attr={"shape": self.node_shape, "fontname": self.font_name, "fontsize": self.font_size})
+        g = Digraph("OPT", graph_attr={"rankdir": "TB"}, node_attr={"shape": self.node_shape, "fontname": self.font_name, "fontsize": self.font_size})
         self._build_dot(tree_results, g)
         if out_path:
             out_path = pathlib.Path(out_path)
@@ -113,10 +133,10 @@ class ASTVisualizer:
 
 
 class Node:
-    __slots__ = ("content", "children", "hypothesis_freecost", "variable_freecost")
-    def __init__(self, content: str, children: List["Node"] = None, 
+    __slots__ = ("formal_content", "children", "hypothesis_freecost", "variable_freecost")
+    def __init__(self, formal_content: str, children: List["Node"] = None, 
                  hypothesis_freecost: bool = False, variable_freecost: bool = False):
-        self.content: str = content
+        self.formal_content: str = formal_content
         self.children: List[Node] = children or []
         self.hypothesis_freecost: bool = hypothesis_freecost
         self.variable_freecost: bool = variable_freecost
@@ -125,12 +145,12 @@ class Node:
         return self.children
 
 
-class ASTUtils:
+class OPTUtils:
     @staticmethod
-    def load_json_ast(data: Dict) -> Node:
+    def load_json_opt(data: Dict) -> Node:
         def build(d: Dict) -> Node:
             return Node(
-                d["content"], 
+                d["formal_content"], 
                 [build(c) for c in d.get("children", [])],
                 d.get("hypothesis_freecost", False),
                 d.get("variable_freecost", False)
@@ -139,13 +159,13 @@ class ASTUtils:
 
     @staticmethod
     def tree_size(node: Node) -> int:
-        return 1 + sum(ASTUtils.tree_size(ch) for ch in node.children)
+        return 1 + sum(OPTUtils.tree_size(ch) for ch in node.children)
 
     @staticmethod
     def subtree_code(node: Node) -> str:
         if not node.children:
-            return node.content
-        return f"{node.content}(" + ",".join(ASTUtils.subtree_code(c) for c in node.children) + ")"
+            return node.formal_content
+        return f"{node.formal_content}(" + ",".join(OPTUtils.subtree_code(c) for c in node.children) + ")"
 
 
 class _APConfig(Config):
@@ -164,9 +184,9 @@ class _APConfig(Config):
         # If do not want to rename nodes with freecost, uncomment the following lines, then it is standard TED
         # if (n1.hypothesis_freecost and n2.hypothesis_freecost) or \
         #    (n1.variable_freecost and n2.variable_freecost):
-        #     print(f"Renaming {n1.content} to {n2.content} with freecost, cost is 0")
+        #     print(f"Renaming {n1.formal_content} to {n2.formal_content} with freecost, cost is 0")
         #     return 0
-        if n1.content == n2.content:
+        if n1.formal_content == n2.formal_content:
             return 0
         else:
             return 1
@@ -184,7 +204,7 @@ class TreeEditDistance:
 class SubtreeJaccard:
     @staticmethod
     def collect_codes(node: Node, multiset: Dict[str, int]):
-        code = ASTUtils.subtree_code(node)
+        code = OPTUtils.subtree_code(node)
         multiset[code] = multiset.get(code, 0) + 1
         for ch in node.children:
             SubtreeJaccard.collect_codes(ch, multiset)
@@ -199,19 +219,19 @@ class SubtreeJaccard:
         return inter / union if union else 1.0
 
 
-class ASTSimilarer:
+class OPTSimilarer:
     def similarer(self, data_a=None, data_b=None, path_a=None, path_b=None) -> Dict[str, float]:
         if data_a is None and data_b is None:
             with open(path_a, "r", encoding="utf-8") as f:
                 data_a = json.load(f)
             with open(path_b, "r", encoding="utf-8") as f:
                 data_b = json.load(f)
-        self.tree_a = ASTUtils.load_json_ast(data_a)
-        self.tree_b = ASTUtils.load_json_ast(data_b)
+        self.tree_a = OPTUtils.load_json_opt(data_a)
+        self.tree_b = OPTUtils.load_json_opt(data_b)
 
         ted = TreeEditDistance(self.tree_a, self.tree_b).compute_distance()
-        size_a = ASTUtils.tree_size(self.tree_a)
-        size_b = ASTUtils.tree_size(self.tree_b)
+        size_a = OPTUtils.tree_size(self.tree_a)
+        size_b = OPTUtils.tree_size(self.tree_b)
         ted_similarity = 1.0 - (ted / max(size_a, size_b)) if max(size_a, size_b) > 0 else 1.0
         jacc = SubtreeJaccard.calculate(self.tree_a, self.tree_b)
         return {

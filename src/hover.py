@@ -316,76 +316,61 @@ class HoverProcessor(HoverRewriter):
     """
     Process the hover information further.
     For 3.2 OPT Construction: Placeholder Representation & Parentheses Removal.
+    Note: The Placeholder Representation here is only a preliminary process. For advanced processing, see the add_placeholder_further function in src/opter.py.
     """
     
     def remove_header(self, lst, key):
+        """
+        remove the header from the hover information
+        """
         for i, s in enumerate(lst):
             if key in s:
                 return lst[i+1:-2]
 
-    def add_underline(self, key):  # , --> _,
-        brackets = {"(": ")", "[": "]", "{": "}"}
-        if key and key[0] in brackets and key[-1] == brackets[key[0]]:
-            inner_content = key[1:-1]
-            if re.fullmatch(r"[,\s]*", inner_content) and "," in key and any(c.isspace() for c in key):
-                inner_new = inner_content.replace(",", "_,")
-                inner_new += "_"
-                return key[0] + inner_new + key[-1]
-        elif re.fullmatch(r"[,\s]*", key) and "," in key and any(c.isspace() for c in key):
-                key = key.replace(",", "_,")
-                key += "_"
-                return key
-        return key
-
-    def reduce_space(self, key, symbol, sep):
-        symbol_index = key.find(symbol)
-        if symbol_index == -1:
-            return key  
-        sep_index = key.find(sep, symbol_index)
-        if sep_index == -1:
-            return key  
-        between = key[symbol_index + len(symbol): sep_index]
-        if set(between) <= {" "} and len(between) > 0:
-            new_between = between[:-1]
-            return key[:symbol_index + len(symbol)] + new_between + key[sep_index:]
-        return key
-
-    def key_concatenation(self, process_results_name):
-        concatenated_results, last_key = [], None
+    def character_concatenation(self, process_results_name):
+        """
+        if key is whitespace, concatenate with last_key
+        """
+        concatenated_results, last_key, last_hover_information = [], None, None
         for result in process_results_name:
             data = json.loads(result)
             key = next(iter(data))
             value = data[key]
-            key = "_._" if key == "." else key
-            key = "_._ " if key == ". " else key
-            key = self.add_underline(key)
+            hover_information = data["contents"]["value"]
+
             if key.isspace():
                 if last_key is not None:
                     key = last_key + key
+                    hover_information = last_hover_information + hover_information
                     del concatenated_results[-1]
             else:
                 last_key = key
-            concatenated_result = {key: value, "contents": data["contents"]["value"]}
+                last_hover_information = hover_information
+
+            concatenated_result = {key: value, "hover_information": hover_information}
             concatenated_results.append(json.dumps(concatenated_result, ensure_ascii=False))
         return concatenated_results
-
+    
     def add_placeholder(self, process_results_name):
-        concatenated_results, modified_results = self.key_concatenation(process_results_name), []
+        WHITE_SPACE = " "
+        PLACEHOLDER = "_"
+        concatenated_results = self.character_concatenation(process_results_name)
+        modified_results = []
+
         for result in concatenated_results:
             data = json.loads(result)
             key = next(iter(data))
             value = data[key]  
-            key = self.reduce_space(key, "∏", ",")
-            key = self.reduce_space(key, "∑", ",")
-            key = self.reduce_space(key, "{", "|")
-            key = self.reduce_space(key, "fun", "=>")
-            key = self.reduce_space(key, "λ", "=>")
-            key = re.sub(r"∀ +,", "∀ ,", key)  # the number of space is not accurate, but it is consistent
-            key = re.sub(r"∃ +,", "∃ ,", key)  # the number of space is not accurate, but it is consistent
+            hover_information = data["hover_information"]
+
             key = key.replace("(", "").replace(")", "")  # Remove parentheses ()
-            key = key.replace(" ", " _ ").replace(":", " _ : _ ") if "_," not in key else key
-            if key != "":  # Avoid empty keys
-                modified_result = {key: value}
+            key = f"{PLACEHOLDER}{WHITE_SPACE}:{WHITE_SPACE}{PLACEHOLDER}" if key == ":" else key  # placeholder for `:`
+            key = f"{key}{PLACEHOLDER}" if not key.startswith(" ") and key.endswith(" ") else key  # placeholder for `s `, s is anything
+            key = f"{PLACEHOLDER}{WHITE_SPACE}{key[1]}{WHITE_SPACE}{PLACEHOLDER}" if len(key) == 3 and key.startswith(" ") and key.endswith(" ") else key  # place holder for ` s `, s is anything
+            key = "_._ _" if key == ". _" else key  # placeholder for `. _`
+
+            if key != "":
+                modified_result = {key: value, "hover_information": hover_information}
                 modified_results.append(json.dumps(modified_result, ensure_ascii=False))
         return modified_results
         
@@ -393,7 +378,6 @@ class HoverProcessor(HoverRewriter):
         process_results_range = self.process_range_contents(extract_results)
         theorem_name_element = self.get_theorem_name_element(process_results_range)
         process_results_name = self.remove_header(process_results_range, next(iter(theorem_name_element)))
-
         process_results_placeholder = self.add_placeholder(process_results_name)
         if out_path:
             with open(out_path, "w", encoding="utf-8") as f:
