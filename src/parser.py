@@ -3,6 +3,9 @@ from src.verifier import FLVerifier
 
 
 class Reorganizer:
+    """
+    For 3.1 Syntax Standardization: Variable Expansion.
+    """
     def _check_brackets_balanced(self, string):
         stack, bracket_pairs = [], {"(": ")", "[": "]", "{": "}"}
         for char in string:

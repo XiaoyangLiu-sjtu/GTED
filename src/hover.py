@@ -4,34 +4,38 @@ import time
 import json
 import threading
 import subprocess
+from typing import Any, Dict, List, Optional
 
 
 class HoverExtractor:
     """
     Given Lean code, extract hover information using a persistent Lean's LSP server.
+    This class is designed to be used as a context manager for efficiency.
     """
 
     class IdGenerator:
+        """Simple sequential ID generator for LSP requests."""
         def __init__(self):
             self.current_id = 1
-        def next(self):
+        def next(self) -> int:
             used_id = self.current_id
             self.current_id += 1
             return used_id
 
-    def __init__(self, lean_bin="lean", virtual_uri="file:///virtual/code.lean"):
+    def __init__(self, lean_bin: str = "lean", virtual_uri: str = "file:///virtual/code.lean"):
         self.lean_bin = lean_bin
         self.uri = virtual_uri
         self.language_id = "lean4"
-        self.preamble = "import Mathlib\n" # Common preamble
-        self.doc_version = 1 # Document version for LSP
-        self.proc = None
+        self.preamble = "import Mathlib\n"
+        self.doc_version = 1
+        self.proc: Optional[subprocess.Popen] = None
         self.idgen = self.IdGenerator()
-        self.response_dict = {}
+        self.response_dict: Dict[int, Any] = {}
         self.lock = threading.Lock()
-        self.stdout_thread = None
-        self.stderr_thread = None
+        self.stdout_thread: Optional[threading.Thread] = None
+        self.stderr_thread: Optional[threading.Thread] = None
         self.running = False
+        self.diagnostics_event = threading.Event()  # For robust synchronization
 
     def __enter__(self):
         """Starts the server and initializes it with the preamble."""
@@ -43,88 +47,122 @@ class HoverExtractor:
         """Stops the server."""
         self._stop_server()
 
-    def make_lsp_message(self, json_obj):
+    def make_lsp_message(self, json_obj: Dict[str, Any]) -> bytes:
+        """Formats a JSON object into an LSP message."""
         content = json.dumps(json_obj)
         return f"Content-Length: {len(content)}\r\n\r\n{content}".encode("utf-8")
 
     def _start_server(self):
+        """Launches the Lean server as a subprocess."""
         try:
-            self.proc = subprocess.Popen([self.lean_bin, "--server"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd="../ATLAS/src/repl")
+            self.proc = subprocess.Popen(
+                [self.lean_bin, "--server"],
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                cwd="../ATLAS/src/repl"  # Adjust this path as needed
+            )
         except FileNotFoundError:
-            print("Failed to start Lean. Please ensure Lean is in your PATH.")
+            print("Failed to start Lean. Please ensure the 'lean' command is in your PATH.")
             sys.exit(1)
         except Exception as e:
             print(f"Error starting Lean: {e}")
             sys.exit(1)
+        
         self.running = True
         self.stdout_thread = threading.Thread(target=self._read_stdout, daemon=True)
         self.stdout_thread.start()
         self.stderr_thread = threading.Thread(target=self._read_stderr, daemon=True)
         self.stderr_thread.start()
-        print("Lean server started and warming up with Mathlib...")
 
     def _stop_server(self):
+        """Sends shutdown notifications and terminates the Lean server process."""
         print("Stopping Lean server...")
         self.running = False
         if self.proc:
-            shutdown_req = {"jsonrpc": "2.0", "id": self.idgen.next(), "method": "shutdown"}
-            self.proc.stdin.write(self.make_lsp_message(shutdown_req))
-            self.proc.stdin.flush()
-            time.sleep(0.1)
-            exit_notify = {"jsonrpc": "2.0", "method": "exit"}
-            self.proc.stdin.write(self.make_lsp_message(exit_notify))
-            self.proc.stdin.flush()
-
-            self.proc.terminate()
-            self.proc.wait(timeout=2)
-            self.proc = None
+            try:
+                shutdown_req = {"jsonrpc": "2.0", "id": self.idgen.next(), "method": "shutdown"}
+                self.proc.stdin.write(self.make_lsp_message(shutdown_req))
+                self.proc.stdin.flush()
+                time.sleep(0.1)
+                exit_notify = {"jsonrpc": "2.0", "method": "exit"}
+                self.proc.stdin.write(self.make_lsp_message(exit_notify))
+                self.proc.stdin.flush()
+                self.proc.terminate()
+                self.proc.wait(timeout=2)
+            except (IOError, BrokenPipeError, ValueError):
+                # Process might already be dead, which is fine
+                pass
+            finally:
+                self.proc = None
+        
         if self.stdout_thread:
             self.stdout_thread.join(timeout=1)
         if self.stderr_thread:
             self.stderr_thread.join(timeout=1)
 
     def _read_stdout(self):
+        """
+        Reads and parses LSP messages from stdout.
+        
+        This method now checks for 'textDocument/publishDiagnostics' messages
+        to signal that the server has finished processing a file.
+        """
         try:
-            f = self.proc.stdout
-            while self.running:
-                header = b""
-                while not header.endswith(b"\r\n\r\n"):
-                    chunk = f.read(1)
-                    if not chunk or not self.running: return
-                    header += chunk
+            while self.running and self.proc and self.proc.stdout:
+                header_lines = []
+                content_length = -1
+                while self.running:
+                    line = self.proc.stdout.readline()
+                    if not line:
+                        return  # End of stream
+                    header_lines.append(line)
+                    if line.strip() == b'':
+                        break  # End of headers
+                    if line.lower().startswith(b'content-length:'):
+                        content_length = int(line.split(b':')[1].strip())
 
-                header_text = header.decode(errors="ignore")
-                try:
-                    content_length = int(header_text.split("Content-Length:")[1].strip())
-                except (IndexError, ValueError):
+                if content_length == -1:
                     continue
 
-                body = f.read(content_length)
+                body = self.proc.stdout.read(content_length)
                 try:
-                    parsed = json.loads(body)
+                    parsed = json.loads(body.decode("utf-8"))
                     if "id" in parsed:
                         with self.lock:
                             self.response_dict[parsed["id"]] = parsed
-                except json.JSONDecodeError:
+                    elif parsed.get("method") == "textDocument/publishDiagnostics":
+                        self.diagnostics_event.set()
+                except (json.JSONDecodeError, UnicodeDecodeError):
                     continue
-        except Exception:
+        except (IOError, ValueError):
             pass
 
     def _read_stderr(self):
+        """Reads the stderr stream to prevent the process buffer from filling up."""
         try:
-            for line in iter(self.proc.stderr.readline, b""):
-                if not self.running: break
-        except Exception:
+            while self.running and self.proc and self.proc.stderr:
+                line = self.proc.stderr.readline()
+                if not line:
+                    break
+        except (IOError, ValueError):
             pass
 
-    def _lsp_request_and_wait(self, request, timeout=3.0):
+    def _lsp_request_and_wait(self, request: Dict[str, Any], timeout: float = 3.0) -> Optional[Dict[str, Any]]:
+        """Sends an LSP request and waits for a response."""
         req_id = request["id"]
         with self.lock:
-            if req_id in self.response_dict:
-                del self.response_dict[req_id]
+            # Clear any stale responses for this ID
+            self.response_dict.pop(req_id, None)
 
-        self.proc.stdin.write(self.make_lsp_message(request))
-        self.proc.stdin.flush()
+        if not (self.proc and self.proc.stdin):
+            return None
+
+        try:
+            self.proc.stdin.write(self.make_lsp_message(request))
+            self.proc.stdin.flush()
+        except (IOError, BrokenPipeError):
+            return None # Server process likely died
 
         start_time = time.monotonic()
         while time.monotonic() - start_time < timeout:
@@ -135,65 +173,62 @@ class HoverExtractor:
         return None
 
     def _initialize_session(self):
-        """Sends the initial LSP handshake and opens the virtual document with the preamble."""
-        # 1. Initialize
+        """Sends the initial LSP handshake and opens the virtual document."""
+        print("Lean server started, initializing session...")
         initialize_req = {
             "jsonrpc": "2.0", "id": self.idgen.next(), "method": "initialize",
             "params": {"processId": None, "rootUri": None, "capabilities": {}}
         }
-        self._lsp_request_and_wait(initialize_req) # Wait for response to ensure server is ready
+        self._lsp_request_and_wait(initialize_req)
 
-        # 2. Initialized
         initialized_notify = {"jsonrpc": "2.0", "method": "initialized", "params": {}}
         self.proc.stdin.write(self.make_lsp_message(initialized_notify))
         self.proc.stdin.flush()
 
-        # 3. DidOpen with only the preamble
         didopen_req = {
             "jsonrpc": "2.0", "method": "textDocument/didOpen",
             "params": {
-                "textDocument": {
-                    "uri": self.uri, "languageId": self.language_id,
-                    "version": self.doc_version, "text": self.preamble
-                }
+                "textDocument": {"uri": self.uri, "languageId": self.language_id, "version": self.doc_version, "text": self.preamble}
             }
         }
+        
+        self.diagnostics_event.clear()
         self.proc.stdin.write(self.make_lsp_message(didopen_req))
         self.proc.stdin.flush()
 
-        # Give Lean time to process Mathlib. This is a crucial wait.
-        time.sleep(10) 
+        print("Warming up with Mathlib...")
+        ready = self.diagnostics_event.wait(timeout=45.0) # Timeout for Mathlib
+        if not ready:
+            print("Warning: Timed out waiting for initial diagnostics. Server might be slow or failing.")
         print("Mathlib loaded. Server is ready.")
 
-    def extract(self, code_snippet, out_path=None):
-        """Extracts hover info for a new code snippet, reusing the existing server."""
-        # Combine preamble with the new code
+    def extract(self, code_snippet: str, out_path: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Extracts hover info for a new code snippet by updating the server's state."""
         full_code = self.preamble + code_snippet
         self.doc_version += 1
 
-        # Use `didChange` to update the document content instead of `didOpen`
         didchange_req = {
-            "jsonrpc": "2.0",
-            "method": "textDocument/didChange",
+            "jsonrpc": "2.0", "method": "textDocument/didChange",
             "params": {
                 "textDocument": {"uri": self.uri, "version": self.doc_version},
                 "contentChanges": [{"text": full_code}]
             }
         }
+        
+        self.diagnostics_event.clear()
         self.proc.stdin.write(self.make_lsp_message(didchange_req))
         self.proc.stdin.flush()
 
-        # Short sleep to allow the server to process the change
-        time.sleep(0.5)
+        ready = self.diagnostics_event.wait(timeout=15.0)
+        if not ready:
+            print(f"Warning: Timed out waiting for diagnostics on snippet: {code_snippet[:60]}...")
 
         extract_results = []
-        lines = full_code.splitlines()
-        preamble_lines = len(self.preamble.splitlines())
+        preamble_lines = self.preamble.count('\n')
 
-        # We only iterate over the new code snippet
         for line_idx_offset, line in enumerate(code_snippet.splitlines()):
-            line_idx_actual = line_idx_offset + preamble_lines # Adjust line number
-            for char_idx, _ in enumerate(line):
+            line_idx_actual = line_idx_offset + preamble_lines
+            for char_idx, char in enumerate(line):
                 hover_req = {
                     "jsonrpc": "2.0", "id": self.idgen.next(), "method": "textDocument/hover",
                     "params": {
@@ -203,7 +238,7 @@ class HoverExtractor:
                 }
                 resp = self._lsp_request_and_wait(hover_req)
 
-                new_entry = {"character": line[char_idx], "row": line_idx_actual, "column": char_idx}
+                new_entry = {"character": char, "row": line_idx_actual, "column": char_idx+1}
                 if resp and "result" in resp and resp["result"]:
                     new_entry.update(resp["result"])
 
@@ -219,9 +254,13 @@ class HoverExtractor:
 class HoverRewriter:
     """
     Rewrite the formal statement according to the hover information.
+    For 3.1 Syntax Standardization: Theorem Rewriting.
     """
 
-    def process_with_range_contents(self, extract_results):
+    def process_range_contents(self, extract_results):
+        """
+        Process the extracted results to map characters to their range and contents.
+        """
         char_map = {}
         for item in extract_results:
             if len(item) == 3:  # No hover information
@@ -247,43 +286,39 @@ class HoverRewriter:
         ]
         return process_results
 
-    def get_theorem_name_of_sorry_line(self, process_results):
-        sorry_line = None
-        for item_str in process_results:
-            item = json.loads(item_str)
-            key, value = next(iter(item.items()))
-            if key.lower() == "sorry":
-                sorry_line = value[0][0] 
-                break 
-        if sorry_line is None:
-            return None
+    def get_theorem_name_element(self, process_results):
+        """
+        Find the theorem name element.
+        """
+        last_element = json.loads(process_results[-1])
+        _, value = next(iter(last_element.items()))
+        theorem_name_line = value[0][0]
 
-        elements_on_line = []
+        candidates_element = []
         for item_str in process_results:
             item = json.loads(item_str)
-            key, value = next(iter(item.items()))
+            _, value = next(iter(item.items()))
             start_line, start_char = value[0][0], value[0][1]
-            if start_line == sorry_line:
-                elements_on_line.append((start_char, item))
-
-        first_element = min(elements_on_line, key=lambda x: x[0])
-        return first_element[1]        
+            if start_line == theorem_name_line:
+                candidates_element.append((start_char, item))
+        return min(candidates_element, key=lambda x: x[0])[1]
 
     def rewrite(self, extract_results):
-        process_results = self.process_with_range_contents(extract_results)
-        first_element = self.get_theorem_name_of_sorry_line(process_results)
-        contents = first_element.get("contents")
+        process_results_range = self.process_range_contents(extract_results)
+        theorem_name_element = self.get_theorem_name_element(process_results_range)
+        contents = theorem_name_element.get("contents")
         matches = re.findall(r"```lean\n(.*?)```", contents.get("value"), re.DOTALL)
-        value = matches[0].replace("\n", "").strip() if matches else "TBD"
-        return "theorem " + value + " := by sorry"
-    
+        value = matches[0].replace("\n", "").strip() if matches else "TBD: something wrong!"
+        return f"theorem {value} := by sorry"
 
+        
 class HoverProcessor(HoverRewriter):
     """
     Process the hover information further.
+    For 3.2 OPT Construction: Placeholder Representation & Parentheses Removal.
     """
     
-    def keep_from_element(self, lst, key):
+    def remove_header(self, lst, key):
         for i, s in enumerate(lst):
             if key in s:
                 return lst[i+1:-2]
@@ -315,9 +350,9 @@ class HoverProcessor(HoverRewriter):
             return key[:symbol_index + len(symbol)] + new_between + key[sep_index:]
         return key
 
-    def key_concatenation(self, process_results):
+    def key_concatenation(self, process_results_name):
         concatenated_results, last_key = [], None
-        for result in process_results:
+        for result in process_results_name:
             data = json.loads(result)
             key = next(iter(data))
             value = data[key]
@@ -330,12 +365,12 @@ class HoverProcessor(HoverRewriter):
                     del concatenated_results[-1]
             else:
                 last_key = key
-            concatenated_result = {key: value}
+            concatenated_result = {key: value, "contents": data["contents"]["value"]}
             concatenated_results.append(json.dumps(concatenated_result, ensure_ascii=False))
         return concatenated_results
 
-    def key_modify(self, process_results):
-        concatenated_results, modified_results = self.key_concatenation(process_results), []
+    def add_placeholder(self, process_results_name):
+        concatenated_results, modified_results = self.key_concatenation(process_results_name), []
         for result in concatenated_results:
             data = json.loads(result)
             key = next(iter(data))
@@ -355,30 +390,12 @@ class HoverProcessor(HoverRewriter):
         return modified_results
         
     def process(self, extract_results, out_path=None):
-        char_map = {}
-        for item in extract_results:
-            if len(item) == 3:
-                continue
-            char, range = item.get("character"), item.get("range")
-            k = (
-                range["start"]["line"], range["start"]["character"],
-                range["end"]["line"], range["end"]["character"]
-            )
-            char_map.setdefault(k, []).append(char)
-        process_results = [
-            json.dumps(
-                {"".join(char_map[k]): [[k[0], k[1]], [k[2], k[3]]]},
-                ensure_ascii=False
-            )
-            for k in sorted(char_map)
-        ]
+        process_results_range = self.process_range_contents(extract_results)
+        theorem_name_element = self.get_theorem_name_element(process_results_range)
+        process_results_name = self.remove_header(process_results_range, next(iter(theorem_name_element)))
 
-        temp_results = self.process_with_range_contents(extract_results)
-        first_element = self.get_theorem_name_of_sorry_line(temp_results)
-        process_results = self.keep_from_element(process_results, next(iter(first_element)))
-
-        modified_results = self.key_modify(process_results)
+        process_results_placeholder = self.add_placeholder(process_results_name)
         if out_path:
             with open(out_path, "w", encoding="utf-8") as f:
-                f.write("\n".join(modified_results) + "\n")
-        return modified_results
+                f.write("\n".join(process_results_placeholder) + "\n")
+        return process_results_placeholder

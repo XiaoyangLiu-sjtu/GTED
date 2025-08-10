@@ -35,6 +35,7 @@ Statement autoformalization, the automated translation of statement from natural
 
 ## 3. Quick Start
 1. **Install Lean4**
+
     Follow the instructions on the [Lean4 installation page](https://leanprover-community.github.io/get_started.html) to set up Lean4.
 
 2. **Clone the repository**
@@ -44,18 +45,30 @@ Statement autoformalization, the automated translation of statement from natural
     ```
 
 3. **Build REPL**
+
     Follow the instructions on the [Lean REPL page](https://github.com/leanprover-community/repl.git) to set up Lean REPL and change the `DEFAULT_LEAN_WORKSPACE` parameter in `src/verifier.py` to your REPL path.
+
 4. **Evaluation**
-    There are two functions `test_lean_codes` and `benchmark_evaluation` in `main.py` for evaluation.
-    - `test_lean_codes`: Pass in header_list and formal_statement_list (one-to-one correspondence), and call the funtion. This operation will return the operator trees corresponding to these lean_codes.
+
+    There are three functions `tree_lean_codes`, `ted_lean_codes` and `evaluation_benchmark` in `main.py` for evaluation.
+
+    - `tree_lean_codes`: Input header and formal statement to build the corresponding operator tree.
         ```shell
-        # test lean codes
-        header = "import Mathlib"
-        formal_statement = "theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"
-        header_list = [header] * 3
-        formal_statement_list = [formal_statement] * 3
-        test_lean_codes(header_list, formal_statement_list)
+        # Function1: tree_lean_codes
+        header_list = ["import Mathlib"] * 100
+        formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 100
+        tree_lean_codes(header_list, formal_statement_list)
         ```
+    
+    - `ted_lean_codes`: Input a pair of header and formal statements, build the corresponding operator tree and calculate the TED similarity.
+        ```shell
+        label_header_list = ["import Mathlib"] * 100
+        label_formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 100
+        predict_header_list = ["import Mathlib"] * 100
+        predict_formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 100
+        ted_lean_codes(label_header_list, label_formal_statement_list, predict_header_list, predict_formal_statement_list)
+        ```
+
     - `benchmark_evaluation`: Just pass in miniF2F or ProofNet. Please note that you may need to change the format of your own json file. This function is currently adapted to the json file format in `experiment/{benchmark}/human_evaluation.json`.
         ```shell
         # test benchmark
