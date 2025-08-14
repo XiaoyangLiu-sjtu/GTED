@@ -75,37 +75,35 @@ class OPTBuilder:
                 
                 replacement_logic = lambda m: m.group(1) + placeholders + m.group(3)
                 new_content = re.sub(pattern, replacement_logic, formal_content, count=1)
-                item["formal_content"] = new_content
+                if delimiter == "=>":
+                    new_content = new_content.replace("=>", " =>")
+                item["formal_content"] = new_content.replace("_:", ":")
 
             if "children" in item and item["children"]:
                 self.add_placeholder_further(item["children"], character, delimiter)
         return tree_results
 
-    def build(self, process_results, out_path=None):
+    def build(self, process_results, out_path=None, reorganized_formal_statement=None):
         nodes = self.read_jsonl_data(process_results)
         tree_results = self.build_tree(nodes).to_dict()
         if tree_results == {"formal_content": "theorem", "children": [], "hover_information": ""}:
             return tree_results
 
         # placeholder further
-        formal_content, number = tree_results["children"][0]["formal_content"], len(tree_results["children"][0]["children"])-1
-        parts = formal_content.split(":", 1)
-        new_left = "_ " * number if number > 0 else ""
-        new_formal_content = new_left + ":" + parts[1] if len(parts) > 1 else formal_content
-        tree_results["children"][0]["formal_content"] = new_formal_content
         tree_results = [tree_results]
+        self.add_placeholder_further(tree_results, "_", ":")
         self.add_placeholder_further(tree_results, "∏", ",")
         self.add_placeholder_further(tree_results, "∑", ",")
-        self.add_placeholder_further(tree_results, "{", "|")
-        self.add_placeholder_further(tree_results, "fun", "=>")
-        self.add_placeholder_further(tree_results, "λ", "=>")
         self.add_placeholder_further(tree_results, "∀", ",")
         self.add_placeholder_further(tree_results, "∃", ",")
+        self.add_placeholder_further(tree_results, "fun", "=>")
+        self.add_placeholder_further(tree_results, "λ", "=>")
 
+        tree_results.insert(0, {"reorganized_formal_statement": reorganized_formal_statement})
         if out_path:
             with open(out_path, "w", encoding="utf-8") as f:
                 json.dump(tree_results, f, ensure_ascii=False, indent=4)
-        return tree_results
+        return tree_results[1]
 
 
 class OPTVisualizer:

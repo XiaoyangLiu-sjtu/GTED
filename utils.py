@@ -65,14 +65,14 @@ def build_opt(header_list, reorganized_formal_statement_list, extract_path=None,
 
             extract_result = extractor.extract(header_list[index]+"\n"+reorganized_formal_statement, path_used[0])
             process_result = processor.process(extract_result, path_used[1])
-            tree_result = builder.build(process_result, path_used[2])
-            visualizer.visualize(tree_result[0], path_used[3])
+            tree_result = builder.build(process_result, path_used[2], reorganized_formal_statement)
+            visualizer.visualize(tree_result, path_used[3])
 
             # Uncomment the following lines to mark freecost nodes for variables and hypotheses
             # metadata = NameExtractor().name_extractor(header_list[index], reorganized_formal_statement)
             # mark_freecost_nodes(metadata, tree_result)
             
-            tree_result_list.append(tree_result[0])
+            tree_result_list.append(tree_result)
     return tree_result_list
 
 

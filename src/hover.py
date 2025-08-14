@@ -22,7 +22,7 @@ class HoverExtractor:
             self.current_id += 1
             return used_id
 
-    def __init__(self, lean_bin: str = "lean", virtual_uri: str = "file:///virtual/code.lean"):
+    def __init__(self, lean_bin: str = "/nfs/my/lxy/.elan/bin/lean", virtual_uri: str = "file:///virtual/code.lean"):
         self.lean_bin = lean_bin
         self.uri = virtual_uri
         self.language_id = "lean4"
@@ -60,7 +60,7 @@ class HoverExtractor:
                 stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                cwd="../ATLAS/src/repl"  # Adjust this path as needed
+                cwd="/nfs/my/lxy/ATLAS/src/repl"  # Adjust this path as needed
             )
         except FileNotFoundError:
             print("Failed to start Lean. Please ensure the 'lean' command is in your PATH.")
@@ -311,7 +311,8 @@ class HoverRewriter:
         value = matches[0].replace("\n", "").strip() if matches else "TBD: something wrong!"
         return f"theorem {value} := by sorry"
 
-        
+WHITE_SPACE = " "
+PLACEHOLDER = "_"      
 class HoverProcessor(HoverRewriter):
     """
     Process the hover information further.
@@ -350,10 +351,17 @@ class HoverProcessor(HoverRewriter):
             concatenated_result = {key: value, "hover_information": hover_information}
             concatenated_results.append(json.dumps(concatenated_result, ensure_ascii=False))
         return concatenated_results
-    
+
+    def expand_trailing_spaces(self, key):
+        if not key.startswith(" ") and key.endswith(" "):
+            def placeholder_generator(match):
+                trailing_spaces = match.group(1)
+                n = len(trailing_spaces)
+                return (WHITE_SPACE + PLACEHOLDER) * n
+            return re.sub(r"( +)$", placeholder_generator, key)    
+        return key
+
     def add_placeholder(self, process_results_name):
-        WHITE_SPACE = " "
-        PLACEHOLDER = "_"
         concatenated_results = self.character_concatenation(process_results_name)
         modified_results = []
 
@@ -363,12 +371,59 @@ class HoverProcessor(HoverRewriter):
             value = data[key]  
             hover_information = data["hover_information"]
 
-            key = key.replace("(", "").replace(")", "")  # Remove parentheses ()
+            # general cases
+            key = key.replace("(", "").replace(")", "")  # remove parentheses ()
+            key = self.expand_trailing_spaces(key)  # placeholder for `s whitespace*n`, s is anything
+            key = f"{PLACEHOLDER}{key}" if key.startswith(" ") and not key.endswith(" ") else key  # placeholder for ` s`, s is anything
+            key = f"{PLACEHOLDER}{key}{PLACEHOLDER}" if (len(key) == 3 or len(key) == 4) and (key.startswith(" ") and key.endswith(" ")) and key.count(" ") == 2 else key  # place holder for ` s `, s is anything
             key = f"{PLACEHOLDER}{WHITE_SPACE}:{WHITE_SPACE}{PLACEHOLDER}" if key == ":" else key  # placeholder for `:`
-            key = f"{key}{PLACEHOLDER}" if not key.startswith(" ") and key.endswith(" ") else key  # placeholder for `s `, s is anything
-            key = f"{PLACEHOLDER}{WHITE_SPACE}{key[1]}{WHITE_SPACE}{PLACEHOLDER}" if len(key) == 3 and key.startswith(" ") and key.endswith(" ") else key  # place holder for ` s `, s is anything
-            key = "_._ _" if key == ". _" else key  # placeholder for `. _`
+            key = key.replace(",", f"{PLACEHOLDER},")  # placeholder for containing `,`
+            key = key.replace(f"{key[-1]}", f"_{key[-1]}") if key.endswith("]") or key.endswith("}") else key  # placeholder for ending `]` or `}`
+            key = "{_ : _}" if key == "{:_}" else key  # case for : in {}
+            key = "[_ : _]" if key == "[:_]" else key  # case for : in []
+            key = "{_ | _}" if key == "{ | _}" else key  # case for | in {}
+            key = "{_ _ | _}" if key == "{   | _}" else key  # case for | in {}
+            key = "{_ // _}" if key == "{  //  _}" else key  # case for // in {}
 
+            # special cases
+            key = f"{PLACEHOLDER}{key}" if key in ["⁻¹", "ˣ", "ᶜ"] else key  # single character, placeholder first
+            key = f"{PLACEHOLDER}{WHITE_SPACE}{key}" if key in ["!"] else key  # single character, placeholder & whitespace first
+            key = f"{key}{PLACEHOLDER}" if key in ["↑", "√", "-", "¬", "#"] else key  # single character, placeholder last
+            key = f"{key}{WHITE_SPACE}{PLACEHOLDER}" if key in ["≥", ">", "<", "≤", "∈", "∉", "⊆", "⇑", "↥"] else key  # single character, whitespace & placeholder last 
+            key = f"{key[0]}{PLACEHOLDER}{key[1]}" if key in ["||", "⌊⌋", "‖‖"] else key  # double character, placeholder mid
+            key = "_._" if key == "." else key
+            key = "_._._" if key == ".." else key
+            key = "_._ _" if key == ". _" else key
+            key = "∈ _.divisors" if key == "∈.divisors" else key 
+            key = key.replace("∈ .", "∈ _.") if key.startswith("_ ∈ .") else key
+            key = key.replace(".", "_.", 1) if key.startswith(".") else key
+            key = "_.divisors.card = _" if key == ".divisors.card = _" else key
+            key = f"_{key}_" if key == " ⁻¹' " else key
+            key = "_ ≡ _ [MOD _]" if key == "_ ≡  [MOD _]" else key
+            key = "_ ≡ _ [ZMOD _]" if key == "_ ≡  [ZMOD _]" else key
+            key = "if _ then _ else _" if key == "if  then  else _" else key
+            key = "_ n ⊆ _" if key == "n ⊆ _" else key
+            key = "⋃ _, _ n" if key == "⋃ _, n" else key
+            key = "_ n ∩ _ m" if key == "n ∩ m" else key
+            key = "_ → _" if key == "   → " else key
+            key = "" if key.startswith(".{u_1_") else key
+            key = "" if key.startswith("_.{u_1_") else key
+            key = "_[X]" if key == "[X_]" else key
+            key = "_ →+* _" if key == " →+* " else key
+            key = "_ ⁻¹ _" if key == "⁻¹ _" else key
+            key = "_^[_] _" if key == "^[] _" else key
+            key = "‖_‖₊" if key == "‖‖₊" else key
+            key = "_ →ₗ[_] _" if key == " →ₗ[] " else key
+            key = "_ →L[_] _" if key == " →L[] " else key
+            key = "_ ≃ₗ[_] _" if key == " ≃ₗ[] " else key
+            key = "_ →ᵃ[_] _" if key == " →ᵃ[] " else key
+            key = "∫ _ in _.._, _" if key == "∫    in .._, _" else key
+            key = "∫ _ in _, _" if key == "∫    in _, _" else key
+            key = "_.coeff_ = _" if key == "_.coeff = _" else key
+            key = "∫ _ in _.._, _ ∂_" if key == "∫    in .._,  ∂" else key
+            key = "∫ _ in _, _" if key == "∫       in _, _" else key
+            key = "_ ≃+* _" if key == " ≃+* " else key
+            
             if key != "":
                 modified_result = {key: value, "hover_information": hover_information}
                 modified_results.append(json.dumps(modified_result, ensure_ascii=False))
