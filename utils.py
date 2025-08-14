@@ -169,7 +169,9 @@ def build_opt(header_list, informal_statement_list, formal_statement_list, reorg
             
         tree_result_list.append(tree_result)
 
-    analyze_opt_files(os.path.dirname(opt_path), os.path.basename(opt_path).split("_")[0])
+    if opt_path:
+        analyze_opt_files(os.path.dirname(opt_path), os.path.basename(opt_path).split("_")[0])
+        
     return tree_result_list
 
 
