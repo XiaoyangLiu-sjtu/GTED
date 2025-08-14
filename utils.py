@@ -216,8 +216,3 @@ def test_benchmark(benchmark):
         result = OPTSimilarer().similarer(data_a=label_tree_result, data_b=predict_tree_result)
         data[index]["ted_similarity"] = result["ted_similarity"]
     write_json(f"test_files/{benchmark}/ted/result.json", data)
-
-
-if __name__ == "__main__":
-    analyze_opt_files("/nfs/my/lxy/GTED/test_files/proofnet/ted/label/opt", "label")
-    analyze_opt_files("/nfs/my/lxy/GTED/test_files/proofnet/ted/predict/opt", "label")

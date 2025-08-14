@@ -43,24 +43,24 @@ def evaluation_benchmark(benchmark):
     """
     Input a benchmark and evaluate it using various methods.
     """
-    # IdentityMatcher(benchmark).identity_matcher()
-    # Typechecker(benchmark).typechecker()
-    # BLEUer(benchmark).bleuer()
-    # MajorityVoter(benchmark).majority_voter()
-    # DefinitionalEqualityer(benchmark).definitional_equalityer()
-    # BEqer(benchmark).beqer()
+    IdentityMatcher(benchmark).identity_matcher()
+    Typechecker(benchmark).typechecker()
+    BLEUer(benchmark).bleuer()
+    MajorityVoter(benchmark).majority_voter()
+    DefinitionalEqualityer(benchmark).definitional_equalityer()
+    BEqer(benchmark).beqer()
     utils.test_benchmark(benchmark)
-    # TreeSimilarer(benchmark).treesimilarer()
+    TreeSimilarer(benchmark).treesimilarer()
 
 
 if __name__ == "__main__":
-    # # Function1: tree_lean_codes
-    # start_time = time.time()
-    # header_list = ["import Mathlib\n"] * 100
-    # formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 100
-    # tree_lean_codes(header_list, formal_statement_list, extract_save=False, processed_save=False, png_save=False)
-    # end_time = time.time()
-    # print(f"Time taken for one lean code: {end_time - start_time:.2f} seconds")
+    # Function1: tree_lean_codes
+    start_time = time.time()
+    header_list = ["import Mathlib\n"] * 100
+    formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 100
+    tree_lean_codes(header_list, formal_statement_list, extract_save=False, processed_save=False, png_save=False)
+    end_time = time.time()
+    print(f"Time taken for one lean code: {end_time - start_time:.2f} seconds")
 
     # Function2: ted_lean_codes
     label_header_list = ["import Mathlib"] * 3
