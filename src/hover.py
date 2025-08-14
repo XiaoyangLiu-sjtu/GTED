@@ -401,6 +401,7 @@ class HoverRewriter:
         value = matches[0].replace("\n", "").strip() if matches else "TBD: something wrong!"
         return f"theorem {value} := by sorry"
 
+
 WHITE_SPACE = " "
 PLACEHOLDER = "_"      
 class HoverProcessor(HoverRewriter):

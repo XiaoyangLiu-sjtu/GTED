@@ -83,23 +83,21 @@ class OPTBuilder:
                 self.add_placeholder_further(item["children"], character, delimiter)
         return tree_results
 
-    def build(self, process_results, out_path=None, informal_statement=None, reorganized_formal_statement=None):
+    def build(self, process_results, out_path, informal_statement, formal_statement, reorganized_formal_statement):
         nodes = self.read_jsonl_data(process_results)
         tree_results = self.build_tree(nodes).to_dict()
-        if tree_results == {"formal_content": "theorem", "children": [], "hover_information": ""}:
-            return tree_results
-
-        # placeholder further
         tree_results = [tree_results]
-        self.add_placeholder_further(tree_results, "_", ":")
-        self.add_placeholder_further(tree_results, "∏", ",")
-        self.add_placeholder_further(tree_results, "∑", ",")
-        self.add_placeholder_further(tree_results, "∀", ",")
-        self.add_placeholder_further(tree_results, "∃", ",")
-        self.add_placeholder_further(tree_results, "fun", "=>")
-        self.add_placeholder_further(tree_results, "λ", "=>")
+        if tree_results != [{"formal_content": "theorem", "children": [], "hover_information": ""}]:
+            # placeholder further
+            self.add_placeholder_further(tree_results, "_", ":")
+            self.add_placeholder_further(tree_results, "∏", ",")
+            self.add_placeholder_further(tree_results, "∑", ",")
+            self.add_placeholder_further(tree_results, "∀", ",")
+            self.add_placeholder_further(tree_results, "∃", ",")
+            self.add_placeholder_further(tree_results, "fun", "=>")
+            self.add_placeholder_further(tree_results, "λ", "=>")
 
-        tree_results.insert(0, {"informal_statement": informal_statement, "reorganized_formal_statement": reorganized_formal_statement})
+        tree_results.insert(0, {"informal_statement": informal_statement, "formal_statement": formal_statement, "reorganized_formal_statement": reorganized_formal_statement})
         if out_path:
             with open(out_path, "w", encoding="utf-8") as f:
                 json.dump(tree_results, f, ensure_ascii=False, indent=4)

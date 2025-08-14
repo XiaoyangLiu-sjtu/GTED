@@ -6,7 +6,7 @@ from src.parser import Reorganizer, NameExtractor
 from src.opter import OPTBuilder, OPTVisualizer, OPTSimilarer
 
 
-NUM_SERVERS = 5
+NUM_SERVERS = 10
 HOME_DIR = os.path.expanduser("~")
 LEAN_PATH = f"{HOME_DIR}/.elan/bin/lean"
 MATHLIB_PATH = "../ATLAS/src/repl"
@@ -54,71 +54,51 @@ def _traverse_node(node):
     return None
 
 
-def _find_missing_files(sorted_files, tag):
-    present_numbers = set()
-    for f in sorted_files:
-        num_str = f.replace(f"{tag}_code_", "").replace(".json", "")
-        present_numbers.add(int(num_str))
-
-    start_num = min(present_numbers)
-    end_num = max(present_numbers)
-    expected_numbers = set(range(start_num, end_num + 1))    
-    missing_numbers = sorted(list(expected_numbers - present_numbers))
-    missing_numbers_list = []
-    if missing_numbers:
-        for num in missing_numbers:
-            missing_numbers_list.append(str(num))
-        return False, missing_numbers_list
-    else:
-        return True, []
-    
-
 def analyze_opt_files(folder_path, tag):
-    error_log = []
-    sorry_count = 0
-    mismatch_count = 0
-    json_count = 0
-
+    error_log, sorry_count, mismatch_count, name_count, json_count = [], 0, 0, 0, 0
     all_filenames = os.listdir(folder_path)
     target_files = [f for f in all_filenames if f.startswith(f"{tag}_code_") and f.endswith(".json")]
     sorted_files = sorted(target_files, key=lambda f: int(f.replace(f"{tag}_code_", "").replace(".json", "")))
-    total_files = len(sorted_files)
-    missing_result, missing_files = _find_missing_files(sorted_files, tag)
 
     for filename in sorted_files:
         filepath = os.path.join(folder_path, filename)
+        data = read_json(filepath)
         error_type = None
-        try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            start_nodes = data[1]["children"][0]["children"]
-            for node in start_nodes:
-                file_error = _traverse_node(node)
-                if file_error:
-                    error_type = file_error
-                    break 
-        except:
-            error_log.append({"file": filename, "error": "Failed to parse JSON."})
-            error_type = "json_error"
-            continue
+
+        fs, rfs = data[0].get("formal_statement"), data[0].get("reorganized_formal_statement")
+        fsl, rfsl = fs.split(), rfs.split()
+        fs_f2, rfs_f2 = "".join(fsl[:2]), "".join(rfsl[:2]).split('.', 1)[0]
+        if fs_f2 != rfs_f2:
+            error_type = "name_error"
+        else:
+            try:
+                start_nodes = data[1]["children"][0]["children"]
+                for node in start_nodes:
+                    file_error = _traverse_node(node)
+                    if file_error:
+                        error_type = file_error
+                        break 
+            except:
+                error_type = "json_error"
 
         if error_type:
             if error_type.startswith("sorry_error"):
-                error_message = error_type
                 sorry_count += 1
             elif error_type.startswith("mismatch_error"):
-                error_message = error_type
                 mismatch_count += 1
+            elif error_type == "name_error":
+                name_count += 1
             elif error_type == "json_error":
-                error_message = "Failed to parse JSON."
                 json_count += 1
+            error_message = error_type
             error_log.append({"file": filename, "error": error_message})
 
     report_path = os.path.join(folder_path, "analysis_report.log")
-    total_errors = len(error_log)
+    total_files, total_errors = len(sorted_files), len(error_log)
     total_errors_percentage = (total_errors /  total_files * 100) if total_files > 0 else 0
     sorry_percentage = (sorry_count / total_files * 100) if total_files > 0 else 0
     mismatch_percentage = (mismatch_count / total_files * 100) if total_files > 0 else 0
+    name_percentage = (name_count / total_files * 100) if total_files > 0 else 0
     json_percentage = (json_count / total_files * 100) if total_files > 0 else 0
 
     with open(report_path, "w", encoding="utf-8") as report_file:
@@ -128,10 +108,9 @@ def analyze_opt_files(folder_path, tag):
         report_file.write("--- Summary Statistics ---\n")
         report_file.write(f"Total Files Analyzed: {total_files}\n")
         report_file.write(f"Total Files with Errors: {total_errors} ({total_errors_percentage:.2f}%)\n")
-        if missing_result == False:
-            report_file.write(f"Total Files Missed: {len(missing_files)} | {', '.join(missing_files)}\n")
         report_file.write(f"Files with sorry_error: {sorry_count} ({sorry_percentage:.2f}%)\n")
         report_file.write(f"Files with mismatch_error: {mismatch_count} ({mismatch_percentage:.2f}%)\n")
+        report_file.write(f"Files with name_error: {name_count} ({name_percentage:.2f}%)\n")
         report_file.write(f"Files with json_error: {json_count} ({json_percentage:.2f}%)\n\n")
         report_file.write("--- Detailed Error Log ---\n")
         if not error_log:
@@ -157,7 +136,7 @@ def syntax_standardization(header_list, formal_statement_list):
     return reorganized_formal_statement_list
 
 
-def build_opt(header_list, reorganized_formal_statement_list, informal_statement_list, extract_path=None, processed_path=None, opt_path=None, png_path=None):
+def build_opt(header_list, informal_statement_list, formal_statement_list, reorganized_formal_statement_list, extract_path=None, processed_path=None, opt_path=None, png_path=None):
     processor = HoverProcessor()
     builder = OPTBuilder()
     visualizer = OPTVisualizer()
@@ -181,7 +160,7 @@ def build_opt(header_list, reorganized_formal_statement_list, informal_statement
                 path_used.append(None)
                     
         process_result = processor.process(extract_result, path_used[1])
-        tree_result = builder.build(process_result, path_used[2], informal_statement_list[index], reorganized_formal_statement_list[index])
+        tree_result = builder.build(process_result, path_used[2], informal_statement_list[index], formal_statement_list[index], reorganized_formal_statement_list[index])
         visualizer.visualize(tree_result, path_used[3])
 
         # Uncomment the following lines to mark freecost nodes for variables and hypotheses
@@ -197,37 +176,48 @@ def build_opt(header_list, reorganized_formal_statement_list, informal_statement
 def test_benchmark(benchmark):
     data = read_json(f"experiment/{benchmark}/human_evaluation.json")
 
-    label_header_list, label_formal_statement_list = [], []
-    predict_header_list, predict_formal_statement_list = [], []
+    label_header_list, label_formal_statement_list, label_informal_statement_list = [], [], []
+    predict_header_list, predict_formal_statement_list, predict_informal_statement_list = [], [], []
     for item in data:
         for subitem in item["sub_questions"]:
             label_header = re.sub(r"\n+", "\n", item["header"]).replace("import Mathlib\n", "")
             label_header_list.append(label_header)
             label_formal_statement_list.append(item["FL (Label)"])
+            label_informal_statement_list.append(item.get("IL (Label)"))
             predict_header = re.sub(r"\n+", "\n", subitem["header"]).replace("import Mathlib\n", "")
             predict_header_list.append(predict_header)
             predict_formal_statement_list.append(subitem["FL (Prediction)"])
+            predict_informal_statement_list.append(subitem.get("IL (Prediction)"))
     reorganized_label_formal_statement_list = syntax_standardization(label_header_list, label_formal_statement_list)
     reorganized_predict_formal_statement_list = syntax_standardization(predict_header_list, predict_formal_statement_list)
 
     label_tree_result_list = build_opt(
         label_header_list,
+        label_informal_statement_list,
+        label_formal_statement_list,
         reorganized_label_formal_statement_list,
-        extract_path=f"experiment/{benchmark}/ted/label/extract/label_code_index.jsonl",
-        processed_path=f"experiment/{benchmark}/ted/label/processed/label_code_index.jsonl",
-        opt_path=f"experiment/{benchmark}/ted/label/opt/label_code_index.json",
-        png_path=f"experiment/{benchmark}/ted/label/figures/label_code_index.png",
+        extract_path=f"test_files/{benchmark}/ted/label/extract/label_code_index.jsonl",
+        processed_path=f"test_files/{benchmark}/ted/label/processed/label_code_index.jsonl",
+        opt_path=f"test_files/{benchmark}/ted/label/opt/label_code_index.json",
+        png_path=f"test_files/{benchmark}/ted/label/figures/label_code_index.png",
     )
     predict_tree_result_list = build_opt(
         predict_header_list,
+        predict_informal_statement_list,
+        predict_formal_statement_list,
         reorganized_predict_formal_statement_list,
-        extract_path=f"experiment/{benchmark}/ted/predict/extract/predict_code_index.jsonl",
-        processed_path=f"experiment/{benchmark}/ted/predict/processed/predict_code_index.jsonl",
-        opt_path=f"experiment/{benchmark}/ted/predict/opt/predict_code_index.json",
-        png_path=f"experiment/{benchmark}/ted/predict/figures/predict_code_index.png",
+        extract_path=f"test_files/{benchmark}/ted/predict/extract/predict_code_index.jsonl",
+        processed_path=f"test_files/{benchmark}/ted/predict/processed/predict_code_index.jsonl",
+        opt_path=f"test_files/{benchmark}/ted/predict/opt/predict_code_index.json",
+        png_path=f"test_files/{benchmark}/ted/predict/figures/predict_code_index.png",
     )
 
     for index, (label_tree_result, predict_tree_result) in enumerate(zip(label_tree_result_list, predict_tree_result_list)):
         result = OPTSimilarer().similarer(data_a=label_tree_result, data_b=predict_tree_result)
         data[index]["ted_similarity"] = result["ted_similarity"]
-    write_json(f"experiment/{benchmark}/ted/result.json", data)
+    write_json(f"test_files/{benchmark}/ted/result.json", data)
+
+
+if __name__ == "__main__":
+    analyze_opt_files("/nfs/my/lxy/GTED/test_files/proofnet/ted/label/opt", "label")
+    analyze_opt_files("/nfs/my/lxy/GTED/test_files/proofnet/ted/predict/opt", "label")
