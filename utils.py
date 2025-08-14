@@ -1,10 +1,15 @@
 import os
 import re
 import json
-from tqdm.contrib import tzip, tenumerate
-from src.hover import HoverExtractor, HoverProcessor, HoverRewriter
+from src.hover import ExtractorPool, HoverProcessor, HoverRewriter
 from src.parser import Reorganizer, NameExtractor
 from src.opter import OPTBuilder, OPTVisualizer, OPTSimilarer
+
+
+NUM_SERVERS = 5
+HOME_DIR = os.path.expanduser("~")
+LEAN_PATH = f"{HOME_DIR}/.elan/bin/lean"
+MATHLIB_PATH = "../ATLAS/src/repl"
 
 
 def read_json(file_path):
@@ -141,12 +146,14 @@ def syntax_standardization(header_list, formal_statement_list):
     reorganizer = Reorganizer()
     reorganized_formal_statement_list = []
 
-    with HoverExtractor() as extractor:
-        for header, formal_statement in tzip(header_list, formal_statement_list, desc="Syntax Standardization"):
-            extract_results = extractor.extract(header+"\n"+formal_statement)
-            hover_results = rewriter.rewrite(extract_results)
-            reorganized_formal_statement = reorganizer.reorganize_statement(hover_results)
-            reorganized_formal_statement_list.append(reorganized_formal_statement)
+    snippets = [header + "\n" + formal_statement for header, formal_statement in zip(header_list, formal_statement_list)]
+    with ExtractorPool(num_workers=NUM_SERVERS, lean_bin=LEAN_PATH, mathlib_path=MATHLIB_PATH, desc="Syntax Standardization") as pool:
+        extract_result_list = pool.process_all(code_snippets=snippets, out_paths=[None] * len(snippets))
+
+    for extract_result in extract_result_list:
+        hover_result = rewriter.rewrite(extract_result)
+        reorganized_formal_statement = reorganizer.reorganize_statement(hover_result)
+        reorganized_formal_statement_list.append(reorganized_formal_statement)
     return reorganized_formal_statement_list
 
 
@@ -157,24 +164,31 @@ def build_opt(header_list, reorganized_formal_statement_list, extract_path=None,
     path_templates = [extract_path, processed_path, opt_path, png_path]
     tree_result_list = []
 
-    with HoverExtractor() as extractor:
-        for index, reorganized_formal_statement in tenumerate(reorganized_formal_statement_list, desc="OPT Construction"):
-            path_used = []
-            for template in path_templates:
+    snippets = [header + "\n" + reorganized_formal_statement for header, reorganized_formal_statement in zip(header_list, reorganized_formal_statement_list)]
+    output_files = [extract_path.replace("index", str(index + 1)) if extract_path else None for index in range(len(snippets))]
+    os.makedirs(os.path.dirname(extract_path), exist_ok=True) if extract_path else None
+    with ExtractorPool(num_workers=NUM_SERVERS, lean_bin=LEAN_PATH, mathlib_path=MATHLIB_PATH, desc="OPT Construction") as pool:
+        extract_result_list = pool.process_all(code_snippets=snippets, out_paths=output_files)
+
+    for index, extract_result in enumerate(extract_result_list):
+        path_used = []
+        for template in path_templates:
+            if template:
                 path = template.replace("index", str(index+1))
                 path_used.append(path)
                 os.makedirs(os.path.dirname(path), exist_ok=True)
+            else:
+                path_used.append(None)
+                    
+        process_result = processor.process(extract_result, path_used[1])
+        tree_result = builder.build(process_result, path_used[2], reorganized_formal_statement_list[index])
+        visualizer.visualize(tree_result, path_used[3])
 
-            extract_result = extractor.extract(header_list[index]+"\n"+reorganized_formal_statement, path_used[0])
-            process_result = processor.process(extract_result, path_used[1])
-            tree_result = builder.build(process_result, path_used[2], reorganized_formal_statement)
-            visualizer.visualize(tree_result, path_used[3])
-
-            # Uncomment the following lines to mark freecost nodes for variables and hypotheses
-            # metadata = NameExtractor().name_extractor(header_list[index], reorganized_formal_statement)
-            # mark_freecost_nodes(metadata, tree_result)
+        # Uncomment the following lines to mark freecost nodes for variables and hypotheses
+        # metadata = NameExtractor().name_extractor(header_list[index], reorganized_formal_statement)
+        # mark_freecost_nodes(metadata, tree_result)
             
-            tree_result_list.append(tree_result)
+        tree_result_list.append(tree_result)
 
     analyze_opt_files(os.path.dirname(opt_path), os.path.basename(opt_path).split("_")[0])
     return tree_result_list
@@ -215,5 +229,5 @@ def test_benchmark(benchmark):
 
     for index, (label_tree_result, predict_tree_result) in enumerate(zip(label_tree_result_list, predict_tree_result_list)):
         result = OPTSimilarer().similarer(data_a=label_tree_result, data_b=predict_tree_result)
-        data[index]["ted"] = result["ted_similarity"]
+        data[index]["ted_similarity"] = result["ted_similarity"]
     write_json(f"experiment/{benchmark}/ted/result.json", data)

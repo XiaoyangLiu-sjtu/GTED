@@ -46,7 +46,7 @@ Statement autoformalization, the automated translation of statement from natural
 
 3. **Build REPL**
 
-    Follow the instructions on the [Lean REPL page](https://github.com/leanprover-community/repl.git) to set up Lean REPL and change the `DEFAULT_LEAN_WORKSPACE` parameter in `src/verifier.py` to your REPL path.
+    Follow the instructions on the [Lean REPL page](https://github.com/leanprover-community/repl.git) to set up Lean REPL and change the `DEFAULT_LEAN_WORKSPACE` & `MATHLIB_PATH` parameters in `src/verifier.py` & `utils.py` to your REPL & Mathlib paths.
 
 4. **Evaluation**
 

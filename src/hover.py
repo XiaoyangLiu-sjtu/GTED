@@ -2,8 +2,11 @@ import re
 import sys
 import time
 import json
+import queue
 import threading
 import subprocess
+from tqdm import tqdm
+import concurrent.futures
 from typing import Any, Dict, List, Optional
 
 
@@ -22,9 +25,10 @@ class HoverExtractor:
             self.current_id += 1
             return used_id
 
-    def __init__(self, lean_bin: str = "/nfs/my/lxy/.elan/bin/lean", virtual_uri: str = "file:///virtual/code.lean"):
+    def __init__(self, lean_bin: str, virtual_uri: str, mathlib_path: str):
         self.lean_bin = lean_bin
         self.uri = virtual_uri
+        self.mathlib_path = mathlib_path
         self.language_id = "lean4"
         self.preamble = "import Mathlib\n"
         self.doc_version = 1
@@ -35,7 +39,7 @@ class HoverExtractor:
         self.stdout_thread: Optional[threading.Thread] = None
         self.stderr_thread: Optional[threading.Thread] = None
         self.running = False
-        self.diagnostics_event = threading.Event()  # For robust synchronization
+        self.diagnostics_event = threading.Event()  
 
     def __enter__(self):
         """Starts the server and initializes it with the preamble."""
@@ -60,7 +64,7 @@ class HoverExtractor:
                 stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                cwd="/nfs/my/lxy/ATLAS/src/repl"  # Adjust this path as needed
+                cwd=self.mathlib_path
             )
         except FileNotFoundError:
             print("Failed to start Lean. Please ensure the 'lean' command is in your PATH.")
@@ -77,7 +81,6 @@ class HoverExtractor:
 
     def _stop_server(self):
         """Sends shutdown notifications and terminates the Lean server process."""
-        print("Stopping Lean server...")
         self.running = False
         if self.proc:
             try:
@@ -91,7 +94,6 @@ class HoverExtractor:
                 self.proc.terminate()
                 self.proc.wait(timeout=2)
             except (IOError, BrokenPipeError, ValueError):
-                # Process might already be dead, which is fine
                 pass
             finally:
                 self.proc = None
@@ -102,39 +104,25 @@ class HoverExtractor:
             self.stderr_thread.join(timeout=1)
 
     def _read_stdout(self):
-        """
-        Reads and parses LSP messages from stdout.
-        
-        This method now checks for 'textDocument/publishDiagnostics' messages
-        to signal that the server has finished processing a file.
-        """
+        """Reads and parses LSP messages from stdout."""
         try:
             while self.running and self.proc and self.proc.stdout:
-                header_lines = []
-                content_length = -1
-                while self.running:
-                    line = self.proc.stdout.readline()
-                    if not line:
-                        return  # End of stream
-                    header_lines.append(line)
-                    if line.strip() == b'':
-                        break  # End of headers
-                    if line.lower().startswith(b'content-length:'):
-                        content_length = int(line.split(b':')[1].strip())
+                line = self.proc.stdout.readline()
+                if not line: return
 
-                if content_length == -1:
-                    continue
-
-                body = self.proc.stdout.read(content_length)
-                try:
-                    parsed = json.loads(body.decode("utf-8"))
-                    if "id" in parsed:
-                        with self.lock:
-                            self.response_dict[parsed["id"]] = parsed
-                    elif parsed.get("method") == "textDocument/publishDiagnostics":
-                        self.diagnostics_event.set()
-                except (json.JSONDecodeError, UnicodeDecodeError):
-                    continue
+                if line.lower().startswith(b'content-length:'):
+                    content_length = int(line.split(b':')[1].strip())
+                    self.proc.stdout.readline()
+                    body = self.proc.stdout.read(content_length)
+                    try:
+                        parsed = json.loads(body.decode("utf-8"))
+                        if "id" in parsed:
+                            with self.lock:
+                                self.response_dict[parsed["id"]] = parsed
+                        elif parsed.get("method") == "textDocument/publishDiagnostics":
+                            self.diagnostics_event.set()
+                    except (json.JSONDecodeError, UnicodeDecodeError):
+                        continue
         except (IOError, ValueError):
             pass
 
@@ -142,8 +130,7 @@ class HoverExtractor:
         """Reads the stderr stream to prevent the process buffer from filling up."""
         try:
             while self.running and self.proc and self.proc.stderr:
-                line = self.proc.stderr.readline()
-                if not line:
+                if not self.proc.stderr.readline():
                     break
         except (IOError, ValueError):
             pass
@@ -152,7 +139,6 @@ class HoverExtractor:
         """Sends an LSP request and waits for a response."""
         req_id = request["id"]
         with self.lock:
-            # Clear any stale responses for this ID
             self.response_dict.pop(req_id, None)
 
         if not (self.proc and self.proc.stdin):
@@ -162,7 +148,7 @@ class HoverExtractor:
             self.proc.stdin.write(self.make_lsp_message(request))
             self.proc.stdin.flush()
         except (IOError, BrokenPipeError):
-            return None # Server process likely died
+            return None 
 
         start_time = time.monotonic()
         while time.monotonic() - start_time < timeout:
@@ -174,7 +160,6 @@ class HoverExtractor:
 
     def _initialize_session(self):
         """Sends the initial LSP handshake and opens the virtual document."""
-        print("Lean server started, initializing session...")
         initialize_req = {
             "jsonrpc": "2.0", "id": self.idgen.next(), "method": "initialize",
             "params": {"processId": None, "rootUri": None, "capabilities": {}}
@@ -196,14 +181,16 @@ class HoverExtractor:
         self.proc.stdin.write(self.make_lsp_message(didopen_req))
         self.proc.stdin.flush()
 
-        print("Warming up with Mathlib...")
         ready = self.diagnostics_event.wait(timeout=45.0) # Timeout for Mathlib
         if not ready:
             print("Warning: Timed out waiting for initial diagnostics. Server might be slow or failing.")
-        print("Mathlib loaded. Server is ready.")
 
     def extract(self, code_snippet: str, out_path: Optional[str] = None) -> List[Dict[str, Any]]:
-        """Extracts hover info for a new code snippet by updating the server's state."""
+        """
+        Extracts hover info for a new code snippet by updating the server's state.
+        If out_path is provided, results are written to a file.
+        The results are always returned as a list of dictionaries.
+        """
         full_code = self.preamble + code_snippet
         self.doc_version += 1
 
@@ -216,12 +203,15 @@ class HoverExtractor:
         }
         
         self.diagnostics_event.clear()
+        if not (self.proc and self.proc.stdin and not self.proc.stdin.closed):
+            raise ConnectionError("Lean server process is not running or stdin is closed.")
+        
         self.proc.stdin.write(self.make_lsp_message(didchange_req))
         self.proc.stdin.flush()
 
         ready = self.diagnostics_event.wait(timeout=15.0)
         if not ready:
-            print(f"Warning: Timed out waiting for diagnostics on snippet: {code_snippet[:60]}...")
+            tqdm.write(f"Warning: Timed out waiting for diagnostics on snippet: {code_snippet[:60]}...")
 
         extract_results = []
         preamble_lines = self.preamble.count('\n')
@@ -241,7 +231,6 @@ class HoverExtractor:
                 new_entry = {"character": char, "row": line_idx_actual, "column": char_idx+1}
                 if resp and "result" in resp and resp["result"]:
                     new_entry.update(resp["result"])
-
                 extract_results.append(new_entry)
 
         if out_path:
@@ -249,6 +238,107 @@ class HoverExtractor:
                 for item in extract_results:
                     out_f.write(json.dumps(item, ensure_ascii=False) + "\n")
         return extract_results
+
+
+class ExtractorPool:
+    """
+    Manages a pool of persistent, pre-initialized HoverExtractor instances to avoid the costly Mathlib initialization for each task.
+    This class is designed to be used as a context manager.
+    """
+    def __init__(self, num_workers: int, lean_bin: str, mathlib_path: str, desc: str):
+        self.num_workers = num_workers
+        self.lean_bin = lean_bin
+        self.mathlib_path = mathlib_path
+        self.desc = desc
+        self.extractor_queue: queue.Queue[HoverExtractor] = queue.Queue(maxsize=num_workers)
+        self._extractors: List[HoverExtractor] = []
+
+    def __enter__(self):
+        """Initializes all HoverExtractor instances and waits for them to be ready."""
+        print(f"Initializing a pool of {self.num_workers} Lean servers... This may take a few minutes.")
+        def _initialize_one(worker_id):
+            try:
+                uri = f"file:///virtual/pool_worker_{worker_id}.lean"
+                extractor = HoverExtractor(lean_bin=self.lean_bin, virtual_uri=uri, mathlib_path=self.mathlib_path)
+                extractor.__enter__() 
+                return extractor
+            except Exception as e:
+                print(f"[Pool Initializer] Error creating worker {worker_id}: {e}")
+                return None
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.num_workers) as executor:
+            initialized_extractors = list(executor.map(_initialize_one, range(self.num_workers)))
+        for extractor in initialized_extractors:
+            if extractor:
+                self._extractors.append(extractor)
+                self.extractor_queue.put(extractor)
+        if not self._extractors:
+            raise RuntimeError("Failed to initialize any Lean server instances in the pool.")
+        
+        print(f"Pool of {len(self._extractors)} extractors is ready.")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Shuts down all HoverExtractor instances in the pool."""
+        print("Shutting down the extractor pool...")
+        for extractor in self._extractors:
+            extractor.__exit__(None, None, None)
+        print("Pool shutdown complete.")
+
+    def _worker_task(self, code_snippet: str, out_path: Optional[str]) -> List[Dict[str, Any]]:
+        """The task for a single thread: get an extractor, use it, and return the data."""
+        extractor = None
+        try:
+            extractor = self.extractor_queue.get(block=True, timeout=60)
+            # The `extract` method handles both returning data and optionally writing to a file.
+            results_data = extractor.extract(code_snippet, out_path)
+            return results_data
+        except queue.Empty:
+            tqdm.write(f"Error: Timed out waiting for an available extractor.")
+            raise
+        except Exception as e:
+            # This exception will be caught by the future in process_all
+            tqdm.write(f"CRITICAL ERROR during task execution: {e}")
+            raise
+        finally:
+            if extractor:
+                self.extractor_queue.put(extractor)
+    
+    def process_all(self, code_snippets: List[str], out_paths: Optional[List[str]] = None) -> List[Optional[List[Dict[str, Any]]]]:
+        """Processes all snippets in parallel using the managed pool."""
+        if out_paths and len(code_snippets) != len(out_paths):
+            raise ValueError("If provided, the number of code snippets must match the number of output paths.")
+
+        # If out_paths is None, create a list of Nones to pass to the worker
+        paths_to_process = out_paths if out_paths else [None] * len(code_snippets)
+        
+        # This list will hold the final results in the correct order
+        final_results: List[Optional[List[Dict[str, Any]]]] = [None] * len(code_snippets)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.num_workers) as executor:
+            # Create a dictionary mapping each future to its original index
+            future_to_index = {
+                executor.submit(self._worker_task, snippet, path): i
+                for i, (snippet, path) in enumerate(zip(code_snippets, paths_to_process))
+            }
+
+            # Use tqdm with as_completed for a responsive progress bar
+            progress_iterator = tqdm(
+                concurrent.futures.as_completed(future_to_index),
+                total=len(code_snippets),
+                desc=self.desc,
+            )
+
+            for future in progress_iterator:
+                original_index = future_to_index[future]
+                try:
+                    # Place the result in the correct position in the final list
+                    final_results[original_index] = future.result()
+                except Exception as e:
+                    # If a task failed, its spot in the results list will remain None
+                    # The error is logged in _worker_task
+                    pass
+        
+        return final_results
 
 
 class HoverRewriter:

@@ -4,7 +4,7 @@ from src.opter import OPTSimilarer
 from src.evaluator import *
 
 
-def tree_lean_codes(header_list, formal_statement_list, save_folder_path="test_files/temp", tag="test"):
+def tree_lean_codes(header_list, formal_statement_list, save_folder_path="test_files/temp", tag="test", extract_save=True, processed_save=True, opt_save=True, png_save=True):
     """
     Input header and formal statement to build the corresponding operator tree.
     """
@@ -15,10 +15,10 @@ def tree_lean_codes(header_list, formal_statement_list, save_folder_path="test_f
     tree_result_list = utils.build_opt(
         header_list,
         reorganized_formal_statement_list,
-        extract_path=f"{save_folder_path}/{tag}/extract/{tag}_code_index.jsonl",
-        processed_path=f"{save_folder_path}/{tag}/processed/{tag}_code_index.jsonl",
-        opt_path=f"{save_folder_path}/{tag}/opt/{tag}_code_index.json",
-        png_path=f"{save_folder_path}/{tag}/figures/{tag}_code_index.png",
+        extract_path=f"{save_folder_path}/{tag}/extract/{tag}_code_index.jsonl" if extract_save else None,
+        processed_path=f"{save_folder_path}/{tag}/processed/{tag}_code_index.jsonl" if processed_save else None,
+        opt_path=f"{save_folder_path}/{tag}/opt/{tag}_code_index.json" if opt_save else None,
+        png_path=f"{save_folder_path}/{tag}/figures/{tag}_code_index.png" if png_save else None
     )
     return tree_result_list
 
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     start_time = time.time()
     header_list = ["import Mathlib\n"] * 100
     formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 100
-    tree_lean_codes(header_list, formal_statement_list)
+    tree_lean_codes(header_list, formal_statement_list, extract_save=False, processed_save=False, png_save=False)
     end_time = time.time()
     print(f"Time taken for one lean code: {end_time - start_time:.2f} seconds")
 
