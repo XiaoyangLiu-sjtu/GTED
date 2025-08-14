@@ -4,7 +4,7 @@ from src.opter import OPTSimilarer
 from src.evaluator import *
 
 
-def tree_lean_codes(header_list, formal_statement_list, save_folder_path="test_files/temp", tag="test", extract_save=True, processed_save=True, opt_save=True, png_save=True):
+def tree_lean_codes(header_list, formal_statement_list, informal_statement_list=None, save_folder_path="test_files", tag="test", extract_save=True, processed_save=True, opt_save=True, png_save=True):
     """
     Input header and formal statement to build the corresponding operator tree.
     """
@@ -15,6 +15,7 @@ def tree_lean_codes(header_list, formal_statement_list, save_folder_path="test_f
     tree_result_list = utils.build_opt(
         header_list,
         reorganized_formal_statement_list,
+        informal_statement_list = informal_statement_list if informal_statement_list else [""] * len(header_list),
         extract_path=f"{save_folder_path}/{tag}/extract/{tag}_code_index.jsonl" if extract_save else None,
         processed_path=f"{save_folder_path}/{tag}/processed/{tag}_code_index.jsonl" if processed_save else None,
         opt_path=f"{save_folder_path}/{tag}/opt/{tag}_code_index.json" if opt_save else None,
@@ -60,7 +61,7 @@ if __name__ == "__main__":
     end_time = time.time()
     print(f"Time taken for one lean code: {end_time - start_time:.2f} seconds")
 
-    # Function2: ted_lean_codes
+    # # Function2: ted_lean_codes
     label_header_list = ["import Mathlib"] * 3
     label_formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 3
     predict_header_list = ["import Mathlib"] * 3

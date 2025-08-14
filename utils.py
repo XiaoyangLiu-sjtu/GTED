@@ -157,7 +157,7 @@ def syntax_standardization(header_list, formal_statement_list):
     return reorganized_formal_statement_list
 
 
-def build_opt(header_list, reorganized_formal_statement_list, extract_path=None, processed_path=None, opt_path=None, png_path=None):
+def build_opt(header_list, reorganized_formal_statement_list, informal_statement_list, extract_path=None, processed_path=None, opt_path=None, png_path=None):
     processor = HoverProcessor()
     builder = OPTBuilder()
     visualizer = OPTVisualizer()
@@ -181,7 +181,7 @@ def build_opt(header_list, reorganized_formal_statement_list, extract_path=None,
                 path_used.append(None)
                     
         process_result = processor.process(extract_result, path_used[1])
-        tree_result = builder.build(process_result, path_used[2], reorganized_formal_statement_list[index])
+        tree_result = builder.build(process_result, path_used[2], informal_statement_list[index], reorganized_formal_statement_list[index])
         visualizer.visualize(tree_result, path_used[3])
 
         # Uncomment the following lines to mark freecost nodes for variables and hypotheses
