@@ -55,25 +55,29 @@ Statement autoformalization, the automated translation of statement from natural
     - `tree_lean_codes`: Input header and formal statement to build the corresponding operator tree.
         ```shell
         # Function1: tree_lean_codes
-        header_list = ["import Mathlib"] * 100
+        start_time = time.time()
+        header_list = ["import Mathlib\n"] * 100
         formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 100
         tree_lean_codes(header_list, formal_statement_list)
+        end_time = time.time()
+        print(f"Time taken for one lean code: {end_time - start_time:.2f} seconds")
         ```
     
     - `ted_lean_codes`: Input a pair of header and formal statements, build the corresponding operator tree and calculate the TED similarity.
         ```shell
-        label_header_list = ["import Mathlib"] * 100
-        label_formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 100
-        predict_header_list = ["import Mathlib"] * 100
-        predict_formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 100
-        ted_lean_codes(label_header_list, label_formal_statement_list, predict_header_list, predict_formal_statement_list)
+        # Function2: ted_lean_codes
+        label_header_list = ["import Mathlib"] * 3
+        label_formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 3
+        predict_header_list = ["import Mathlib"] * 3
+        predict_formal_statement_list = ["theorem th_name (p : Prop) : let q := ¬¬p; p = q := by sorry"] * 3
+        print(ted_lean_codes(label_header_list, label_formal_statement_list, predict_header_list, predict_formal_statement_list))
         ```
 
-    - `benchmark_evaluation`: Just pass in miniF2F or ProofNet. Please note that you may need to change the format of your own json file. This function is currently adapted to the json file format in `experiment/{benchmark}/human_evaluation.json`.
+    - `evaluation_benchmark`: Just pass in miniF2F or ProofNet. Please note that you may need to change the format of your own json file. This function is currently adapted to the json file format in `experiment/{benchmark}/human_evaluation.json`.
         ```shell
-        # test benchmark
-        benchmark_evaluation("minif2f")
-        benchmark_evaluation("proofnet")
+        # Function3: evaluation_benchmark
+        evaluation_benchmark("minif2f")
+        evaluation_benchmark("proofnet")
         ```
 
 

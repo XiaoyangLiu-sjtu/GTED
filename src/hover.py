@@ -423,6 +423,8 @@ class HoverProcessor(HoverRewriter):
             key = "∫ _ in _.._, _ ∂_" if key == "∫    in .._,  ∂" else key
             key = "∫ _ in _, _" if key == "∫       in _, _" else key
             key = "_ ≃+* _" if key == " ≃+* " else key
+            key = "_ := _" if key == ":=" else key
+            key = "let _; _" if key == "let   ; _" else key
             
             if key != "":
                 modified_result = {key: value, "hover_information": hover_information}
