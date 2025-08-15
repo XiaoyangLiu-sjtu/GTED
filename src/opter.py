@@ -110,19 +110,19 @@ class OPTVisualizer:
         self.font_name = font_name
         self.font_size = font_size
 
-    def _build_dot(self, node, g: Digraph, parent_id=None):
+    def _build_dot(self, node, g: Digraph, parent_id=None, fltree=True):
         nid = f"n{uuid.uuid4().hex}"
-        formal_content = node.get("formal_content", "")
+        formal_content = node.get("formal_content", "") if fltree else node.get("informal_content", "")
         safe_formal_content = formal_content.replace('"', r'\"')
         g.node(nid, safe_formal_content)
         if parent_id:
             g.edge(parent_id, nid)
         for ch in node.get("children", []):
-            self._build_dot(ch, g, nid)
+            self._build_dot(ch, g, nid, fltree=fltree)
 
-    def visualize(self, tree_results, out_path=None, out_format="png"):
+    def visualize(self, tree_results, out_path=None, out_format="png", fltree=True):
         g = Digraph("OPT", graph_attr={"rankdir": "TB"}, node_attr={"shape": self.node_shape, "fontname": self.font_name, "fontsize": self.font_size})
-        self._build_dot(tree_results, g)
+        self._build_dot(tree_results, g, fltree=fltree)
         if out_path:
             out_path = pathlib.Path(out_path)
             g.render(out_path.stem, out_path.parent, format=out_format, cleanup=True)

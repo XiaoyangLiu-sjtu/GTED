@@ -10,6 +10,7 @@ def tree_lean_codes(header_list, formal_statement_list, informal_statement_list=
     """
     for index, header in enumerate(header_list):
         header_list[index] = re.sub(r"\n+", "\n", header).replace("import Mathlib\n", "").replace("import Mathlib", "")
+        formal_statement_list[index] = re.sub(r"\n+", "\n", formal_statement_list[index]).replace("\n", " ")
 
     reorganized_formal_statement_list = utils.syntax_standardization(header_list, formal_statement_list)
     tree_result_list = utils.build_opt(
