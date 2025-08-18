@@ -112,8 +112,9 @@ class OPTVisualizer:
 
     def _build_dot(self, node, g: Digraph, parent_id=None, fltree=True):
         nid = f"n{uuid.uuid4().hex}"
-        formal_content = node.get("formal_content", "") if fltree else node.get("informal_content", "")
-        safe_formal_content = formal_content.replace('"', r'\"')
+        content = node.get("formal_content", "") if fltree else node.get("informal_content", "")
+        safe_content = content.replace('\\', '\\\\')
+        safe_formal_content = safe_content.replace('"', r'\"')
         g.node(nid, safe_formal_content)
         if parent_id:
             g.edge(parent_id, nid)
