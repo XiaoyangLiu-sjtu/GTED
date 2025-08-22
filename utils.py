@@ -163,7 +163,7 @@ def build_opt(header_list, informal_statement_list, formal_statement_list, reorg
         tree_result = builder.build(process_result, path_used[2], informal_statement_list[index], formal_statement_list[index], reorganized_formal_statement_list[index])
         visualizer.visualize(tree_result, path_used[3])
 
-        # Uncomment the following lines to mark freecost nodes for variables and hypotheses
+        # Uncomment the following lines to mark freecost nodes for variables and hypotheses: [Paper Section4.1 Implementation Details for variable renaming]
         # metadata = NameExtractor().name_extractor(header_list[index], reorganized_formal_statement)
         # mark_freecost_nodes(metadata, tree_result)
             

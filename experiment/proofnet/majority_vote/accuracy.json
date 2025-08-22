@@ -1,13 +1,13 @@
 {
     "majority_vote": {
-        "true_positive": 28,
+        "true_positive": 29,
         "true_negative": 36,
         "false_positive": 8,
-        "false_negative": 21,
+        "false_negative": 20,
         "total": 93,
-        "precision": 0.7777777777777778,
-        "recall": 0.5714285714285714,
-        "accuracy": 0.6881720430107527,
-        "kappa": 0.38382453735435246
+        "precision": 0.7837837837837838,
+        "recall": 0.5918367346938775,
+        "accuracy": 0.6989247311827957,
+        "kappa": 0.40439158279963416
     }
 }

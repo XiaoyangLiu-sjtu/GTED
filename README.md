@@ -27,10 +27,10 @@ Statement autoformalization, the automated translation of statement from natural
 | **Identity Match** | 0.00% | 0.00% | 47.31% | 0.000 |
 | **Typecheck** | 52.69% | **100.00%** | 52.69% | 0.000 |
 | **BLEU** | 72.34% | 69.39% | **69.89%** | 0.398 |
-| **Majority Voting** | 77.78% | 57.14% | 68.82% | 0.384 |
+| **Majority Voting** | 78.38% | 59.18% | **69.89%** | **0.404** |
 | **Definitional Equality**| 60.00% | 6.12% | 48.39% | 0.015 |
 | **BEq** | **100.00%** | 16.33% | 55.91% | 0.156 |
-| **GTED (Ours)** | 75.61% | 63.27% | **69.89%** | **0.402** |
+| **GTED (Ours)** | 75.61% | 63.27% | **69.89%** | 0.402 |
 
 
 ## 3. Quick Start

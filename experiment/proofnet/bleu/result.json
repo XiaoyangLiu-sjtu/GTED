@@ -1695,7 +1695,7 @@
                 "reorganized_hover_formal_statement": "theorem instCompletelyRegularSpace_tac_2988.{u_1} {X : Type u_1} [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X] : CompletelyRegularSpace X := by sorry",
                 "Human_Evaluation": true,
                 "compiler_check": "success",
-                "back_translation": "",
+                "back_translation": "Prove that a locally compact Hausdorff space is completely regular.",
                 "bleu": 0.01157551432662985
             }
         ]
