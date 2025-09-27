@@ -6,31 +6,14 @@
 
 
 ## 1. Introduction
-Statement autoformalization, the automated translation of statement from natural language into formal languages, has become a subject of extensive research, yet the development of robust automated evaluation metrics remains limited. Existing evaluation methods often lack semantic understanding, face challenges with high computational costs, and are constrained by the current progress of automated theorem proving. To address these issues, we propose GTED (Generalized Tree Edit Distance), a novel evaluation framework that first standardizes formal statements and converts them into operator trees, then determines the semantic similarity using the eponymous GTED metric. On the miniF2F and ProofNet benchmarks, GTED outperforms all baseline metrics by achieving the highest accuracy and Kappa scores, thus providing the community with a more faithful metric for automated evaluation.
+Statement autoformalization, the automated translation of statements from natural language into formal languages, has become a subject of extensive research, yet the development of robust automated evaluation metrics remains limited. Existing evaluation methods often lack semantic understanding, face challenges with high computational costs, and are constrained by the current progress of automated theorem proving. To address these issues, we propose GTED (Generalized Tree Edit Distance), a novel evaluation framework that first standardizes formal statements and converts them into operator trees, then determines the semantic similarity using the eponymous GTED metric. Across the miniF2F and ProofNet benchmarks, GTED consistently ranks as a top-performing metric, achieving the highest accuracy and Kappa on miniF2F and the joint-highest accuracy on ProofNet. This strong overall performance provides the community with a computationally lightweight and more faithful metric for automated evaluation.
 
 
 ## 2. Evaluation Results
-**Result on miniF2F**
-| **Metric** | **Precision** | **Recall** | **Accuracy** | **Kappa** |
-| :--- | :---: | :---: | :---: | :---: |
-| **Identity Match** | **100.00%** | 11.48% | 47.32% | 0.095 |
-| **Typecheck** | 59.51% | **100.00%** | 59.51% | 0.000 |
-| **BLEU** | 78.22% | 64.75% | 68.29% | 0.368 |
-| **Majority Voting** | 88.00% | 54.10% | 68.29% | 0.397 |
-| **Definitional Equality**| **100.00%** | 36.07% | 61.95% | 0.314 |
-| **BEq** | 98.28% | 46.72% | 67.80% | 0.405 |
-| **GTED (Ours)** | 88.75% | 58.20% | **70.73%** | **0.438** |
+The table shows how our GTED metric performs compared to other baselines on miniF2F and ProofNet.
 
-**Result on ProofNet**
-| **Metric** | **Precision** | **Recall** | **Accuracy** | **Kappa** |
-| :--- | :---: | :---: | :---: | :---: |
-| **Identity Match** | 0.00% | 0.00% | 47.31% | 0.000 |
-| **Typecheck** | 52.69% | **100.00%** | 52.69% | 0.000 |
-| **BLEU** | 72.34% | 69.39% | **69.89%** | 0.398 |
-| **Majority Voting** | 78.38% | 59.18% | **69.89%** | **0.404** |
-| **Definitional Equality**| 60.00% | 6.12% | 48.39% | 0.015 |
-| **BEq** | **100.00%** | 16.33% | 55.91% | 0.156 |
-| **GTED (Ours)** | 75.61% | 63.27% | **69.89%** | 0.402 |
+![](images/overall_results.png)
+
 
 
 ## 3. Quick Start
