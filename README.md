@@ -1,4 +1,4 @@
-# [AI4Math@ICML25] GTED
+# [AI4Math@ICML 2025] GTED
 
 📝Official implementation for the paper:
 
@@ -35,7 +35,6 @@ Statement autoformalization, the automated translation of statement from natural
 
 ## 3. Quick Start
 1. **Install Lean4**
-
     Follow the instructions on the [Lean4 installation page](https://leanprover-community.github.io/get_started.html) to set up Lean4.
 
 2. **Clone the repository**
@@ -45,11 +44,9 @@ Statement autoformalization, the automated translation of statement from natural
     ```
 
 3. **Build REPL**
-
     Follow the instructions on the [Lean REPL page](https://github.com/leanprover-community/repl.git) to set up Lean REPL and change the `DEFAULT_LEAN_WORKSPACE` & `MATHLIB_PATH` parameters in `src/verifier.py` & `utils.py` to your REPL & Mathlib paths.
 
 4. **Evaluation**
-
     There are three functions `tree_lean_codes`, `ted_lean_codes` and `evaluation_benchmark` in `main.py` for evaluation.
 
     - `tree_lean_codes`: Input header and formal statement to build the corresponding operator tree.
@@ -83,13 +80,11 @@ Statement autoformalization, the automated translation of statement from natural
 
 ## 4. Citation
 ```bibtex
-@inproceedings{
-liu2025generalized,
-title={Generalized Tree Edit Distance ({GTED}): A Faithful Evaluation Metric for Statement Autoformalization},
-author={Yuntian Liu and Tao Zhu and Xiaoyang Liu and Yu Chen and Liu ZhaoXuan and Guo qingfeng and Jiashuo Zhang and Kangjie Bao and Tao Luo},
-booktitle={2nd AI for Math Workshop @ ICML 2025},
-year={2025},
-url={https://openreview.net/forum?id=824rq5iguB}
+@inproceedings{liu2025generalized,
+  title={Generalized Tree Edit Distance (GTED): A Faithful Evaluation Metric for Statement Autoformalization},
+  author={Liu, Yuntian and Zhu, Tao and Liu, Xiaoyang and Chen, Yu and ZhaoXuan, Liu and Zhang, Jiashuo and Bao, Kangjie and Luo, Tao and others},
+  booktitle={2nd AI for Math Workshop @ ICML 2025},
+  year={2025}
 }
 ```
 
