@@ -5,6 +5,46 @@
 [Generalized Tree Edit Distance (GTED): A Faithful Evaluation Metric for Statement Autoformalization](https://arxiv.org/abs/2507.07399)
 
 
+## 📁 Project Structure
+
+The repository is organized as follows:
+
+```text
+GTED/
+├── benchmark/              # Benchmarks used for evaluation (miniF2F & ProofNet)
+│   ├── minif2f/            
+│   └── proofnet/           
+├── experiment/             # Detailed evaluation results for baselines and GTED
+├── images/                 # Images used in the README
+├── src/                    # Core source code for GTED
+│   ├── evaluator.py        
+│   ├── hover.py            
+│   ├── opter.py            
+│   ├── parser.py           
+│   └── verifier.py         
+├── main.py                 # Main entry point for evaluation functions
+├── utils.py                # Utility functions
+└── README.md
+
+```
+
+The file descriptions are as follows:
+
+| Path | Description |
+| --- | --- |
+| **`benchmark/`** | Contains the benchmark data. Note that in the data files, `hover_formal_statement` corresponds to the **Theorem Rewriting** results (Section 3.1), and `reorganized_hover_formal_statement` corresponds to the combined **Theorem Rewriting & Variable Expansion** results. |
+| `benchmark/minif2f/` | Includes the original ground truth labels for `minif2f-test` and prediction datasets generated using the **Herald-translator**. |
+| `benchmark/proofnet/` | Includes the original ground truth labels for `proofnet-test` and prediction datasets generated using the **Herald-translator**. |
+| **`experiment/`** | Stores detailed evaluation logs and results comparing GTED against other baselines on the benchmarks. |
+| `src/evaluator.py` | Contains implementations of various baseline evaluation metrics for comparison. |
+| `src/hover.py` | Manages interactions with the **Lean Language Server** to retrieve and process hover information. It also implements the **Theorem Rewriting** logic described in Section 3.1. |
+| `src/opter.py` | Constructs operator trees based on the scope of each character in the hover information. Includes functionality for tree visualization and calculating the Tree Edit Distance (TED) between trees. |
+| `src/parser.py` | Implements the **Variable Expansion** (Section 3.1) and **Alpha-conversion** |
+| `src/verifier.py` | Adapted from **DeepSeek-Prover**; validates whether the generated Lean code passes compilation. |
+| `main.py` | The main entry point containing evaluation functions such as `tree_lean_codes`, `ted_lean_codes`, and `evaluation_benchmark`. |
+| `utils.py` | General utility functions for file handling and configuration. |
+
+
 ## 1. Introduction
 Statement autoformalization, the automated translation of statements from natural language into formal languages, has become a subject of extensive research, yet the development of robust automated evaluation metrics remains limited. Existing evaluation methods often lack semantic understanding, face challenges with high computational costs, and are constrained by the current progress of automated theorem proving. To address these issues, we propose GTED (Generalized Tree Edit Distance), a novel evaluation framework that first standardizes formal statements and converts them into operator trees, then determines the semantic similarity using the eponymous GTED metric. Across the miniF2F and ProofNet benchmarks, GTED consistently ranks as a top-performing metric, achieving the highest accuracy and Kappa on miniF2F and the joint-highest accuracy on ProofNet. This strong overall performance provides the community with a computationally lightweight and more faithful metric for automated evaluation.
 
