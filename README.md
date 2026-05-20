@@ -1,10 +1,10 @@
 # [AI4Math@ICML 2025] GTED
 
+‼️ The final version of this paper, [ASSESS](https://arxiv.org/abs/2509.22246), has been published at ICLR 2026. Click to view the [GitHub repository](https://github.com/XiaoyangLiu-sjtu/ASSESS).
+
 📝 Official implementation for the paper:
 
 [Generalized Tree Edit Distance (GTED): A Faithful Evaluation Metric for Statement Autoformalization](https://arxiv.org/abs/2507.07399)
-
-‼️ The final version of this paper, [ASSESS](https://arxiv.org/abs/2509.22246), has been published at ICLR 2026. Click to view the [GitHub repository](https://github.com/XiaoyangLiu-sjtu/ASSESS).
 
 
 ## Project Structure
@@ -77,7 +77,7 @@ GTED/
         ```
 
 
-## 4. Citation
+## Citation
 ```bibtex
 @inproceedings{liu2025generalized,
 title={Generalized Tree Edit Distance ({GTED}): A Faithful Evaluation Metric for Statement Autoformalization},
@@ -89,6 +89,6 @@ url={https://openreview.net/forum?id=824rq5iguB}
 ```
 
 
-## 5. Contact
+## Contact
 Feel free to discuss the paper/data/code with us through issues/emails!
 - Xiaoyang Liu: xiaoyang.liu@sjtu.edu.cn
